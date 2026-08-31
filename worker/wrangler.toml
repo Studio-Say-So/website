@@ -1,0 +1,14 @@
+name = "studiosayso-forms"
+main = "src/index.js"
+compatibility_date = "2026-08-01"
+
+# Secrets (set with `wrangler secret put <NAME>`, never commit):
+#   TURNSTILE_SECRET  - Cloudflare Turnstile secret key
+#   RESEND_API_KEY    - or whatever mail provider is chosen
+#
+# vars:
+#   NOTIFY_TO   - address that receives submissions
+#   NOTIFY_FROM - verified sender address
+#   ALLOWED_ORIGIN - the site origin allowed to POST here
+[vars]
+ALLOWED_ORIGIN = "https://studiosayso.com"

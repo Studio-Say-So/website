@@ -69,6 +69,26 @@ Five things could not carry over, all WordPress plumbing with no static equivale
    on the live site. The real theme JS is inline and was carried over intact.
 5. **Sitemap** is not yet generated; Rank Math produced the old one.
 
+## Forms
+
+Both forms post to a Cloudflare Worker (`worker/`), not to the page. Until that
+Worker is deployed the submit button is disabled and the form says so, with the
+studio's phone number — it never accepts an enquiry it cannot deliver.
+
+To connect it:
+
+```bash
+cd worker
+npx wrangler secret put TURNSTILE_SECRET   # optional but recommended
+npx wrangler secret put RESEND_API_KEY
+npx wrangler deploy                        # Albert runs this, not CI
+```
+
+Then set `FORM_ENDPOINT` in the build environment (or edit
+`src/_data/forms.js`) to the deployed Worker URL. The Worker validates and
+rate-limits nothing yet beyond Turnstile and field checks; add a rate limit
+before it sees real traffic.
+
 ## Known debt
 
 - `SSSreel.mp4` is 11 MB in-repo. Fine against the 1 GB limit, but it belongs on
