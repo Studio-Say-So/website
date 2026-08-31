@@ -16,6 +16,20 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/CNAME");
   eleventyConfig.addPassthroughCopy("src/robots.txt");
 
+
+  // HtmlBasePlugin rewrites href/src but not url() inside inline styles, so
+  // every CSS background 404s under a path prefix. Patch those too.
+  if (pathPrefix !== "/") {
+    eleventyConfig.addTransform("prefix-css-urls", function (content) {
+      if (!(this.page.outputPath || "").endsWith(".html")) return content;
+      const p = pathPrefix.replace(/\/+$/, "");
+      return content.replace(
+        /url\((\s*['"]?)(\/(?!\/)[^)'"]*)(['"]?\s*)\)/g,
+        (m, a, path, b) => (path.startsWith(p + "/") ? m : `url(${a}${p}${path}${b})`),
+      );
+    });
+  }
+
   eleventyConfig.setServerOptions({ showAllHosts: true });
 
   return {
