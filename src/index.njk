@@ -24,6 +24,7 @@ jsonld: |
   {"@context":"https://schema.org","@graph":[{"@type":"Place","@id":"https://studiosayso.com/#place","geo":{"@type":"GeoCoordinates","latitude":"28.5529579","longitude":"-81.3802166"},"hasMap":"https://www.google.com/maps/search/?api=1&amp;query=28.5529579,-81.3802166","address":{"@type":"PostalAddress","streetAddress":"62 West Colonial Dr. Suite 305","addressLocality":"Orlando","addressRegion":"FL","postalCode":"32801","addressCountry":"USA"}},{"@type":["Organization","ProfessionalService"],"@id":"https://studiosayso.com/#organization","name":"Studio Say So","url":"https://studiosayso.com","sameAs":["https://www.facebook.com/studiosaysovideo/","https://www.instagram.com/studiosaysovideo/","https://vimeo.com/studiosayso","https://www.linkedin.com/company/studio-say-so","https://twitter.com/studiosayso","https://clutch.co/profile/studio-say-so"],"address":{"@type":"PostalAddress","streetAddress":"62 West Colonial Dr. Suite 305","addressLocality":"Orlando","addressRegion":"FL","postalCode":"32801","addressCountry":"USA"},"logo":{"@type":"ImageObject","@id":"https://studiosayso.com/#logo","url":"https://studiosayso.com/wp-content/uploads/2023/02/favicon.png","contentUrl":"https://studiosayso.com/wp-content/uploads/2023/02/favicon.png","caption":"Studio Say So","inLanguage":"en-US","width":"192","height":"192"},"location":{"@id":"https://studiosayso.com/#place"},"telephone":"+1-407-839-6452","areaServed":[{"@type":"City","name":"Orlando"},{"@type":"State","name":"Florida"},{"@type":"Country","name":"United States"}]},{"@type":"WebSite","@id":"https://studiosayso.com/#website","url":"https://studiosayso.com","name":"Studio Say So","alternateName":"Studio Say So","publisher":{"@id":"https://studiosayso.com/#organization"},"inLanguage":"en-US","potentialAction":{"@type":"SearchAction","target":"https://studiosayso.com/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"WebPage","@id":"https://studiosayso.com/#webpage","url":"https://studiosayso.com/","name":"Studio Say So | Video Production Agency","datePublished":"2022-12-21T15:37:02-05:00","dateModified":"2023-03-27T19:00:48-04:00","about":{"@id":"https://studiosayso.com/#organization"},"isPartOf":{"@id":"https://studiosayso.com/#website"},"primaryImageOfPage":{"@id":"https://studiosayso.com/wp-content/uploads/2023/02/danny-directing-blue-2.jpg"},"inLanguage":"en-US"},{"@type":"ImageObject","@id":"https://studiosayso.com/wp-content/uploads/2023/02/danny-directing-blue-2.jpg","url":"https://studiosayso.com/wp-content/uploads/2023/02/danny-directing-blue-2.jpg","contentUrl":"https://studiosayso.com/wp-content/uploads/2023/02/danny-directing-blue-2.jpg","width":"2000","height":"1017","inLanguage":"en-US"},{"@type":"VideoObject","@id":"https://vimeo.com/801605518#video","name":"Studio Say So Reel","description":"Studio Say So Reel","thumbnailUrl":"https://i.vimeocdn.com/video/1620301458-f5b8196c83b60b19f6ce505c41926b9132f4a01377542ea15137baec7f53070a-d_295x166?region=us","uploadDate":"2023-02-23T09:22:57","duration":"PT1M16S","embedUrl":"https://player.vimeo.com/video/801605518","contentUrl":"https://vimeo.com/801605518","publisher":{"@id":"https://studiosayso.com/#organization"},"creator":{"@id":"https://studiosayso.com/#organization"},"inLanguage":"en-US"}]}
 lastmod: "2023-03-27T19:00:48-04:00"
 ---
+{% import "macros/ui.njk" as ui %}
 <div class="studio-custom relative overflow-hidden">
   <div class="text-transparent">
     _
@@ -52,11 +53,11 @@ lastmod: "2023-03-27T19:00:48-04:00"
       </div>
       <div class="mt-6">
         <div class="link-group">
-          <a class=" p-1 uppercase font-bold text-white flex gap-4 items-center w-fit hover:translate-x-1 transition duration-200 button" href="/contact-us/"><span>Let's Talk</span><svg xmlns="http://www.w3.org/2000/svg" width="62.267" height="9.488" viewBox="0 0 62.267 9.488"> <g id="Group_7" data-name="Group 7" transform="translate(0 0.354)"> <line id="Line_4" data-name="Line 4" x2="61" transform="translate(0 4.335)" fill="none" stroke="#fff" stroke-width="1"/> <path id="Path_22" data-name="Path 22" d="M211.67,734.165l4.391,4.391-4.391,4.391" transform="translate(-154.5 -734.165)" fill="none" stroke="#fff" stroke-width="1"/> </g> </svg></a>
+          <a class=" p-1 uppercase font-bold text-white flex gap-4 items-center w-fit hover:translate-x-1 transition duration-200 button" href="/contact-us/"><span>Let's Talk</span>{{ ui.arrow() }}</a>
         </div>
       </div>
     </div>
-    <a href="https://vimeo.com/801605518" class="fixed bottom-6 right-6 md:bottom-12 md:right-12 z-50 block opacity-100 transition duration-500 w-[56px] h-[56px]" rel="lightbox"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56"> <g id="Group_6" data-name="Group 6" transform="translate(-1000 -500)"> <g id="Ellipse_13" data-name="Ellipse 13" transform="translate(1000 500)" fill="none" stroke="#fff" stroke-width="1"> <circle cx="28" cy="28" r="28" stroke="none" /> <circle cx="28" cy="28" r="27.5" fill="none" /> </g> <path id="Polygon_1" data-name="Polygon 1" d="M9,0l9,15H0Z" transform="translate(1037.5 519) rotate(90)" fill="#fff" /> </g> </svg></a>
+    <a href="https://vimeo.com/801605518" class="fixed bottom-6 right-6 md:bottom-12 md:right-12 z-50 block opacity-100 transition duration-500 w-[56px] h-[56px]" rel="lightbox">{{ ui.scrollCue() }}</a>
     <button id="x-button" class="fixed bottom-6 right-6 md:bottom-12 md:right-12 z-50 hidden opacity-0 transition duration-500">
       <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56">
   <g id="Group_663" data-name="Group 663" transform="translate(-825 186)">
@@ -72,31 +73,13 @@ lastmod: "2023-03-27T19:00:48-04:00"
 </svg>
     </button>
     <div class="lg:w-[590px] -z-10 opacity-0.5 absolute -left-[200px] -bottom-[250px] hidden xl:block">
-      <svg xmlns="http://www.w3.org/2000/svg" width="auto" height="auto" viewBox="0 0 613.402 653.591">
-    <g id="Union_5" data-name="Union 5" transform="translate(0.072)" fill="none" opacity="0.5">
-        <path
-            d="M164.323,571.924A164.536,164.536,0,0,1,21.988,490.179a162.5,162.5,0,0,1-.017-163.462,162.42,162.42,0,0,1,.085-163.265,164.481,164.481,0,0,1,142.22-81.707,164.819,164.819,0,0,1,284.658-.079A164.537,164.537,0,0,1,591.27,163.412a162.5,162.5,0,0,1,.016,163.462,162.42,162.42,0,0,1-.086,163.265,164.48,164.48,0,0,1-142.22,81.707,164.819,164.819,0,0,1-284.658.079Z"
-            stroke="#9A96FF" />
-    </g>
-</svg>
+      {{ ui.blob() }}
     </div>
     <div class="w-[400px] lg:w-[630px] -z-10 opacity-0.5 absolute translate-x-1/2 -translate-y-1/2 top-[480px] right-1/2">
-      <svg xmlns="http://www.w3.org/2000/svg" width="auto" height="auto" viewBox="0 0 613.402 653.591">
-    <g id="Union_5" data-name="Union 5" transform="translate(0.072)" fill="none" opacity="0.5">
-        <path
-            d="M164.323,571.924A164.536,164.536,0,0,1,21.988,490.179a162.5,162.5,0,0,1-.017-163.462,162.42,162.42,0,0,1,.085-163.265,164.481,164.481,0,0,1,142.22-81.707,164.819,164.819,0,0,1,284.658-.079A164.537,164.537,0,0,1,591.27,163.412a162.5,162.5,0,0,1,.016,163.462,162.42,162.42,0,0,1-.086,163.265,164.48,164.48,0,0,1-142.22,81.707,164.819,164.819,0,0,1-284.658.079Z"
-            stroke="#9A96FF" />
-    </g>
-</svg>
+      {{ ui.blob() }}
     </div>
     <div class="lg:w-[590px]  -z-10 opacity-0.5 absolute -right-[250px] -bottom-[50px] hidden xl:block">
-      <svg xmlns="http://www.w3.org/2000/svg" width="auto" height="auto" viewBox="0 0 613.402 653.591">
-    <g id="Union_5" data-name="Union 5" transform="translate(0.072)" fill="none" opacity="0.5">
-        <path
-            d="M164.323,571.924A164.536,164.536,0,0,1,21.988,490.179a162.5,162.5,0,0,1-.017-163.462,162.42,162.42,0,0,1,.085-163.265,164.481,164.481,0,0,1,142.22-81.707,164.819,164.819,0,0,1,284.658-.079A164.537,164.537,0,0,1,591.27,163.412a162.5,162.5,0,0,1,.016,163.462,162.42,162.42,0,0,1-.086,163.265,164.48,164.48,0,0,1-142.22,81.707,164.819,164.819,0,0,1-284.658.079Z"
-            stroke="#9A96FF" />
-    </g>
-</svg>
+      {{ ui.blob() }}
     </div>
   </section>
   <section  id=""  class="custom-container my-12">
@@ -117,7 +100,7 @@ lastmod: "2023-03-27T19:00:48-04:00"
           </p>
         </div>
         <div class="link-group">
-          <a class=" px-5 py-4 bg-colorAccent-700 uppercase font-bold text-white flex gap-4 items-center w-fit hover:shadow hover:translate-x-1 transition duration-200 button" href="/contact-us/"><span>Let's Talk</span><svg xmlns="http://www.w3.org/2000/svg" width="62.267" height="9.488" viewBox="0 0 62.267 9.488"> <g id="Group_7" data-name="Group 7" transform="translate(0 0.354)"> <line id="Line_4" data-name="Line 4" x2="61" transform="translate(0 4.335)" fill="none" stroke="#fff" stroke-width="1"/> <path id="Path_22" data-name="Path 22" d="M211.67,734.165l4.391,4.391-4.391,4.391" transform="translate(-154.5 -734.165)" fill="none" stroke="#fff" stroke-width="1"/> </g> </svg></a>
+          <a class=" px-5 py-4 bg-colorAccent-700 uppercase font-bold text-white flex gap-4 items-center w-fit hover:shadow hover:translate-x-1 transition duration-200 button" href="/contact-us/"><span>Let's Talk</span>{{ ui.arrow() }}</a>
         </div>
       </div>
     </div>
@@ -240,7 +223,7 @@ lastmod: "2023-03-27T19:00:48-04:00"
     </div>
     <div class="ml-auto -mb-[30px] -translate-x-6 md:-translate-x-12">
       <div class="link-group">
-        <a class=" px-5 py-4 bg-colorAccent-700 uppercase font-bold text-white flex gap-4 items-center w-fit hover:shadow hover:translate-x-1 transition duration-200 button" href="/about-us/"><span>LEARN HOW WE DO IT</span><svg xmlns="http://www.w3.org/2000/svg" width="62.267" height="9.488" viewBox="0 0 62.267 9.488"> <g id="Group_7" data-name="Group 7" transform="translate(0 0.354)"> <line id="Line_4" data-name="Line 4" x2="61" transform="translate(0 4.335)" fill="none" stroke="#fff" stroke-width="1"/> <path id="Path_22" data-name="Path 22" d="M211.67,734.165l4.391,4.391-4.391,4.391" transform="translate(-154.5 -734.165)" fill="none" stroke="#fff" stroke-width="1"/> </g> </svg></a>
+        <a class=" px-5 py-4 bg-colorAccent-700 uppercase font-bold text-white flex gap-4 items-center w-fit hover:shadow hover:translate-x-1 transition duration-200 button" href="/about-us/"><span>LEARN HOW WE DO IT</span>{{ ui.arrow() }}</a>
       </div>
     </div>
   </section>
@@ -257,7 +240,7 @@ lastmod: "2023-03-27T19:00:48-04:00"
           <div class="max-w-[130px] min-h-[130px] flex items-center justify-center">
             <img class="w-full" src="/wp-content/uploads/2023/01/healthcare-icon.svg" / alt=""/>
           </div>
-          <a class="px-5 py-4 group uppercase font-bold flex gap-4 items-center w-fit hover:shadow hover:translate-x-1 transition duration-200" href="/industries/healthcare/"><span class="group-hover:text-colorAccent-400 text-white">Learn More</span><svg class="group-hover:stroke-colorAccent-400 stroke-white" xmlns="http://www.w3.org/2000/svg" width="62.267" height="9.488" viewBox="0 0 62.267 9.488"> <g id="Group_7" data-name="Group 7" transform="translate(0 0.354)"> <line id="Line_4" data-name="Line 4" x2="61" transform="translate(0 4.335)" fill="none" stroke="inherit" stroke-width="1"/> <path id="Path_22" data-name="Path 22" d="M211.67,734.165l4.391,4.391-4.391,4.391" transform="translate(-154.5 -734.165)" fill="none" stroke="inherit" stroke-width="1"/> </g> </svg></a>
+          <a class="px-5 py-4 group uppercase font-bold flex gap-4 items-center w-fit hover:shadow hover:translate-x-1 transition duration-200" href="/industries/healthcare/"><span class="group-hover:text-colorAccent-400 text-white">Learn More</span>{{ ui.arrowHover() }}</a>
         </div>
         <div class="flex flex-col items-center justify-center gap-4 px-4 py-20 lg:py-0">
           <h3 class="text-center text-white font-display text-2xl">
@@ -266,7 +249,7 @@ lastmod: "2023-03-27T19:00:48-04:00"
           <div class="max-w-[130px] min-h-[130px] flex items-center justify-center">
             <img class="w-full" src="/wp-content/uploads/2023/01/education-icon.svg" / alt=""/>
           </div>
-          <a class="px-5 py-4 group uppercase font-bold flex gap-4 items-center w-fit hover:shadow hover:translate-x-1 transition duration-200" href="/industries/education/"><span class="group-hover:text-colorAccent-400 text-white">Learn More</span><svg class="group-hover:stroke-colorAccent-400 stroke-white" xmlns="http://www.w3.org/2000/svg" width="62.267" height="9.488" viewBox="0 0 62.267 9.488"> <g id="Group_7" data-name="Group 7" transform="translate(0 0.354)"> <line id="Line_4" data-name="Line 4" x2="61" transform="translate(0 4.335)" fill="none" stroke="inherit" stroke-width="1"/> <path id="Path_22" data-name="Path 22" d="M211.67,734.165l4.391,4.391-4.391,4.391" transform="translate(-154.5 -734.165)" fill="none" stroke="inherit" stroke-width="1"/> </g> </svg></a>
+          <a class="px-5 py-4 group uppercase font-bold flex gap-4 items-center w-fit hover:shadow hover:translate-x-1 transition duration-200" href="/industries/education/"><span class="group-hover:text-colorAccent-400 text-white">Learn More</span>{{ ui.arrowHover() }}</a>
         </div>
         <div class="flex flex-col items-center justify-center gap-4 px-4 py-20 lg:py-0">
           <h3 class="text-center text-white font-display text-2xl">
@@ -275,7 +258,7 @@ lastmod: "2023-03-27T19:00:48-04:00"
           <div class="max-w-[130px] min-h-[130px] flex items-center justify-center">
             <img class="w-full" src="/wp-content/uploads/2023/01/finance-icon.svg" / alt=""/>
           </div>
-          <a class="px-5 py-4 group uppercase font-bold flex gap-4 items-center w-fit hover:shadow hover:translate-x-1 transition duration-200" href="/industries/finance/"><span class="group-hover:text-colorAccent-400 text-white">Learn More</span><svg class="group-hover:stroke-colorAccent-400 stroke-white" xmlns="http://www.w3.org/2000/svg" width="62.267" height="9.488" viewBox="0 0 62.267 9.488"> <g id="Group_7" data-name="Group 7" transform="translate(0 0.354)"> <line id="Line_4" data-name="Line 4" x2="61" transform="translate(0 4.335)" fill="none" stroke="inherit" stroke-width="1"/> <path id="Path_22" data-name="Path 22" d="M211.67,734.165l4.391,4.391-4.391,4.391" transform="translate(-154.5 -734.165)" fill="none" stroke="inherit" stroke-width="1"/> </g> </svg></a>
+          <a class="px-5 py-4 group uppercase font-bold flex gap-4 items-center w-fit hover:shadow hover:translate-x-1 transition duration-200" href="/industries/finance/"><span class="group-hover:text-colorAccent-400 text-white">Learn More</span>{{ ui.arrowHover() }}</a>
         </div>
       </div>
     </div>
@@ -286,25 +269,13 @@ lastmod: "2023-03-27T19:00:48-04:00"
         Let’s make your vision tangible (and effective).
       </h2>
       <div class="link-group">
-        <a class=" px-5 py-4 bg-colorAccent-700 uppercase font-bold text-white flex gap-4 items-center w-fit hover:shadow hover:translate-x-1 transition duration-200 button" href="/contact-us/"><span>Let's Talk</span><svg xmlns="http://www.w3.org/2000/svg" width="62.267" height="9.488" viewBox="0 0 62.267 9.488"> <g id="Group_7" data-name="Group 7" transform="translate(0 0.354)"> <line id="Line_4" data-name="Line 4" x2="61" transform="translate(0 4.335)" fill="none" stroke="#fff" stroke-width="1"/> <path id="Path_22" data-name="Path 22" d="M211.67,734.165l4.391,4.391-4.391,4.391" transform="translate(-154.5 -734.165)" fill="none" stroke="#fff" stroke-width="1"/> </g> </svg></a>
+        <a class=" px-5 py-4 bg-colorAccent-700 uppercase font-bold text-white flex gap-4 items-center w-fit hover:shadow hover:translate-x-1 transition duration-200 button" href="/contact-us/"><span>Let's Talk</span>{{ ui.arrow() }}</a>
       </div>
       <div class="w-[386px] lg:w-[550px] -z-10 opacity-0.5 absolute right-0 hidden lg:block translate-x-1/2 -translate-y-1/2 top-1/2">
-        <svg xmlns="http://www.w3.org/2000/svg" width="auto" height="auto" viewBox="0 0 613.402 653.591">
-    <g id="Union_5" data-name="Union 5" transform="translate(0.072)" fill="none" opacity="0.5">
-        <path
-            d="M164.323,571.924A164.536,164.536,0,0,1,21.988,490.179a162.5,162.5,0,0,1-.017-163.462,162.42,162.42,0,0,1,.085-163.265,164.481,164.481,0,0,1,142.22-81.707,164.819,164.819,0,0,1,284.658-.079A164.537,164.537,0,0,1,591.27,163.412a162.5,162.5,0,0,1,.016,163.462,162.42,162.42,0,0,1-.086,163.265,164.48,164.48,0,0,1-142.22,81.707,164.819,164.819,0,0,1-284.658.079Z"
-            stroke="#9A96FF" />
-    </g>
-</svg>
+        {{ ui.blob() }}
       </div>
       <div class="w-[386px] lg:w-[550px] -z-10 opacity-0.5 absolute left-0 hidden lg:block -translate-x-1/2 -translate-y-1/2 top-1/2">
-        <svg xmlns="http://www.w3.org/2000/svg" width="auto" height="auto" viewBox="0 0 613.402 653.591">
-    <g id="Union_5" data-name="Union 5" transform="translate(0.072)" fill="none" opacity="0.5">
-        <path
-            d="M164.323,571.924A164.536,164.536,0,0,1,21.988,490.179a162.5,162.5,0,0,1-.017-163.462,162.42,162.42,0,0,1,.085-163.265,164.481,164.481,0,0,1,142.22-81.707,164.819,164.819,0,0,1,284.658-.079A164.537,164.537,0,0,1,591.27,163.412a162.5,162.5,0,0,1,.016,163.462,162.42,162.42,0,0,1-.086,163.265,164.48,164.48,0,0,1-142.22,81.707,164.819,164.819,0,0,1-284.658.079Z"
-            stroke="#9A96FF" />
-    </g>
-</svg>
+        {{ ui.blob() }}
       </div>
     </div>
   </section>

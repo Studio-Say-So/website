@@ -17,6 +17,7 @@ jsonld: |
   {"@context":"https://schema.org","@graph":[{"@type":["Organization","ProfessionalService"],"@id":"https://studiosayso.com/#organization","telephone":"+1-407-839-6452","areaServed":[{"@type":"City","name":"Orlando"},{"@type":"State","name":"Florida"},{"@type":"Country","name":"United States"}],"sameAs":["https://www.facebook.com/studiosaysovideo/","https://www.instagram.com/studiosaysovideo/","https://vimeo.com/studiosayso","https://www.linkedin.com/company/studio-say-so","https://twitter.com/studiosayso","https://clutch.co/profile/studio-say-so"]},{"@type":"WebSite","@id":"https://studiosayso.com/#website"},{"@type":"CollectionPage","@id":"https://studiosayso.com/industries/#webpage","url":"https://studiosayso.com/industries/","name":"Video Production by Industry | Studio Say So","isPartOf":{"@id":"https://studiosayso.com/#website"},"about":{"@id":"https://studiosayso.com/#organization"},"inLanguage":"en-US","breadcrumb":{"@id":"https://studiosayso.com/industries/#breadcrumb"},"hasPart":[{"@type":"WebPage","@id":"https://studiosayso.com/industries/healthcare/","name":"Healthcare Video Production"},{"@type":"WebPage","@id":"https://studiosayso.com/industries/education/","name":"Video Production For Education"},{"@type":"WebPage","@id":"https://studiosayso.com/industries/finance/","name":"Video Production For Finance"}]},{"@type":"BreadcrumbList","@id":"https://studiosayso.com/industries/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://studiosayso.com/","name":"Home"}},{"@type":"ListItem","position":2,"item":{"@id":"https://studiosayso.com/industries/","name":"Industries"}}]},{"@type":"ImageObject","@id":"https://studiosayso.com/wp-content/uploads/2023/02/home-story.jpg","url":"https://studiosayso.com/wp-content/uploads/2023/02/home-story.jpg","contentUrl":"https://studiosayso.com/wp-content/uploads/2023/02/home-story.jpg","width":"1200","height":"723","inLanguage":"en-US"}]}
 lastmod: "2026-08-31T16:03:21-04:00"
 ---
+{% import "macros/ui.njk" as ui %}
 <div class="studio-custom relative overflow-hidden">
   <div class="text-transparent">
     _
@@ -34,7 +35,7 @@ lastmod: "2026-08-31T16:03:21-04:00"
         </h2>
         <div class="">
           <div class="link-group">
-            <a class=" px-5 py-4 bg-colorAccent-700 uppercase font-bold text-white flex gap-4 items-center w-fit hover:shadow hover:translate-x-1 transition duration-200 button" href="/contact-us/"><span>Let's Talk</span><svg xmlns="http://www.w3.org/2000/svg" width="62.267" height="9.488" viewBox="0 0 62.267 9.488"> <g id="Group_7" data-name="Group 7" transform="translate(0 0.354)"> <line id="Line_4" data-name="Line 4" x2="61" transform="translate(0 4.335)" fill="none" stroke="#fff" stroke-width="1"/> <path id="Path_22" data-name="Path 22" d="M211.67,734.165l4.391,4.391-4.391,4.391" transform="translate(-154.5 -734.165)" fill="none" stroke="#fff" stroke-width="1"/> </g> </svg></a>
+            <a class=" px-5 py-4 bg-colorAccent-700 uppercase font-bold text-white flex gap-4 items-center w-fit hover:shadow hover:translate-x-1 transition duration-200 button" href="/contact-us/"><span>Let's Talk</span>{{ ui.arrow() }}</a>
           </div>
         </div>
       </div>
@@ -65,7 +66,7 @@ lastmod: "2026-08-31T16:03:21-04:00"
           <div class="max-w-[130px] min-h-[130px] flex items-center justify-center">
             <img class="w-full" src="/wp-content/uploads/2023/01/healthcare-icon.svg" / alt=""/>
           </div>
-          <a class="px-5 py-4 group uppercase font-bold flex gap-4 items-center w-fit hover:shadow hover:translate-x-1 transition duration-200" href="/industries/healthcare/"><span class="group-hover:text-colorAccent-400 text-white">Learn More</span><svg class="group-hover:stroke-colorAccent-400 stroke-white" xmlns="http://www.w3.org/2000/svg" width="62.267" height="9.488" viewBox="0 0 62.267 9.488"> <g id="Group_7" data-name="Group 7" transform="translate(0 0.354)"> <line id="Line_4" data-name="Line 4" x2="61" transform="translate(0 4.335)" fill="none" stroke="inherit" stroke-width="1"/> <path id="Path_22" data-name="Path 22" d="M211.67,734.165l4.391,4.391-4.391,4.391" transform="translate(-154.5 -734.165)" fill="none" stroke="inherit" stroke-width="1"/> </g> </svg></a>
+          <a class="px-5 py-4 group uppercase font-bold flex gap-4 items-center w-fit hover:shadow hover:translate-x-1 transition duration-200" href="/industries/healthcare/"><span class="group-hover:text-colorAccent-400 text-white">Learn More</span>{{ ui.arrowHover() }}</a>
         </div>
         <div class="flex flex-col items-center justify-center gap-4 px-4 py-20 lg:py-0">
           <h3 class="text-center text-white font-display text-2xl">
@@ -74,7 +75,7 @@ lastmod: "2026-08-31T16:03:21-04:00"
           <div class="max-w-[130px] min-h-[130px] flex items-center justify-center">
             <img class="w-full" src="/wp-content/uploads/2023/01/education-icon.svg" / alt=""/>
           </div>
-          <a class="px-5 py-4 group uppercase font-bold flex gap-4 items-center w-fit hover:shadow hover:translate-x-1 transition duration-200" href="/industries/education/"><span class="group-hover:text-colorAccent-400 text-white">Learn More</span><svg class="group-hover:stroke-colorAccent-400 stroke-white" xmlns="http://www.w3.org/2000/svg" width="62.267" height="9.488" viewBox="0 0 62.267 9.488"> <g id="Group_7" data-name="Group 7" transform="translate(0 0.354)"> <line id="Line_4" data-name="Line 4" x2="61" transform="translate(0 4.335)" fill="none" stroke="inherit" stroke-width="1"/> <path id="Path_22" data-name="Path 22" d="M211.67,734.165l4.391,4.391-4.391,4.391" transform="translate(-154.5 -734.165)" fill="none" stroke="inherit" stroke-width="1"/> </g> </svg></a>
+          <a class="px-5 py-4 group uppercase font-bold flex gap-4 items-center w-fit hover:shadow hover:translate-x-1 transition duration-200" href="/industries/education/"><span class="group-hover:text-colorAccent-400 text-white">Learn More</span>{{ ui.arrowHover() }}</a>
         </div>
         <div class="flex flex-col items-center justify-center gap-4 px-4 py-20 lg:py-0">
           <h3 class="text-center text-white font-display text-2xl">
@@ -83,7 +84,7 @@ lastmod: "2026-08-31T16:03:21-04:00"
           <div class="max-w-[130px] min-h-[130px] flex items-center justify-center">
             <img class="w-full" src="/wp-content/uploads/2023/01/finance-icon.svg" / alt=""/>
           </div>
-          <a class="px-5 py-4 group uppercase font-bold flex gap-4 items-center w-fit hover:shadow hover:translate-x-1 transition duration-200" href="/industries/finance/"><span class="group-hover:text-colorAccent-400 text-white">Learn More</span><svg class="group-hover:stroke-colorAccent-400 stroke-white" xmlns="http://www.w3.org/2000/svg" width="62.267" height="9.488" viewBox="0 0 62.267 9.488"> <g id="Group_7" data-name="Group 7" transform="translate(0 0.354)"> <line id="Line_4" data-name="Line 4" x2="61" transform="translate(0 4.335)" fill="none" stroke="inherit" stroke-width="1"/> <path id="Path_22" data-name="Path 22" d="M211.67,734.165l4.391,4.391-4.391,4.391" transform="translate(-154.5 -734.165)" fill="none" stroke="inherit" stroke-width="1"/> </g> </svg></a>
+          <a class="px-5 py-4 group uppercase font-bold flex gap-4 items-center w-fit hover:shadow hover:translate-x-1 transition duration-200" href="/industries/finance/"><span class="group-hover:text-colorAccent-400 text-white">Learn More</span>{{ ui.arrowHover() }}</a>
         </div>
       </div>
     </div>

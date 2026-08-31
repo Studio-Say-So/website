@@ -31,6 +31,7 @@ jsonld: |
   {"@context":"https://schema.org","@graph":[{"@type":"Place","@id":"https://studiosayso.com/#place","geo":{"@type":"GeoCoordinates","latitude":"28.5529579","longitude":"-81.3802166"},"hasMap":"https://www.google.com/maps/search/?api=1&amp;query=28.5529579,-81.3802166","address":{"@type":"PostalAddress","streetAddress":"62 West Colonial Dr. Suite 305","addressLocality":"Orlando","addressRegion":"FL","postalCode":"32801","addressCountry":"USA"}},{"@type":["Organization","ProfessionalService"],"@id":"https://studiosayso.com/#organization","name":"Studio Say So","url":"https://studiosayso.com","sameAs":["https://www.facebook.com/studiosaysovideo/","https://www.instagram.com/studiosaysovideo/","https://vimeo.com/studiosayso","https://www.linkedin.com/company/studio-say-so","https://twitter.com/studiosayso","https://clutch.co/profile/studio-say-so"],"address":{"@type":"PostalAddress","streetAddress":"62 West Colonial Dr. Suite 305","addressLocality":"Orlando","addressRegion":"FL","postalCode":"32801","addressCountry":"USA"},"logo":{"@type":"ImageObject","@id":"https://studiosayso.com/#logo","url":"https://studiosayso.com/wp-content/uploads/2023/02/favicon.png","contentUrl":"https://studiosayso.com/wp-content/uploads/2023/02/favicon.png","caption":"Studio Say So","inLanguage":"en-US","width":"192","height":"192"},"location":{"@id":"https://studiosayso.com/#place"},"telephone":"+1-407-839-6452","areaServed":[{"@type":"City","name":"Orlando"},{"@type":"State","name":"Florida"},{"@type":"Country","name":"United States"}]},{"@type":"WebSite","@id":"https://studiosayso.com/#website","url":"https://studiosayso.com","name":"Studio Say So","alternateName":"Studio Say So","publisher":{"@id":"https://studiosayso.com/#organization"},"inLanguage":"en-US"},{"@type":"ImageObject","@id":"https://studiosayso.com/wp-content/uploads/2023/02/rollins.png","url":"https://studiosayso.com/wp-content/uploads/2023/02/rollins.png","width":"727","height":"410","caption":"Wiley Campbellsville","inLanguage":"en-US"},{"@type":"BreadcrumbList","@id":"https://studiosayso.com/work/rollins-college/#breadcrumb","itemListElement":[{"@type":"ListItem","position":"1","item":{"@id":"https://studiosayso.com","name":"Home"}},{"@type":"ListItem","position":"2","item":{"@id":"https://studiosayso.com/work/","name":"Work"}},{"@type":"ListItem","position":"3","item":{"@id":"https://studiosayso.com/work/rollins-college/","name":"Rollins College"}}]},{"@type":"WebPage","@id":"https://studiosayso.com/work/rollins-college/#webpage","url":"https://studiosayso.com/work/rollins-college/","name":"Rollins College | Studio Say So","datePublished":"2022-12-21T16:02:03-05:00","dateModified":"2023-03-27T21:43:04-04:00","isPartOf":{"@id":"https://studiosayso.com/#website"},"primaryImageOfPage":{"@id":"https://studiosayso.com/wp-content/uploads/2023/02/danny-directing-blue-2.jpg"},"inLanguage":"en-US","breadcrumb":{"@id":"https://studiosayso.com/work/rollins-college/#breadcrumb"}},{"@type":"ImageObject","@id":"https://studiosayso.com/wp-content/uploads/2023/02/danny-directing-blue-2.jpg","url":"https://studiosayso.com/wp-content/uploads/2023/02/danny-directing-blue-2.jpg","contentUrl":"https://studiosayso.com/wp-content/uploads/2023/02/danny-directing-blue-2.jpg","width":"2000","height":"1017","inLanguage":"en-US"},{"@type":"CreativeWork","@id":"https://studiosayso.com/work/rollins-college/#work","name":"Rollins College | Studio Say So","creator":{"@id":"https://studiosayso.com/#organization"},"about":{"@id":"https://studiosayso.com/#organization"},"datePublished":"2022-12-21T16:02:03-05:00","dateModified":"2023-03-27T21:43:04-04:00","description":"Ranked the #1 Regional University in the south, Rollins College is a private college in Winter Park, Florida, that needed a video to serve as the creative anchor for Brighter Together—their largest fundraising campaign in over 135 years.","inLanguage":"en-US","isPartOf":{"@id":"https://studiosayso.com/work/rollins-college/#webpage"},"mainEntityOfPage":{"@id":"https://studiosayso.com/work/rollins-college/#webpage"},"image":{"@id":"https://studiosayso.com/wp-content/uploads/2023/02/danny-directing-blue-2.jpg"}},{"@type":"VideoObject","@id":"https://www.youtube.com/watch?v=AU7Kb1nqnA4#video","name":"We Are Brighter Together","description":"At Rollins, we’ve always been powered by relationships. Our history, our mission, and our vision for a more brilliant future are all built on the knowledge that we can achieve anything when we work together. Discover what’s in store for your college’s future, and then please consider how you can join us in making Rollins brighter together for generations to come -- https://www.rollins.edu/brightertogether “The Dreamer” licensed via Music Vine: TMBC4NE1RPBSWGZW","thumbnailUrl":"https://i.ytimg.com/vi/AU7Kb1nqnA4/hqdefault.jpg","uploadDate":"2021-10-27T10:34:48-07:00","duration":"PT1M52S","embedUrl":"https://www.youtube.com/embed/AU7Kb1nqnA4","contentUrl":"https://www.youtube.com/watch?v=AU7Kb1nqnA4","publisher":{"@id":"https://studiosayso.com/#organization"},"creator":{"@id":"https://studiosayso.com/#organization"},"inLanguage":"en-US"}]}
 lastmod: "2023-03-27T21:43:04-04:00"
 ---
+{% import "macros/ui.njk" as ui %}
 <section
         class="w-screen h-screen flex flex-col items-center justify-center text-white relative main-carousel"
         style="background-image: url(/wp-content/uploads/2023/02/rollins.png); background-position: center; background-size: cover;">
@@ -40,7 +41,7 @@ lastmod: "2023-03-27T21:43:04-04:00"
   <h2 class="max-w-[21ch] mb-10">
     Brighter Together
   </h2>
-  <a href="https://www.youtube.com/watch?v=AU7Kb1nqnA4" class=" block opacity-100 transition duration-500 w-[56px] h-[56px]" rel="lightbox"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56"> <g id="Group_6" data-name="Group 6" transform="translate(-1000 -500)"> <g id="Ellipse_13" data-name="Ellipse 13" transform="translate(1000 500)" fill="none" stroke="#fff" stroke-width="1"> <circle cx="28" cy="28" r="28" stroke="none" /> <circle cx="28" cy="28" r="27.5" fill="none" /> </g> <path id="Polygon_1" data-name="Polygon 1" d="M9,0l9,15H0Z" transform="translate(1037.5 519) rotate(90)" fill="#fff" /> </g> </svg></a><a href="#case-study" class="absolute bottom-12 right-1/2 block opacity-100 transition translate-x-1/2 animate-bounce duration-700"><svg xmlns="http://www.w3.org/2000/svg" width="9.488" height="62.267" viewBox="0 0 9.488 62.267"> <g id="Group_7" data-name="Group 7" transform="translate(9.135) rotate(90)"> <line id="Line_4" data-name="Line 4" x2="61" transform="translate(0 4.335)" fill="none" stroke="#fff" stroke-width="1"/> <path id="Path_22" data-name="Path 22" d="M211.67,734.165l4.391,4.391-4.391,4.391" transform="translate(-154.5 -734.165)" fill="none" stroke="#fff" stroke-width="1"/> </g> </svg> </a>
+  <a href="https://www.youtube.com/watch?v=AU7Kb1nqnA4" class=" block opacity-100 transition duration-500 w-[56px] h-[56px]" rel="lightbox">{{ ui.scrollCue() }}</a><a href="#case-study" class="absolute bottom-12 right-1/2 block opacity-100 transition translate-x-1/2 animate-bounce duration-700">{{ ui.arrowDown() }} </a>
 </section>
 <section id="case-study" class="flex flex-col items-center justify-center pt-16 relative my-16">
   <div class="custom-container flex flex-col items-center justify-center ">
@@ -60,22 +61,10 @@ lastmod: "2023-03-27T21:43:04-04:00"
     </div>
   </div>
   <div class="w-[206px] lg:w-[400px] -z-10 opacity-0.5 absolute right-0 hidden lg:block translate-x-1/2 -translate-y-1/2 top-[60%]">
-    <svg xmlns="http://www.w3.org/2000/svg" width="auto" height="auto" viewBox="0 0 613.402 653.591">
-    <g id="Union_5" data-name="Union 5" transform="translate(0.072)" fill="none" opacity="0.5">
-        <path
-            d="M164.323,571.924A164.536,164.536,0,0,1,21.988,490.179a162.5,162.5,0,0,1-.017-163.462,162.42,162.42,0,0,1,.085-163.265,164.481,164.481,0,0,1,142.22-81.707,164.819,164.819,0,0,1,284.658-.079A164.537,164.537,0,0,1,591.27,163.412a162.5,162.5,0,0,1,.016,163.462,162.42,162.42,0,0,1-.086,163.265,164.48,164.48,0,0,1-142.22,81.707,164.819,164.819,0,0,1-284.658.079Z"
-            stroke="#9A96FF" />
-    </g>
-</svg>
+    {{ ui.blob() }}
   </div>
   <div class="w-[206px] lg:w-[400px] -z-10 opacity-0.5 absolute left-0 hidden lg:block -translate-x-1/2 -translate-y-1/2 top-[60%]">
-    <svg xmlns="http://www.w3.org/2000/svg" width="auto" height="auto" viewBox="0 0 613.402 653.591">
-    <g id="Union_5" data-name="Union 5" transform="translate(0.072)" fill="none" opacity="0.5">
-        <path
-            d="M164.323,571.924A164.536,164.536,0,0,1,21.988,490.179a162.5,162.5,0,0,1-.017-163.462,162.42,162.42,0,0,1,.085-163.265,164.481,164.481,0,0,1,142.22-81.707,164.819,164.819,0,0,1,284.658-.079A164.537,164.537,0,0,1,591.27,163.412a162.5,162.5,0,0,1,.016,163.462,162.42,162.42,0,0,1-.086,163.265,164.48,164.48,0,0,1-142.22,81.707,164.819,164.819,0,0,1-284.658.079Z"
-            stroke="#9A96FF" />
-    </g>
-</svg>
+    {{ ui.blob() }}
   </div>
 </section>
 <section class="custom-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20 mt-32 mb-28">
@@ -135,22 +124,10 @@ Today, we continue to partner with Rollins College, and they continue to leverag
     </div>
   </div>
   <div class="w-[310px] lg:w-[400px] -z-10 opacity-0.5 absolute left-20 hidden lg:block -translate-x-1/2  -bottom-48">
-    <svg xmlns="http://www.w3.org/2000/svg" width="auto" height="auto" viewBox="0 0 613.402 653.591">
-    <g id="Union_5" data-name="Union 5" transform="translate(0.072)" fill="none" opacity="0.5">
-        <path
-            d="M164.323,571.924A164.536,164.536,0,0,1,21.988,490.179a162.5,162.5,0,0,1-.017-163.462,162.42,162.42,0,0,1,.085-163.265,164.481,164.481,0,0,1,142.22-81.707,164.819,164.819,0,0,1,284.658-.079A164.537,164.537,0,0,1,591.27,163.412a162.5,162.5,0,0,1,.016,163.462,162.42,162.42,0,0,1-.086,163.265,164.48,164.48,0,0,1-142.22,81.707,164.819,164.819,0,0,1-284.658.079Z"
-            stroke="#9A96FF" />
-    </g>
-</svg>
+    {{ ui.blob() }}
   </div>
   <div class="w-[310px] lg:w-[400px] -z-10 opacity-0.5 absolute right-20 hidden lg:block translate-x-1/2  -bottom-72">
-    <svg xmlns="http://www.w3.org/2000/svg" width="auto" height="auto" viewBox="0 0 613.402 653.591">
-    <g id="Union_5" data-name="Union 5" transform="translate(0.072)" fill="none" opacity="0.5">
-        <path
-            d="M164.323,571.924A164.536,164.536,0,0,1,21.988,490.179a162.5,162.5,0,0,1-.017-163.462,162.42,162.42,0,0,1,.085-163.265,164.481,164.481,0,0,1,142.22-81.707,164.819,164.819,0,0,1,284.658-.079A164.537,164.537,0,0,1,591.27,163.412a162.5,162.5,0,0,1,.016,163.462,162.42,162.42,0,0,1-.086,163.265,164.48,164.48,0,0,1-142.22,81.707,164.819,164.819,0,0,1-284.658.079Z"
-            stroke="#9A96FF" />
-    </g>
-</svg>
+    {{ ui.blob() }}
   </div>
 </section>
 <section id="" class="custom-container">
@@ -159,7 +136,7 @@ Today, we continue to partner with Rollins College, and they continue to leverag
       Discuss Your Project With Us
     </h2>
     <div class="link-group">
-      <a class=" px-5 py-4 bg-colorAccent-700 uppercase font-bold text-white flex gap-4 items-center w-fit hover:shadow hover:translate-x-1 transition duration-200 button" href="/contact-us/"><span>Let's Talk</span><svg xmlns="http://www.w3.org/2000/svg" width="62.267" height="9.488" viewBox="0 0 62.267 9.488"> <g id="Group_7" data-name="Group 7" transform="translate(0 0.354)"> <line id="Line_4" data-name="Line 4" x2="61" transform="translate(0 4.335)" fill="none" stroke="#fff" stroke-width="1"/> <path id="Path_22" data-name="Path 22" d="M211.67,734.165l4.391,4.391-4.391,4.391" transform="translate(-154.5 -734.165)" fill="none" stroke="#fff" stroke-width="1"/> </g> </svg></a>
+      <a class=" px-5 py-4 bg-colorAccent-700 uppercase font-bold text-white flex gap-4 items-center w-fit hover:shadow hover:translate-x-1 transition duration-200 button" href="/contact-us/"><span>Let's Talk</span>{{ ui.arrow() }}</a>
     </div>
   </div>
 </section>
@@ -172,7 +149,7 @@ Today, we continue to partner with Rollins College, and they continue to leverag
     <h3 class="font-display text-[22px] mb-3">
       321 The Agency | shopDisney
     </h3>
-    <a class="font-display text-white flex gap-4 items-center w-fit hover:translate-x-1 transition duration-200 button" href="/work/321-the-agency-shopdisney/"><span>See Case Study</span><svg xmlns="http://www.w3.org/2000/svg" width="62.267" height="9.488" viewBox="0 0 62.267 9.488"> <g id="Group_7" data-name="Group 7" transform="translate(0 0.354)"> <line id="Line_4" data-name="Line 4" x2="61" transform="translate(0 4.335)" fill="none" stroke="#fff" stroke-width="1"/> <path id="Path_22" data-name="Path 22" d="M211.67,734.165l4.391,4.391-4.391,4.391" transform="translate(-154.5 -734.165)" fill="none" stroke="#fff" stroke-width="1"/> </g> </svg> </a>
+    <a class="font-display text-white flex gap-4 items-center w-fit hover:translate-x-1 transition duration-200 button" href="/work/321-the-agency-shopdisney/"><span>See Case Study</span>{{ ui.arrow() }} </a>
   </div>
   <div class="border-colorAccent-border md:px-8 lg:px-16 text-white mb-28">
     <div
@@ -182,7 +159,7 @@ Today, we continue to partner with Rollins College, and they continue to leverag
     <h3 class="font-display text-[22px] mb-3">
       AdventHealth
     </h3>
-    <a class="font-display text-white flex gap-4 items-center w-fit hover:translate-x-1 transition duration-200 button" href="/work/adventhealth/"><span>See Case Study</span><svg xmlns="http://www.w3.org/2000/svg" width="62.267" height="9.488" viewBox="0 0 62.267 9.488"> <g id="Group_7" data-name="Group 7" transform="translate(0 0.354)"> <line id="Line_4" data-name="Line 4" x2="61" transform="translate(0 4.335)" fill="none" stroke="#fff" stroke-width="1"/> <path id="Path_22" data-name="Path 22" d="M211.67,734.165l4.391,4.391-4.391,4.391" transform="translate(-154.5 -734.165)" fill="none" stroke="#fff" stroke-width="1"/> </g> </svg> </a>
+    <a class="font-display text-white flex gap-4 items-center w-fit hover:translate-x-1 transition duration-200 button" href="/work/adventhealth/"><span>See Case Study</span>{{ ui.arrow() }} </a>
   </div>
   <div class="border-colorAccent-border md:px-8 lg:px-16 text-white mb-28">
     <div
@@ -192,6 +169,6 @@ Today, we continue to partner with Rollins College, and they continue to leverag
     <h3 class="font-display text-[22px] mb-3">
       Wiley Campbellsville
     </h3>
-    <a class="font-display text-white flex gap-4 items-center w-fit hover:translate-x-1 transition duration-200 button" href="/work/wiley-campbellsville/"><span>See Case Study</span><svg xmlns="http://www.w3.org/2000/svg" width="62.267" height="9.488" viewBox="0 0 62.267 9.488"> <g id="Group_7" data-name="Group 7" transform="translate(0 0.354)"> <line id="Line_4" data-name="Line 4" x2="61" transform="translate(0 4.335)" fill="none" stroke="#fff" stroke-width="1"/> <path id="Path_22" data-name="Path 22" d="M211.67,734.165l4.391,4.391-4.391,4.391" transform="translate(-154.5 -734.165)" fill="none" stroke="#fff" stroke-width="1"/> </g> </svg> </a>
+    <a class="font-display text-white flex gap-4 items-center w-fit hover:translate-x-1 transition duration-200 button" href="/work/wiley-campbellsville/"><span>See Case Study</span>{{ ui.arrow() }} </a>
   </div>
 </section>
