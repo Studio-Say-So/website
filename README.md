@@ -3,6 +3,21 @@
 Static [Eleventy](https://www.11ty.dev/) build of studiosayso.com, ported from
 WordPress. Deploys to GitHub Pages via Actions on push to `main`.
 
+**Currently a preview deploy** at `studio-say-so.github.io/website/`, served
+under a subpath and marked `noindex` so it cannot compete with the live
+WordPress site.
+
+### Cutting over to studiosayso.com
+
+1. Drop the `PATH_PREFIX` env block from `.github/workflows/deploy.yml`.
+2. Add `src/CNAME` containing `studiosayso.com`.
+3. Point DNS at GitHub Pages (A/AAAA records, or CNAME to
+   `studio-say-so.github.io`).
+
+The sources are written root-relative for the real domain; `HtmlBasePlugin`
+rewrites them for the subpath preview, so nothing in `src/` changes between the
+two modes.
+
 ```bash
 npm install
 npm run serve     # local dev at http://localhost:8080
@@ -13,7 +28,6 @@ npm run build     # writes ./_site
 
 ```
 src/
-├── CNAME                          studiosayso.com
 ├── robots.txt
 ├── _includes/
 │   ├── layouts/base.njk           doctype, head, header, footer, theme JS

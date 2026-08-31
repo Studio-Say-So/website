@@ -7,7 +7,9 @@
 {%- if description %}
 <meta name="description" content="{{ description }}">
 {%- endif %}
-{%- if robots %}
+{%- if build.preview %}
+<meta name="robots" content="noindex, nofollow">
+{%- elif robots %}
 <meta name="robots" content="{{ robots }}">
 {%- endif %}
 {%- if canonical %}
