@@ -134,37 +134,45 @@ remediation plan:
 | 16 | `fix(analytics): consolidate tag containers` | **blocked** |
 | 17 | `feat(forms): wire contact forms to the Cloudflare Worker` | **open** |
 
-### Open items and why
+### Status
 
-**15 — primary image.** Every page still declares the 192x192 favicon as
-`primaryImageOfPage` and as the Article `image`, which disqualifies all of them
-from image-bearing rich results. Fixing it needs a real representative image
-chosen per page; the case-study pages have obvious candidates, the service
-pages do not.
+All migration regressions and every actionable audit finding are closed. What
+remains needs someone at Studio Say So.
 
-**16 — analytics.** Blocked on a decision, not on work. Two GTM containers
-(`GTM-MTNM6RS`, `GTM-WCVH3JXN`) plus a direct Facebook Pixel
-(`688292446778861`) fire on every page. Removing the wrong container would
-silently break whatever reporting is live, so this needs someone to confirm
-which is current before anything is deleted.
+**Blocked on a decision**
 
-**17 — forms.** Contact and lead-form markup is intact but inert. Needs the
-Worker endpoint plus Turnstile.
+- **Analytics.** `GTM-MTNM6RS`, `GTM-WCVH3JXN` and a direct Facebook Pixel
+  (`688292446778861`) all fire on every page. Removing the wrong container
+  breaks live reporting silently, so nothing is touched until someone confirms
+  which is current.
 
-### Also outstanding, needs Studio Say So
+**Needs information**
 
-- **Flickity licensing.** Dual-licensed GPLv3-or-commercial and used on a
-  commercial site. Currently loaded from unpkg, so nothing GPL is redistributed
-  in this repo, but the site is using it either way. Either buy the commercial
-  licence from Metafizzy or swap the two carousels for an MIT library.
-- **awards-2.svg** — an unidentified award emblem, currently described
-  generically in alt text.
+- **awards-2.svg** — a stylised "A" emblem nobody could identify; its alt text
+  reads "Award won by Studio Say So" rather than guessing at an award name.
 - **Organization facts** — email, founding date, price range and opening hours
-  were left out of schema rather than invented. All four are worth adding once
-  confirmed.
-- Content work from the audit: service pages, `VideoObject` markup and
-  transcripts, naming the founders on About.
+  are absent from schema because they appear nowhere on the site. Worth adding
+  once confirmed.
+- **Case study hero images** are 612-734px wide, under the 1200px threshold for
+  image rich results, so those four pages fall back to a studio image. Re-export
+  from the originals and each can use its own hero.
 
+**Needs the studio**
+
+- Service pages. There are none; the site can only be found by industry.
+- Naming the founders and crew on About, with Person schema.
+- Third-party corroboration: one Clutch review for a firm claiming 1,000+ videos.
+- `VideoObject` for the dozen further portfolio videos on /work/, which needs
+  those pages restructured rather than just marked up.
+
+**Operational**
+
+- Deploy the forms Worker and set `FORM_ENDPOINT`. Until then both forms
+  visibly refuse to submit and show the phone number.
+- DNS cutover: drop `PATH_PREFIX` from the workflow, add `src/CNAME`, point DNS
+  at GitHub Pages. That also lifts the preview-wide noindex.
+- studiosayso.com still serves the WordPress install, with its 12 outdated
+  plugins and WP File Manager, until DNS moves.
 
 ## Verification, per Albert's loop
 
