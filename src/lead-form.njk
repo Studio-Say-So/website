@@ -469,8 +469,6 @@ inlineStyles: |
   }
   </style>
 headScripts: |
-  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-  <script src="https://unpkg.com/flickity-fade@2/flickity-fade.js"></script>
   <script id="jquery-core-js" src="/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"></script>
   <script id="jquery-migrate-js" src="/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1"></script>
   <script id="dompurify-js" src="/wp-content/plugins/responsive-lightbox/assets/dompurify/purify.min.js?ver=3.3.1"></script>
@@ -487,14 +485,6 @@ extraScripts: |
   wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
   </script>
   <script id="wp-a11y-js" src="/wp-includes/js/dist/a11y.min.js?ver=af934e5259bc51b8718e"></script>
-  <script id="gform_json-js" defer='defer' src="/wp-content/plugins/gravityforms/js/jquery.json.min.js?ver=2.10.5"></script>
-  <script id="gform_gravityforms-js" defer='defer' src="/wp-content/plugins/gravityforms/js/gravityforms.min.js?ver=2.10.5"></script>
-  <script id="gform_recaptcha-js" defer='defer' src="https://www.google.com/recaptcha/api.js?hl=en&#038;&#038;ver=7.0.4#038;render=explicit"></script>
-  <script id="gform_masked_input-js" defer='defer' src="/wp-content/plugins/gravityforms/js/jquery.maskedinput.min.js?ver=2.10.5"></script>
-  <script id="gform_placeholder-js" defer='defer' src="/wp-content/plugins/gravityforms/js/placeholders.jquery.min.js?ver=2.10.5"></script>
-  <script id="gform_gravityforms_utils-js" defer='defer' src="/wp-content/plugins/gravityforms/assets/js/dist/utils.min.js?ver=3f278756f0a3032bed328ff6a9f6c01d"></script>
-  <script id="gform_gravityforms_theme_vendors-js" defer='defer' src="/wp-content/plugins/gravityforms/assets/js/dist/vendor-theme.min.js?ver=7c651d0ba638ce98b9c65141edddd567"></script>
-  <script id="gform_gravityforms_theme-js" defer='defer' src="/wp-content/plugins/gravityforms/assets/js/dist/scripts-theme.min.js?ver=301fdc9aa6144168f3b854c4c2c8f6d3"></script>
 jsonld: |
   {"@context":"https://schema.org","@graph":[{"@type":"Place","@id":"https://studiosayso.com/#place","geo":{"@type":"GeoCoordinates","latitude":"28.5529579","longitude":"-81.3802166"},"hasMap":"https://www.google.com/maps/search/?api=1&amp;query=28.5529579,-81.3802166","address":{"@type":"PostalAddress","streetAddress":"62 West Colonial Dr. Suite 305","addressLocality":"Orlando","addressRegion":"FL","postalCode":"32801","addressCountry":"USA"}},{"@type":["Organization","ProfessionalService"],"@id":"https://studiosayso.com/#organization","name":"Studio Say So","url":"https://studiosayso.com","sameAs":["https://www.facebook.com/studiosaysovideo/","https://www.instagram.com/studiosaysovideo/","https://vimeo.com/studiosayso","https://www.linkedin.com/company/studio-say-so","https://twitter.com/studiosayso","https://clutch.co/profile/studio-say-so"],"address":{"@type":"PostalAddress","streetAddress":"62 West Colonial Dr. Suite 305","addressLocality":"Orlando","addressRegion":"FL","postalCode":"32801","addressCountry":"USA"},"logo":{"@type":"ImageObject","@id":"https://studiosayso.com/#logo","url":"https://studiosayso.com/wp-content/uploads/2023/02/favicon.png","contentUrl":"https://studiosayso.com/wp-content/uploads/2023/02/favicon.png","caption":"Studio Say So","inLanguage":"en-US","width":"192","height":"192"},"location":{"@id":"https://studiosayso.com/#place"},"telephone":"+1-407-839-6452","areaServed":[{"@type":"City","name":"Orlando"},{"@type":"State","name":"Florida"},{"@type":"Country","name":"United States"}]},{"@type":"WebSite","@id":"https://studiosayso.com/#website","url":"https://studiosayso.com","name":"Studio Say So","alternateName":"Studio Say So","publisher":{"@id":"https://studiosayso.com/#organization"},"inLanguage":"en-US"},{"@type":"BreadcrumbList","@id":"https://studiosayso.com/lead-form/#breadcrumb","itemListElement":[{"@type":"ListItem","position":"1","item":{"@id":"https://studiosayso.com","name":"Home"}},{"@type":"ListItem","position":"2","item":{"@id":"https://studiosayso.com/lead-form/","name":"Studio Say lead form"}}]},{"@type":"WebPage","@id":"https://studiosayso.com/lead-form/#webpage","url":"https://studiosayso.com/lead-form/","name":"Studio Say lead form | Studio Say So","datePublished":"2024-01-29T05:27:20-05:00","dateModified":"2024-04-01T18:45:55-04:00","isPartOf":{"@id":"https://studiosayso.com/#website"},"primaryImageOfPage":{"@id":"https://studiosayso.com/wp-content/uploads/2023/02/danny-directing-blue-2.jpg"},"inLanguage":"en-US","breadcrumb":{"@id":"https://studiosayso.com/lead-form/#breadcrumb"}},{"@type":"ImageObject","@id":"https://studiosayso.com/wp-content/uploads/2023/02/danny-directing-blue-2.jpg","url":"https://studiosayso.com/wp-content/uploads/2023/02/danny-directing-blue-2.jpg","contentUrl":"https://studiosayso.com/wp-content/uploads/2023/02/danny-directing-blue-2.jpg","width":"2000","height":"1017","inLanguage":"en-US"}]}
 lastmod: "2024-04-01T18:45:55-04:00"
@@ -543,34 +533,34 @@ lastmod: "2024-04-01T18:45:55-04:00"
                         <input type="hidden" name="form" value="lead"><div aria-hidden="true" style="position:absolute;left:-9999px"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
 <p class="form-status" role="status" aria-live="polite">{%- if not forms.endpoint %}This form isn't connected yet — please call <a href="tel:{{ forms.phone }}">{{ forms.phone }}</a>.{% endif %}</p>
 </form>
-                        </div><script>
-gform.initializeOnLoaded( function() {gformInitSpinner( 2, '/wp-content/plugins/gravityforms/images/spinner.svg', true );jQuery('#gform_ajax_frame_2').on('load',function(){var contents = jQuery(this).contents().find('*').html();var is_postback = contents.indexOf('GF_AJAX_POSTBACK') >= 0;if(!is_postback){return;}var form_content = jQuery(this).contents().find('#gform_wrapper_2');var is_confirmation = jQuery(this).contents().find('#gform_confirmation_wrapper_2').length > 0;var is_redirect = contents.indexOf('gformRedirect(){') >= 0;var is_form = form_content.length > 0 && ! is_redirect && ! is_confirmation;var mt = parseInt(jQuery('html').css('margin-top'), 10) + parseInt(jQuery('body').css('margin-top'), 10) + 100;if(is_form){jQuery('#gform_wrapper_2').html(form_content.html());if(form_content.hasClass('gform_validation_error')){jQuery('#gform_wrapper_2').addClass('gform_validation_error');} else {jQuery('#gform_wrapper_2').removeClass('gform_validation_error');}setTimeout( function() { /* delay the scroll by 50 milliseconds to fix a bug in chrome */  }, 50 );if(window['gformInitDatepicker']) {gformInitDatepicker();}if(window['gformInitPriceFields']) {gformInitPriceFields();}var current_page = jQuery('#gform_source_page_number_2').val();gformInitSpinner( 2, '/wp-content/plugins/gravityforms/images/spinner.svg', true );jQuery(document).trigger('gform_page_loaded', [2, current_page]);window['gf_submitting_2'] = false;}else if(!is_redirect){var confirmation_content = jQuery(this).contents().find('.GF_AJAX_POSTBACK').html();if(!confirmation_content){confirmation_content = contents;}jQuery('#gform_wrapper_2').replaceWith(confirmation_content);jQuery(document).trigger('gform_confirmation_loaded', [2]);window['gf_submitting_2'] = false;wp.a11y.speak(jQuery('#gform_confirmation_message_2').text());}else{jQuery('#gform_2').append(contents);if(window['gformRedirect']) {gformRedirect();}}jQuery(document).trigger("gform_pre_post_render", [{ formId: "2", currentPage: "current_page", abort: function() { this.preventDefault(); } }]);        if (event && event.defaultPrevented) {                return;        }        const gformWrapperDiv = document.getElementById( "gform_wrapper_2" );        if ( gformWrapperDiv ) {            const visibilitySpan = document.createElement( "span" );            visibilitySpan.id = "gform_visibility_test_2";            gformWrapperDiv.insertAdjacentElement( "afterend", visibilitySpan );        }        const visibilityTestDiv = document.getElementById( "gform_visibility_test_2" );        let postRenderFired = false;        function triggerPostRender() {            if ( postRenderFired ) {                return;            }            postRenderFired = true;            gform.core.triggerPostRenderEvents( 2, current_page );            if ( visibilityTestDiv ) {                visibilityTestDiv.parentNode.removeChild( visibilityTestDiv );            }        }        function debounce( func, wait, immediate ) {            var timeout;            return function() {                var context = this, args = arguments;                var later = function() {                    timeout = null;                    if ( !immediate ) func.apply( context, args );                };                var callNow = immediate && !timeout;                clearTimeout( timeout );                timeout = setTimeout( later, wait );                if ( callNow ) func.apply( context, args );            };        }        const debouncedTriggerPostRender = debounce( function() {            triggerPostRender();        }, 200 );        if ( visibilityTestDiv && visibilityTestDiv.offsetParent === null ) {            const observer = new MutationObserver( ( mutations ) => {                mutations.forEach( ( mutation ) => {                    if ( mutation.type === 'attributes' && visibilityTestDiv.offsetParent !== null ) {                        debouncedTriggerPostRender();                        observer.disconnect();                    }                });            });            observer.observe( document.body, {                attributes: true,                childList: false,                subtree: true,                attributeFilter: [ 'style', 'class' ],            });        } else {            triggerPostRender();        }    } );} );
-</script>
-
-</div></section><div class="w-[580px] -z-[100] opacity-0.5 absolute left-72 -bottom-80 hidden lg:block -translate-x-1/2 -translate-y-1/2"><svg xmlns="http://www.w3.org/2000/svg" width="auto" height="auto" viewBox="0 0 613.402 653.591">
+                        </div></div></section><div class="w-[580px] -z-[100] opacity-0.5 absolute left-72 -bottom-80 hidden lg:block -translate-x-1/2 -translate-y-1/2"><svg xmlns="http://www.w3.org/2000/svg" width="auto" height="auto" viewBox="0 0 613.402 653.591">
     <g id="Union_5" data-name="Union 5" transform="translate(0.072)" fill="none" opacity="0.5">
         <path
             d="M164.323,571.924A164.536,164.536,0,0,1,21.988,490.179a162.5,162.5,0,0,1-.017-163.462,162.42,162.42,0,0,1,.085-163.265,164.481,164.481,0,0,1,142.22-81.707,164.819,164.819,0,0,1,284.658-.079A164.537,164.537,0,0,1,591.27,163.412a162.5,162.5,0,0,1,.016,163.462,162.42,162.42,0,0,1-.086,163.265,164.48,164.48,0,0,1-142.22,81.707,164.819,164.819,0,0,1-284.658.079Z"
             stroke="#9A96FF" />
     </g>
 </svg></div><div id="image-slider-div"  class="custom-container flex flex-col items-center justify-center my-12 pt-16 image-slider"><div class="text-colorText-body max-w-[80ch] whitespace-pre-line text-center"><h2 class="slider-head">Take a look at our work.</h2>
-<p style="text-align: center;"><div class="main-carousel w-full h-fit [&_.flickity-page-dots]:mb-10 xl:[&_.flickity-page-dots]:mb-20 [&_.is-selected]:!bg-white [&_.dot]:border [&_.dot]:border-white [&_.dot]:bg-transparent [&_.dot]:!opacity-100 [&_.flickity-button]:mt-20 [&_path]:fill-white [&_.flickity-button:hover]:bg-[rgba(0,0,0,0.2)] [&_.flickity-button]:mx-8" data-flickity='{ "fade": true, "selectedAttraction": 0.03, "draggable": false, "wrapAround": true }'>
-  <div class="carousel-cell w-full">
-    <img class="w-full h-auto object-cover" loading="lazy"
+<p style="text-align: center;"><div class="main-carousel splide w-full h-fit" data-splide='{"type":"fade","rewind":true,"drag":false,"speed":600,"pagination":true,"arrows":true,"autoHeight":true}'>
+<div class="splide__track">
+<div class="splide__list">
+<div class="splide__slide w-full">
+    <img class="w-full h-auto object-cover" loading="lazy" width="1280" height="720"
          src="https://i.vimeocdn.com/video/585779347-db39add740c69a64d1fdbdf197433c30c77ede6e2bd39ed5919675fe70e12427-d_1280" alt="Studio Say So corporate video still">
   </div>
-  <div class="carousel-cell w-full">
-    <img class="w-full h-auto object-cover" loading="lazy"
+<div class="splide__slide w-full">
+    <img class="w-full h-auto object-cover" loading="lazy" width="1280" height="720"
          src="https://i.vimeocdn.com/video/615958793-0f3b4dbe7665eda3b3cd67702f39b299ff178cc74ddbfdca6aef38044e081986-d_1280" alt="Studio Say So brand film still">
   </div>
-  <div class="carousel-cell w-full">
-    <img class="w-full h-auto object-cover" loading="lazy"
+<div class="splide__slide w-full">
+    <img class="w-full h-auto object-cover" loading="lazy" width="1280" height="720"
          src="https://i.vimeocdn.com/video/635228454-f7f185b7f4ed0e1a8928353f895d884ddf4dd42a3145666c7aa825509cd01f28-d_1280" alt="Studio Say So documentary still">
   </div>
-  <div class="carousel-cell w-full">
-    <img class="w-full h-auto object-cover" loading="lazy"
+<div class="splide__slide w-full">
+    <img class="w-full h-auto object-cover" loading="lazy" width="1280" height="720"
          src="https://i.vimeocdn.com/video/1620301458-f5b8196c83b60b19f6ce505c41926b9132f4a01377542ea15137baec7f53070a-d_1280" alt="Studio Say So training video still">
   </div>
+</div>
+</div>
 </div></div></p>
 </div></div><style>
 .image-slider{background-color:#000 !important;}

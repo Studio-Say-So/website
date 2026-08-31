@@ -467,8 +467,6 @@ inlineStyles: |
   }
   </style>
 headScripts: |
-  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-  <script src="https://unpkg.com/flickity-fade@2/flickity-fade.js"></script>
   <script id="jquery-core-js" src="/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"></script>
   <script id="jquery-migrate-js" src="/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1"></script>
   <script id="dompurify-js" src="/wp-content/plugins/responsive-lightbox/assets/dompurify/purify.min.js?ver=3.3.1"></script>
@@ -481,31 +479,37 @@ jsonld: |
   {"@context":"https://schema.org","@graph":[{"@type":"Place","@id":"https://studiosayso.com/#place","geo":{"@type":"GeoCoordinates","latitude":"28.5529579","longitude":"-81.3802166"},"hasMap":"https://www.google.com/maps/search/?api=1&amp;query=28.5529579,-81.3802166","address":{"@type":"PostalAddress","streetAddress":"62 West Colonial Dr. Suite 305","addressLocality":"Orlando","addressRegion":"FL","postalCode":"32801","addressCountry":"USA"}},{"@type":["Organization","ProfessionalService"],"@id":"https://studiosayso.com/#organization","name":"Studio Say So","url":"https://studiosayso.com","sameAs":["https://www.facebook.com/studiosaysovideo/","https://www.instagram.com/studiosaysovideo/","https://vimeo.com/studiosayso","https://www.linkedin.com/company/studio-say-so","https://twitter.com/studiosayso","https://clutch.co/profile/studio-say-so"],"address":{"@type":"PostalAddress","streetAddress":"62 West Colonial Dr. Suite 305","addressLocality":"Orlando","addressRegion":"FL","postalCode":"32801","addressCountry":"USA"},"logo":{"@type":"ImageObject","@id":"https://studiosayso.com/#logo","url":"https://studiosayso.com/wp-content/uploads/2023/02/favicon.png","contentUrl":"https://studiosayso.com/wp-content/uploads/2023/02/favicon.png","caption":"Studio Say So","inLanguage":"en-US","width":"192","height":"192"},"location":{"@id":"https://studiosayso.com/#place"},"telephone":"+1-407-839-6452","areaServed":[{"@type":"City","name":"Orlando"},{"@type":"State","name":"Florida"},{"@type":"Country","name":"United States"}]},{"@type":"WebSite","@id":"https://studiosayso.com/#website","url":"https://studiosayso.com","name":"Studio Say So","alternateName":"Studio Say So","publisher":{"@id":"https://studiosayso.com/#organization"},"inLanguage":"en-US"},{"@type":"BreadcrumbList","@id":"https://studiosayso.com/work/#breadcrumb","itemListElement":[{"@type":"ListItem","position":"1","item":{"@id":"https://studiosayso.com","name":"Home"}},{"@type":"ListItem","position":"2","item":{"@id":"https://studiosayso.com/work/","name":"Work"}}]},{"@type":"WebPage","@id":"https://studiosayso.com/work/#webpage","url":"https://studiosayso.com/work/","name":"Our Work | Studio Say So","datePublished":"2022-12-21T15:44:44-05:00","dateModified":"2023-03-27T19:04:04-04:00","isPartOf":{"@id":"https://studiosayso.com/#website"},"primaryImageOfPage":{"@id":"https://studiosayso.com/wp-content/uploads/2023/02/danny-directing-blue-2.jpg"},"inLanguage":"en-US","breadcrumb":{"@id":"https://studiosayso.com/work/#breadcrumb"}},{"@type":"ImageObject","@id":"https://studiosayso.com/wp-content/uploads/2023/02/danny-directing-blue-2.jpg","url":"https://studiosayso.com/wp-content/uploads/2023/02/danny-directing-blue-2.jpg","contentUrl":"https://studiosayso.com/wp-content/uploads/2023/02/danny-directing-blue-2.jpg","width":"2000","height":"1017","inLanguage":"en-US"}]}
 lastmod: "2023-03-27T19:04:04-04:00"
 ---
-<section
-    class="main-carousel w-screen h-fit [&_.flickity-page-dots]:mb-10 xl:[&_.flickity-page-dots]:mb-20 [&_.is-selected]:!bg-white [&_.dot]:border [&_.dot]:border-white [&_.dot]:bg-transparent [&_.dot]:!opacity-100 [&_.flickity-button]:mt-20 [&_path]:fill-white [&_.flickity-button:hover]:bg-[rgba(0,0,0,0.2)] [&_.flickity-button]:mx-8"
-    data-flickity='{ "fade": true, "selectedAttraction": 0.03, "draggable": false, "wrapAround": true }'><div
-            class="w-screen min-h-screen carousel-cell"
+<section class="main-carousel splide w-screen h-fit" data-splide='{"type":"fade","rewind":true,"drag":false,"speed":600,"pagination":true,"arrows":true,"autoHeight":true}'>
+<div class="splide__track">
+<div class="splide__list">
+<div
+            class="w-screen min-h-screen splide__slide"
             style="background-image: url(/wp-content/uploads/2023/02/adventhealth.png); background-position: center; background-size: cover;"><div class="w-full flex flex-col items-center min-h-screen px-5 lg:px-20 gap-8"><div class="custom-container text-transparent text-center mt-40"><h1 class="font-display text-5xl md:text-6xl mx-auto max-w-[20ch] mb-8">Some of the emotions 
 we’ve instilled. </h1><h2 class="max-w-[72ch] mx-auto">Great stories make people feel. They form a bond, and the value of that bond sticks. 
 Watch some of the stories we’ve told, and feel some of the connections we’ve inspired. </h2></div><a
                     href="/work/adventhealth/"
                     class="aspect-[500_/_300] w-full max-w-[650px] relative z-10 mt-3 mx-20"
-                    style="background-image: url(/wp-content/uploads/2023/02/adventhealth.png); background-position: center; background-size: cover;"></a><div class="text-center text-white relative z-20 pb-24"><a href="/work/adventhealth/"><h2 class="text-4xl md:text-5xl font-display mt-3">AdventHealth</h2></a><a href="/work/adventhealth/"><h2 class="text-[28px]">Case Study</h2></a></div><div class="absolute w-full h-full top-0 right-0 bg-siteBackground content-space z-0 opacity-50 duration-300 group-hover:opacity-0"></div></div></div><div
-            class="w-screen min-h-screen carousel-cell"
+                    style="background-image: url(/wp-content/uploads/2023/02/adventhealth.png); background-position: center; background-size: cover;"></a><div class="text-center text-white relative z-20 pb-24"><a href="/work/adventhealth/"><h2 class="text-4xl md:text-5xl font-display mt-3">AdventHealth</h2></a><a href="/work/adventhealth/"><h2 class="text-[28px]">Case Study</h2></a></div><div class="absolute w-full h-full top-0 right-0 bg-siteBackground content-space z-0 opacity-50 duration-300 group-hover:opacity-0"></div></div></div>
+<div
+            class="w-screen min-h-screen splide__slide"
             style="background-image: url(/wp-content/uploads/2023/02/rollins.png); background-position: center; background-size: cover;"><div class="w-full flex flex-col items-center min-h-screen px-5 lg:px-20 gap-8"><div class="custom-container text-transparent text-center mt-40"><h2 class="font-display text-5xl md:text-6xl mx-auto max-w-[20ch] mb-8">Some of the emotions 
 we’ve instilled. </h2><h2 class="max-w-[72ch] mx-auto">Great stories make people feel. They form a bond, and the value of that bond sticks. 
 Watch some of the stories we’ve told, and feel some of the connections we’ve inspired. </h2></div><a
                     href="/work/rollins-college/"
                     class="aspect-[500_/_300] w-full max-w-[650px] relative z-10 mt-3 mx-20"
-                    style="background-image: url(/wp-content/uploads/2023/02/rollins.png); background-position: center; background-size: cover;"></a><div class="text-center text-white relative z-20 pb-24"><a href="/work/rollins-college/"><h2 class="text-4xl md:text-5xl font-display mt-3">Rollins College</h2></a><a href="/work/rollins-college/"><h2 class="text-[28px]">Case Study</h2></a></div><div class="absolute w-full h-full top-0 right-0 bg-siteBackground content-space z-0 opacity-50 duration-300 group-hover:opacity-0"></div></div></div><div
-            class="w-screen min-h-screen carousel-cell"
+                    style="background-image: url(/wp-content/uploads/2023/02/rollins.png); background-position: center; background-size: cover;"></a><div class="text-center text-white relative z-20 pb-24"><a href="/work/rollins-college/"><h2 class="text-4xl md:text-5xl font-display mt-3">Rollins College</h2></a><a href="/work/rollins-college/"><h2 class="text-[28px]">Case Study</h2></a></div><div class="absolute w-full h-full top-0 right-0 bg-siteBackground content-space z-0 opacity-50 duration-300 group-hover:opacity-0"></div></div></div>
+<div
+            class="w-screen min-h-screen splide__slide"
             style="background-image: url(/wp-content/uploads/2023/02/campbellsville-01.png); background-position: center; background-size: cover;"><div class="w-full flex flex-col items-center min-h-screen px-5 lg:px-20 gap-8"><div class="custom-container text-transparent text-center mt-40"><h2 class="font-display text-5xl md:text-6xl mx-auto max-w-[20ch] mb-8">Some of the emotions 
 we’ve instilled. </h2><h2 class="max-w-[72ch] mx-auto">Great stories make people feel. They form a bond, and the value of that bond sticks. 
 Watch some of the stories we’ve told, and feel some of the connections we’ve inspired. </h2></div><a
                     href="/work/wiley-campbellsville/"
                     class="aspect-[500_/_300] w-full max-w-[650px] relative z-10 mt-3 mx-20"
                     style="background-image: url(/wp-content/uploads/2023/02/campbellsville-01.png); background-position: center; background-size: cover;"></a><div class="text-center text-white relative z-20 pb-24"><a href="/work/wiley-campbellsville/"><h2 class="text-4xl md:text-5xl font-display mt-3">Wiley Education | Campbellsville University
-</h2></a><a href="/work/wiley-campbellsville/"><h2 class="text-[28px]">Case Study</h2></a></div><div class="absolute w-full h-full top-0 right-0 bg-siteBackground content-space z-0 opacity-50 duration-300 group-hover:opacity-0"></div></div></div></section><div class="text-center absolute top-0 text-white w-full mt-40"><div class="custom-container"><h2 class="font-display text-5xl md:text-6xl mx-auto max-w-[20ch] mb-8">Some of the emotions 
+</h2></a><a href="/work/wiley-campbellsville/"><h2 class="text-[28px]">Case Study</h2></a></div><div class="absolute w-full h-full top-0 right-0 bg-siteBackground content-space z-0 opacity-50 duration-300 group-hover:opacity-0"></div></div></div>
+</div>
+</div>
+</section><div class="text-center absolute top-0 text-white w-full mt-40"><div class="custom-container"><h2 class="font-display text-5xl md:text-6xl mx-auto max-w-[20ch] mb-8">Some of the emotions 
 we’ve instilled. </h2><h2 class="max-w-[72ch] mx-auto">Great stories make people feel. They form a bond, and the value of that bond sticks. 
 Watch some of the stories we’ve told, and feel some of the connections we’ve inspired. </h2></div></div><section class="text-white mb-28"><div class="text-left mt-48"><h2 class="lg:text-4xl font-display leading-[.95] mb-28 text-center heading-underline">More of Our Work</h2><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-28"><div class="col-span-1 flex flex-col" min-h-full><a
                                     href="https://vimeo.com/339621212/dbbf8e89ac" rel="lightbox"

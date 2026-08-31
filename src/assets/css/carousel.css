@@ -1,0 +1,59 @@
+/* Splide theming for .main-carousel.
+   Reproduces what the Flickity build rendered: white chevrons on a translucent
+   round button, 2rem side / 5rem top margin, and dots 2.5rem clear of the base
+   (5rem at xl). The dot treatment follows the theme's stated intent — white
+   outline, transparent fill, solid white when active — which the prebuilt
+   Tailwind never emitted a rule for. */
+
+.main-carousel .splide__arrow {
+  position: absolute;
+  top: 50%;
+  width: 44px;
+  height: 44px;
+  margin: 5rem 2rem 0;
+  transform: translateY(-50%);
+  /* slides carry a full-bleed overlay; without this the buttons sit under it */
+  z-index: 2;
+  background: hsla(0, 0%, 100%, 0.15);
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.main-carousel .splide__arrow:hover:not(:disabled) { background: rgba(0, 0, 0, 0.2); }
+.main-carousel .splide__arrow:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+.main-carousel .splide__arrow:disabled { opacity: 0.3; cursor: default; }
+.main-carousel .splide__arrow svg { width: 20px; height: 20px; fill: #fff; }
+.main-carousel .splide__arrow--prev { left: 0; }
+.main-carousel .splide__arrow--next { right: 0; }
+
+.main-carousel .splide__pagination {
+  margin-bottom: 2.5rem;
+  padding: 0;
+  gap: 1rem;
+  z-index: 2;
+}
+.main-carousel .splide__pagination__page {
+  width: 10px;
+  height: 10px;
+  margin: 0;
+  background: transparent;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  opacity: 1;
+  transition: background-color 0.2s ease;
+}
+.main-carousel .splide__pagination__page.is-active {
+  background: #fff;
+  transform: none;
+}
+.main-carousel .splide__pagination__page:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+
+@media (min-width: 1440px) {
+  .main-carousel .splide__pagination { margin-bottom: 5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .main-carousel .splide__arrow,
+  .main-carousel .splide__pagination__page { transition: none; }
+}

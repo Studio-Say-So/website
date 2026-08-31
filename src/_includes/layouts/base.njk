@@ -26,12 +26,11 @@
 {{ jsonld | safe }}
 </script>
 {%- endif %}
-
-<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
-<link rel="stylesheet" href="https://unpkg.com/flickity-fade@2/flickity-fade.css">
 <link rel='stylesheet' id='wp-block-library-css' href='/wp-includes/css/dist/block-library/common.min.css?ver=7.0.4' media='all' />
 <link rel='stylesheet' id='responsive-lightbox-swipebox-css' href='/wp-content/plugins/responsive-lightbox/assets/swipebox/swipebox.min.css?ver=1.5.2' media='all' />
 <link rel='stylesheet' id='init_style-css' href='/wp-content/themes/studio-say-so/dist/css/style.css?ver=1.0.0' media='all' />
+<link rel="stylesheet" href="/assets/vendor/splide/splide-core.min.css">
+<link rel="stylesheet" href="/assets/css/carousel.css">
 {%- if extraStyles %}
 {{ extraStyles | safe }}
 {%- endif %}
@@ -323,6 +322,12 @@ var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof H
 {%- if extraScripts %}
 {{ extraScripts | safe }}
 {%- endif %}
+<script src="/assets/vendor/splide/splide.min.js"></script>
+<script>
+document.querySelectorAll(".splide").forEach(function (el) {
+  new Splide(el).mount();
+});
+</script>
 {% include "partials/forms.njk" %}
 </body>
 </html>
