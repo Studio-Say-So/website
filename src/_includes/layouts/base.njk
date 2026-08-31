@@ -31,6 +31,7 @@
 <link rel='stylesheet' id='init_style-css' href='/wp-content/themes/studio-say-so/dist/css/style.css?ver=1.0.0' media='all' />
 <link rel="stylesheet" href="/assets/vendor/splide/splide-core.min.css">
 <link rel="stylesheet" href="/assets/css/carousel.css">
+<link rel="stylesheet" href="/assets/css/wp-inline.css">
 {%- if extraStyles %}
 {{ extraStyles | safe }}
 {%- endif %}
@@ -43,9 +44,7 @@ window.RLG = window.RLG || {}; window.RLG.sanitizeAllowedHosts = ["youtube.com",
 <script id="responsive-lightbox-js-before">
 var rlArgs = {"script":"swipebox","selector":"lightbox","customEvents":"","activeGalleries":true,"animation":true,"hideCloseButtonOnMobile":false,"removeBarsOnMobile":false,"hideBars":true,"hideBarsDelay":5000,"videoMaxWidth":1080,"useSVG":true,"loopAtEnd":false,"woocommerce_gallery":false,"preview":false,"scriptExtension":false};
 </script>
-{%- if headScripts %}
-{{ headScripts | safe }}
-{%- endif %}
+{% include "partials/head-scripts.njk" %}
 
 {% include "partials/tracking-head.njk" %}
 </head>
