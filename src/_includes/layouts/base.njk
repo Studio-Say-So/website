@@ -36,6 +36,12 @@
 {%- if inlineStyles %}
 {{ inlineStyles | safe }}
 {%- endif %}
+<script id="responsive-lightbox-sanitizer-js-before">
+window.RLG = window.RLG || {}; window.RLG.sanitizeAllowedHosts = ["youtube.com","www.youtube.com","youtu.be","vimeo.com","player.vimeo.com"];
+</script>
+<script id="responsive-lightbox-js-before">
+var rlArgs = {"script":"swipebox","selector":"lightbox","customEvents":"","activeGalleries":true,"animation":true,"hideCloseButtonOnMobile":false,"removeBarsOnMobile":false,"hideBars":true,"hideBarsDelay":5000,"videoMaxWidth":1080,"useSVG":true,"loopAtEnd":false,"woocommerce_gallery":false,"preview":false,"scriptExtension":false};
+</script>
 {%- if headScripts %}
 {{ headScripts | safe }}
 {%- endif %}
