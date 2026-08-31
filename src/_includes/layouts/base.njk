@@ -1,82 +1,69 @@
 <!DOCTYPE html>
 <html lang="en-US">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{{ title }}</title>
-{%- if description %}
-<meta name="description" content="{{ description }}">
-{%- endif %}
-{%- if build.preview %}
-<meta name="robots" content="noindex, nofollow">
-{%- elif robots %}
-<meta name="robots" content="{{ robots }}">
-{%- endif %}
-{%- if canonical %}
-<link rel="canonical" href="{{ canonical }}">
-{%- endif %}
-{%- if ogTags %}
-{{ ogTags | safe }}
-{%- endif %}
-{%- if twitterTags %}
-{{ twitterTags | safe }}
-{%- endif %}
-{%- if jsonld %}
-<script type="application/ld+json">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      {{ title }}
+    </title>
+    {%- if description %}
+    <meta name="description" content="{{ description }}">
+    {%- endif %} {%- if build.preview %}
+    <meta name="robots" content="noindex, nofollow">
+    {%- elif robots %}
+    <meta name="robots" content="{{ robots }}">
+    {%- endif %} {%- if canonical %}
+    <link rel="canonical" href="{{ canonical }}">
+    {%- endif %} {%- if ogTags %} {{ ogTags | safe }} {%- endif %} {%- if twitterTags %} {{ twitterTags | safe }} {%- endif %} {%- if jsonld %}
+    <script type="application/ld+json">
 {{ jsonld | safe }}
 </script>
-{%- endif %}
-<link rel='stylesheet' id='wp-block-library-css' href='/wp-includes/css/dist/block-library/common.min.css?ver=7.0.4' media='all' />
-<link rel='stylesheet' id='responsive-lightbox-swipebox-css' href='/wp-content/plugins/responsive-lightbox/assets/swipebox/swipebox.min.css?ver=1.5.2' media='all' />
-<link rel='stylesheet' id='init_style-css' href='/wp-content/themes/studio-say-so/dist/css/style.css?ver=1.0.0' media='all' />
-<link rel="stylesheet" href="/assets/vendor/splide/splide-core.min.css">
-<link rel="stylesheet" href="/assets/css/carousel.css">
-<link rel="stylesheet" href="/assets/css/wp-inline.css">
-{%- if extraStyles %}
-{{ extraStyles | safe }}
-{%- endif %}
-{%- if inlineStyles %}
-{{ inlineStyles | safe }}
-{%- endif %}
-<script id="responsive-lightbox-sanitizer-js-before">
+    {%- endif %}
+    <link rel='stylesheet' id='wp-block-library-css' href='/wp-includes/css/dist/block-library/common.min.css?ver=7.0.4' media='all' />
+    <link rel='stylesheet' id='responsive-lightbox-swipebox-css' href='/wp-content/plugins/responsive-lightbox/assets/swipebox/swipebox.min.css?ver=1.5.2' media='all' />
+    <link rel='stylesheet' id='init_style-css' href='/wp-content/themes/studio-say-so/dist/css/style.css?ver=1.0.0' media='all' />
+    <link rel="stylesheet" href="/assets/vendor/splide/splide-core.min.css">
+    <link rel="stylesheet" href="/assets/css/carousel.css">
+    <link rel="stylesheet" href="/assets/css/wp-inline.css">
+    {%- if extraStyles %} {{ extraStyles | safe }} {%- endif %} {%- if inlineStyles %} {{ inlineStyles | safe }} {%- endif %}
+    <script id="responsive-lightbox-sanitizer-js-before">
 window.RLG = window.RLG || {}; window.RLG.sanitizeAllowedHosts = ["youtube.com","www.youtube.com","youtu.be","vimeo.com","player.vimeo.com"];
 </script>
-<script id="responsive-lightbox-js-before">
+    <script id="responsive-lightbox-js-before">
 var rlArgs = {"script":"swipebox","selector":"lightbox","customEvents":"","activeGalleries":true,"animation":true,"hideCloseButtonOnMobile":false,"removeBarsOnMobile":false,"hideBars":true,"hideBarsDelay":5000,"videoMaxWidth":1080,"useSVG":true,"loopAtEnd":false,"woocommerce_gallery":false,"preview":false,"scriptExtension":false};
 </script>
-{% include "partials/head-scripts.njk" %}
-
-{% include "partials/tracking-head.njk" %}
-</head>
-
-<body class="{{ bodyClass }}">
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MTNM6RS"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WCVH3JXN"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) --><main class="relative" style="overflow-x:hidden;" >
-<header id="header" class="text-white py-8 fixed w-screen z-50 bg-transparent transition-colors duration-500 bg-opacity-75">
+    {% include "partials/head-scripts.njk" %} {% include "partials/tracking-head.njk" %}
+  </head>
+  <body class="{{ bodyClass }}">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MTNM6RS"
+height="0" width="0" style="display:none;visibility:hidden">
+      </iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WCVH3JXN"
+height="0" width="0" style="display:none;visibility:hidden">
+      </iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <main class="relative" style="overflow-x:hidden;" >
+      <header id="header" class="text-white py-8 fixed w-screen z-50 bg-transparent transition-colors duration-500 bg-opacity-75">
         <nav id="nav-menu" class="w-screen h-screen absolute z-10 bg-colorAccent-700 close top-0 right-0 
                 transition duration-500 flex flex-col items-center justify-center gap-6 lg:gap-10 text-4xl lg:text-[66px] font-bold pb-10 lg:pb-0">
-            <a class="hover:scale-105 duration-300 transition-transform" href="/work/">Work</a><a class="hover:scale-105 duration-300 transition-transform" href="/industries/">Industries</a><a class="hover:scale-105 duration-300 transition-transform" href="/about-us/">About Us</a><a class="hover:scale-105 duration-300 transition-transform" href="/contact-us/">Contact Us</a>        </nav>
-
+          <a class="hover:scale-105 duration-300 transition-transform" href="/work/">Work</a><a class="hover:scale-105 duration-300 transition-transform" href="/industries/">Industries</a><a class="hover:scale-105 duration-300 transition-transform" href="/about-us/">About Us</a><a class="hover:scale-105 duration-300 transition-transform" href="/contact-us/">Contact Us</a>
+        </nav>
         <div class="px-6 md:px-12 grid grid-cols-3 items-center relative z-30">
-            <!-- Logo Icon -->
-            <a class="flex justify-start items-center" href="/">
-                <img src="/wp-content/uploads/2022/12/footer-logo.svg" class="attachment-full size-full" alt="Studio Say So" decoding="async" />            </a>
-
-            <!-- Logo Text -->
-            <a class="flex justify-center items-center" href="/">
-                <img src="/wp-content/uploads/2022/12/footer-logo-text.svg" class="attachment-full size-full" alt="" decoding="async" />            </a>
-
-            <!-- Hamburger Icon -->
-            <div class="flex justify-end items-center">
-                <button id="hamburger" class="cursor-pointer">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="18" viewBox="0 0 25 18">
+          <!-- Logo Icon -->
+          <a class="flex justify-start items-center" href="/"> <img src="/wp-content/uploads/2022/12/footer-logo.svg" class="attachment-full size-full" alt="Studio Say So" decoding="async" /> </a>
+          <!-- Logo Text -->
+          <a class="flex justify-center items-center" href="/"> <img src="/wp-content/uploads/2022/12/footer-logo-text.svg" class="attachment-full size-full" alt="" decoding="async" /> </a>
+          <!-- Hamburger Icon -->
+          <div class="flex justify-end items-center">
+            <button id="hamburger" class="cursor-pointer">
+              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="18" viewBox="0 0 25 18">
                         <g id="Group_5" data-name="Group 5" transform="translate(-306.5 -123.5)">
                             <line id="Line_1" data-name="Line 1" x2="16" transform="translate(315.5 124.5)" fill="none" stroke="#fff"
                                 stroke-width="2" />
@@ -86,53 +73,74 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 stroke-width="2" />
                         </g>
                     </svg>
-                </button>
-            </div>
+            </button>
+          </div>
         </div>
-    </header>
-
-{{ content | safe }}
-
-<footer class="border-t-colorWhite border-t py-12 px-6 md:px-12 md:py-16 bg-siteBackground">
-    <div class=" text-white">
-        <div class="flex flex-col md:flex-row text-xl gap-10 md:gap-2">
+      </header>
+      {{ content | safe }}
+      <footer class="border-t-colorWhite border-t py-12 px-6 md:px-12 md:py-16 bg-siteBackground">
+        <div class=" text-white">
+          <div class="flex flex-col md:flex-row text-xl gap-10 md:gap-2">
             <!-- Logo and address -->
             <div class="flex flex-col md:flex-row gap-4 md:flex-1">
-                <div class="-mt-4"><img src="/wp-content/uploads/2022/12/footer-logo.svg" class="attachment-full size-full" alt="Studio Say So" decoding="async" loading="lazy" /></div><div class="flex-1 space-y-6"><div class="pt-1.5"><img src="/wp-content/uploads/2022/12/footer-logo-text.svg" class="attachment-full size-full" alt="" decoding="async" loading="lazy" /></div><div class="text-colorAccent-400 text-lg"><p><a href="https://www.google.com/maps/place/Studio+Say+So,+Inc./@28.5528741,-81.3826884,17z/data=!3m1!4b1!4m5!3m4!1s0x88e77b1857055a6d:0x4ee61473aa4e10c7!8m2!3d28.5528741!4d-81.3804997" target="_blank" rel="noopener">62 West Colonial Dr.<br />
-Suite 305<br />
-Orlando, FL 32801</a></p>
-</div></div>            </div>
-
-            <div class="flex md:flex-1 flex-col md:flex-row md:ml-auto gap-12 lg:gap-20 justify-between md:justify-end min-w-fit">
-                <!-- Footer Navigation 1 -->
-                <ul class="space-y-4">
-                    <li><a href="/industries/healthcare/">Healthcare</a></li><li><a href="/industries/finance/">Finance</a></li><li><a href="/industries/education/">Education</a></li>                </ul>
-
-                <!-- Footer Navigation 2 -->
-                <ul class="space-y-4">
-                    <li><a href="/work/">Work</a></li><li><a href="/about-us/">About Us</a></li><li><a href="/privacy-policy/">Privacy Policy</a></li>                </ul>
-
-                <!-- Contact -->
-                <div class="space-y-4 text-colorAccent-400">
-                    <a href="/contact-us/">Contact Us</a>
-                    <p>407-839-6452</p>
+              <div class="-mt-4">
+                <img src="/wp-content/uploads/2022/12/footer-logo.svg" class="attachment-full size-full" alt="Studio Say So" decoding="async" loading="lazy" />
+              </div>
+              <div class="flex-1 space-y-6">
+                <div class="pt-1.5">
+                  <img src="/wp-content/uploads/2022/12/footer-logo-text.svg" class="attachment-full size-full" alt="" decoding="async" loading="lazy" />
                 </div>
+                <div class="text-colorAccent-400 text-lg">
+                  <p>
+                    <a href="https://www.google.com/maps/place/Studio+Say+So,+Inc./@28.5528741,-81.3826884,17z/data=!3m1!4b1!4m5!3m4!1s0x88e77b1857055a6d:0x4ee61473aa4e10c7!8m2!3d28.5528741!4d-81.3804997" target="_blank" rel="noopener">62 West Colonial Dr.<br /> Suite 305<br /> Orlando, FL 32801</a>
+                  </p>
+                </div>
+              </div>
             </div>
+            <div class="flex md:flex-1 flex-col md:flex-row md:ml-auto gap-12 lg:gap-20 justify-between md:justify-end min-w-fit">
+              <!-- Footer Navigation 1 -->
+              <ul class="space-y-4">
+                <li>
+                  <a href="/industries/healthcare/">Healthcare</a>
+                </li>
+                <li>
+                  <a href="/industries/finance/">Finance</a>
+                </li>
+                <li>
+                  <a href="/industries/education/">Education</a>
+                </li>
+              </ul>
+              <!-- Footer Navigation 2 -->
+              <ul class="space-y-4">
+                <li>
+                  <a href="/work/">Work</a>
+                </li>
+                <li>
+                  <a href="/about-us/">About Us</a>
+                </li>
+                <li>
+                  <a href="/privacy-policy/">Privacy Policy</a>
+                </li>
+              </ul>
+              <!-- Contact -->
+              <div class="space-y-4 text-colorAccent-400">
+                <a href="/contact-us/">Contact Us</a>
+                <p>
+                  407-839-6452
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Copyright -->
+          <div class="mt-8 md:ml-16">
+            <span>&copy;2026 Studio Say So. All rights reserved.</span>
+          </div>
         </div>
-
-        <!-- Copyright -->
-        <div class="mt-8 md:ml-16">
-            <span>&copy;2026 Studio Say So. All rights reserved.</span>        </div>
-    </div>
-
-</footer>
-</main>
-
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script> -->
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script> -->
-
-
-<script>
+      </footer>
+    </main>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script> -->
+    <script>
     const header = document.getElementById('header');
     const hamburgerIcon = document.getElementById('hamburger');
     const navPlayButton = document.getElementById('nav-play-button');
@@ -306,20 +314,17 @@ Orlando, FL 32801</a></p>
         })
     });
 </script>
-
-<script type="speculationrules">
+    <script type="speculationrules">
 {"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/studio-say-so/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
 </script>
-{%- if extraScripts %}
-{{ extraScripts | safe }}
-{%- endif %}
-<script src="/assets/vendor/splide/splide.min.js"></script>
-<script>
+    {%- if extraScripts %} {{ extraScripts | safe }} {%- endif %}
+    <script src="/assets/vendor/splide/splide.min.js"></script>
+    <script>
 document.querySelectorAll(".splide").forEach(function (el) {
   el.splide = new Splide(el);
   el.splide.mount();
 });
 </script>
-{% include "partials/forms.njk" %}
-</body>
+    {% include "partials/forms.njk" %}
+  </body>
 </html>
