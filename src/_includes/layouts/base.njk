@@ -325,7 +325,8 @@ var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof H
 <script src="/assets/vendor/splide/splide.min.js"></script>
 <script>
 document.querySelectorAll(".splide").forEach(function (el) {
-  new Splide(el).mount();
+  el.splide = new Splide(el);
+  el.splide.mount();
 });
 </script>
 {% include "partials/forms.njk" %}

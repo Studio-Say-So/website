@@ -25,7 +25,7 @@
 .main-carousel .splide__arrow:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
 .main-carousel .splide__arrow:disabled { opacity: 0.3; cursor: default; }
 
-.main-carousel .splide__arrow-icon {
+.main-carousel .splide__arrow svg {
   position: absolute;
   left: 20%;
   top: 20%;
