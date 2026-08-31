@@ -114,28 +114,57 @@ Remove Slick, MetaSlider, Soliloquy and Smart Slider assets; port the
 Ordered by the audit's impact ÷ effort ranking, so the log reads as the
 remediation plan:
 
-| # | Commit | Audit finding |
+| # | Commit | Status |
 |---|---|---|
-| 1 | `feat(nav): add Industries to primary navigation` | Link equity — P1 |
-| 2 | `feat(industries): add /industries/ hub page` | `/industries/` 404 — P1 |
-| 3 | `fix(schema): point breadcrumbs at the live hub URL` | `?page_id=14` — P1 |
-| 4 | `feat(schema): add FAQPage markup to industry pages` | 9 unmarked FAQs — P1 |
-| 5 | `fix(schema): replace the boldist author entity` | vendor username — P1 |
-| 6 | `fix(schema): type the business as ProfessionalService` | generic Organization — P2 |
-| 7 | `fix(schema): use a real primary image, not the favicon` | 192px favicon — P2 |
-| 8 | `fix(a11y): add alt text to all images` | 121 of 131 — P1 |
-| 9 | `perf: drop the duplicate jQuery and unused lightbox bundle` | dead weight — P1 |
-| 10 | `fix(analytics): consolidate to one GTM container` | 2× GTM + pixel — P1 |
-| 11 | `chore: remove the Marker.io QA snippet` | left in production |
-| 12 | `fix(seo): noindex the lead form and thank-you pages` | orphans — P2 |
-| 13 | `fix(content): correct heading order on home and work` | H2-before-H1, 8×H1 — P2 |
-| 14 | `fix(seo): rewrite the privacy policy meta description` | WP placeholder — P3 |
-| 15 | `fix(nav): link /contact-us/ directly from the footer` | 301 hop — P3 |
-| 16 | `feat(forms): wire contact forms to the Cloudflare Worker` | Gravity Forms |
+| 1 | `feat(industries): add /industries/ hub page` | done |
+| 2 | `fix(schema): point breadcrumbs at the live hub URL` | done |
+| 3 | `feat(nav): add Industries to primary navigation` | done |
+| 4 | `feat(schema): add FAQPage markup to industry pages` | done |
+| 5 | `fix(schema): remove the boldist author entity` | done |
+| 6 | `fix(schema): type the business as ProfessionalService` | done |
+| 7 | `fix(a11y): add alt text to every image` | done |
+| 8 | `chore: remove the Marker.io QA snippet` | done |
+| 9 | `perf: remove the duplicate third-party jQuery` | done |
+| 10 | `fix(seo): noindex the lead form and thank-you pages` | done |
+| 11 | `fix(seo): replace the placeholder privacy description` | done |
+| 12 | `fix(nav): link the footer straight to /contact-us/` | done |
+| 13 | `fix(seo): keep /contact reachable after the migration` | done |
+| 14 | `fix(content): correct heading hierarchy` | done |
+| 15 | `fix(schema): use a real primary image, not the favicon` | **open** |
+| 16 | `fix(analytics): consolidate tag containers` | **blocked** |
+| 17 | `feat(forms): wire contact forms to the Cloudflare Worker` | **open** |
 
-Content-authoring items from the audit — service pages, `VideoObject` markup and
-transcripts, naming the founders on About — need Studio Say So's input and are
-not in this plan.
+### Open items and why
+
+**15 — primary image.** Every page still declares the 192x192 favicon as
+`primaryImageOfPage` and as the Article `image`, which disqualifies all of them
+from image-bearing rich results. Fixing it needs a real representative image
+chosen per page; the case-study pages have obvious candidates, the service
+pages do not.
+
+**16 — analytics.** Blocked on a decision, not on work. Two GTM containers
+(`GTM-MTNM6RS`, `GTM-WCVH3JXN`) plus a direct Facebook Pixel
+(`688292446778861`) fire on every page. Removing the wrong container would
+silently break whatever reporting is live, so this needs someone to confirm
+which is current before anything is deleted.
+
+**17 — forms.** Contact and lead-form markup is intact but inert. Needs the
+Worker endpoint plus Turnstile.
+
+### Also outstanding, needs Studio Say So
+
+- **Flickity licensing.** Dual-licensed GPLv3-or-commercial and used on a
+  commercial site. Currently loaded from unpkg, so nothing GPL is redistributed
+  in this repo, but the site is using it either way. Either buy the commercial
+  licence from Metafizzy or swap the two carousels for an MIT library.
+- **awards-2.svg** — an unidentified award emblem, currently described
+  generically in alt text.
+- **Organization facts** — email, founding date, price range and opening hours
+  were left out of schema rather than invented. All four are worth adding once
+  confirmed.
+- Content work from the audit: service pages, `VideoObject` markup and
+  transcripts, naming the founders on About.
+
 
 ## Verification, per Albert's loop
 
