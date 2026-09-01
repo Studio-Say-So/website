@@ -1,7 +1,7 @@
 {%- if canonical %}
     <meta property="og:locale" content="en_US">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="{{ title }}">
+    <meta property="og:title" content="{{ pageTitle }}">
     {%- if description %}
     <meta property="og:description" content="{{ description }}">
     {%- endif %}
@@ -21,7 +21,7 @@
     <meta property="og:image:type" content="{{ schema.image.url | mimeType }}">
     {%- endif %}
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{ title }}">
+    <meta name="twitter:title" content="{{ pageTitle }}">
     {%- if description %}
     <meta name="twitter:description" content="{{ description }}">
     {%- endif %}

@@ -1,5 +1,6 @@
 import { HtmlBasePlugin } from "@11ty/eleventy";
-import eleventyComputed from "./lib/jsonld.js";
+import jsonldComputed from "./lib/jsonld.js";
+import titleComputed from "./lib/title.js";
 import faq from "./lib/faq.js";
 import site from "./lib/site.js";
 
@@ -12,7 +13,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addPlugin(HtmlBasePlugin);
 
   // Eleventy does not pick up _data/eleventyComputed.js here; register it explicitly.
-  eleventyConfig.addGlobalData("eleventyComputed", eleventyComputed);
+  eleventyConfig.addGlobalData("eleventyComputed", { ...titleComputed, ...jsonldComputed });
   eleventyConfig.addGlobalData("faq", faq);
   eleventyConfig.addGlobalData("site", site);
 
