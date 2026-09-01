@@ -13,11 +13,19 @@ WordPress site.
 2. Add `src/CNAME` containing `studiosayso.com`.
 3. Point DNS at GitHub Pages (A/AAAA records, or CNAME to
    `studio-say-so.github.io`).
-4. Redirect `/wp-content/uploads/*` to `/assets/img/*` (and `SSSreel.mp4` to
-   `/assets/video/`). Media moved out of the WordPress tree, and those old URLs
-   are what Facebook, LinkedIn and any third-party embeds hold for the social
-   card images. GitHub Pages cannot 301, so this needs Cloudflare in front —
-   the same thing the forms Worker wants.
+4. Redirect `/wp-content/uploads/*` to `/assets/img/*`. Media moved out of the
+   WordPress tree, and those old URLs are what Facebook, LinkedIn and any
+   third-party embeds hold for the social card images.
+5. Redirect `/wp-content/uploads/2023/02/SSSreel.mp4` to
+   `https://vimeo.com/801605518`. That file is live on WordPress today and is
+   linked from its homepage, but it is a watermarked 20-second cut and is no
+   longer in this repo; Vimeo holds the clean 76-second reel.
+6. Redirect `/blog/` to `/`. It is `index, follow` on WordPress and sits in its
+   `post-sitemap.xml`, so it may be indexed, but it never had a post and has
+   been removed here.
+
+GitHub Pages cannot 301, so steps 4-6 need Cloudflare in front — the same thing
+the forms Worker wants.
 
 The sources are written root-relative for the real domain; `HtmlBasePlugin`
 rewrites them for the subpath preview, so nothing in `src/` changes between the
@@ -96,12 +104,16 @@ before it sees real traffic.
 
 ## Known debt
 
-- `SSSreel.mp4` is 11 MB in-repo. Fine against the 1 GB limit, but it belongs on
-  R2 or a CDN before the media library grows.
+- `SSSreel-bg.mp4` is 2 MB in-repo — the hero background, cropped to the mask
+  and greyscale. The 11 MB full reel is gone; the player embeds Vimeo.
+- That background copy still carries the VEED.IO watermark burned into its
+  source, though the flower mask crops it out of frame. An unwatermarked master
+  would let it be re-cut from anywhere.
 - Dead front-end libraries carried over in the baseline so their removal is a
   reviewable diff: three unused slider plugins, a duplicate jQuery, and the
   Responsive Lightbox bundle. See `plan.md`.
-- No sitemap generation, no linter.
+- No linter. `tools/check-build.sh` compares against a baseline path that is
+  session-specific, so it reports every page as differing until re-baselined.
 
 `plan.md` holds the full migration plan and the ordered list of remaining fixes,
 each traced to a finding in the SEO audit.
