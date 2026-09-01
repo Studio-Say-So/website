@@ -445,3 +445,8 @@ line-height:54px;
    flex-direction: column;
 }
 }
+
+/* The one rule kept from wp-includes block-library. */
+.aligncenter {
+  clear: both;
+}

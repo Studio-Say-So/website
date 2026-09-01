@@ -19,8 +19,6 @@
 {{ jsonld | safe }}
 </script>
     {%- endif %}
-    <link rel='stylesheet' id='wp-block-library-css' href='/wp-includes/css/dist/block-library/common.min.css?ver=7.0.4' media='all' />
-    <link rel='stylesheet' id='responsive-lightbox-swipebox-css' href='/wp-content/plugins/responsive-lightbox/assets/swipebox/swipebox.min.css?ver=1.5.2' media='all' />
     <link rel='stylesheet' id='init_style-css' href='/wp-content/themes/studio-say-so/dist/css/style.css?ver=1.0.0' media='all' />
     <link rel="stylesheet" href="/assets/vendor/splide/splide-core.min.css">
     <link rel="stylesheet" href="/assets/css/carousel.css">
@@ -28,13 +26,7 @@
     <link rel="apple-touch-icon" href="/wp-content/uploads/2023/02/favicon.png">
     <link rel="stylesheet" href="/assets/css/wp-inline.css">
     {%- if extraStyles %} {{ extraStyles | safe }} {%- endif %} {%- if inlineStyles %} {{ inlineStyles | safe }} {%- endif %}
-    <script id="responsive-lightbox-sanitizer-js-before">
-window.RLG = window.RLG || {}; window.RLG.sanitizeAllowedHosts = ["youtube.com","www.youtube.com","youtu.be","vimeo.com","player.vimeo.com"];
-</script>
-    <script id="responsive-lightbox-js-before">
-var rlArgs = {"script":"swipebox","selector":"lightbox","customEvents":"","activeGalleries":true,"animation":true,"hideCloseButtonOnMobile":false,"removeBarsOnMobile":false,"hideBars":true,"hideBarsDelay":5000,"videoMaxWidth":1080,"useSVG":true,"loopAtEnd":false,"woocommerce_gallery":false,"preview":false,"scriptExtension":false};
-</script>
-    {% include "partials/head-scripts.njk" %} {% include "partials/tracking-head.njk" %}
+    {% include "partials/tracking-head.njk" %}
   </head>
   <body class="{{ bodyClass }}">
     <!-- Google Tag Manager (noscript) -->
@@ -321,7 +313,6 @@ height="0" width="0" style="display:none;visibility:hidden">
     <script type="speculationrules">
 {"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/studio-say-so/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
 </script>
-    {%- if extraScripts %} {{ extraScripts | safe }} {%- endif %}
     <script src="/assets/vendor/splide/splide.min.js"></script>
     <script>
 document.querySelectorAll(".splide").forEach(function (el) {
