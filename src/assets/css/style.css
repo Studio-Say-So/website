@@ -2243,11 +2243,11 @@ div input[type="submit"]:hover{
 }
 
 .mask {
-  -webkit-mask-image: url("../../../../uploads/2023/01/svg-mask.svg");
+  -webkit-mask-image: url("../img/svg-mask.svg");
   -webkit-mask-position: center center;
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-size: contain;
-  mask-image: url("../../../../uploads/2023/01/svg-mask.svg");
+  mask-image: url("../img/svg-mask.svg");
   mask-position: center center;
   mask-repeat: no-repeat;
   mask-size: contain;
