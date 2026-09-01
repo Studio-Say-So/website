@@ -1,0 +1,58 @@
+/* Consent banner. Hidden until the script decides it is needed, so it never
+   flashes for someone who has already chosen. */
+
+.consent {
+  position: fixed;
+  left: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 100;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 1rem 1.25rem;
+  background: #081421;
+  border: 2px solid #9995fa;
+  color: #fff;
+}
+
+.consent__text {
+  margin: 0;
+  max-width: 60ch;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.consent__text a {
+  color: #9995fa;
+  text-decoration: underline;
+}
+
+.consent__actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.consent__button {
+  padding: 0.75rem 1.25rem;
+  background: #9995fa;
+  border: 2px solid #9995fa;
+  color: #081421;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.consent__button--ghost {
+  background: transparent;
+  color: #9995fa;
+}
+
+.consent__button:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}

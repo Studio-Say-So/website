@@ -1,0 +1,12 @@
+{%- if site.gtmId %}
+<div id="consent-banner" class="consent" role="dialog" aria-label="Cookie choices" aria-live="polite" hidden>
+  <p class="consent__text">
+    We use cookies to measure how the site is used and to support our advertising.
+    See our <a href="/privacy-policy/">privacy policy</a>.
+  </p>
+  <div class="consent__actions">
+    <button type="button" data-consent="denied" class="consent__button consent__button--ghost">Decline</button>
+    <button type="button" data-consent="granted" class="consent__button">Accept</button>
+  </div>
+</div>
+{%- endif %}

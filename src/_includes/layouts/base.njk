@@ -26,7 +26,11 @@
     <link rel="icon" href="/assets/img/favicon.png" sizes="192x192">
     <link rel="apple-touch-icon" href="/assets/img/favicon.png">
     <link rel="stylesheet" href="/assets/css/wp-inline.css">
+    {%- if site.gtmId %}
+    <link rel="stylesheet" href="/assets/css/consent.css">
+    {%- endif %}
     {%- if extraStyles %} {{ extraStyles | safe }} {%- endif %} {%- if inlineStyles %} {{ inlineStyles | safe }} {%- endif %}
+    {% include "partials/consent.njk" %}
     {% include "partials/tracking-head.njk" %}
   </head>
   <body{% if bodyClass %} class="{{ bodyClass }}"{% endif %}>
@@ -318,5 +322,6 @@ document.querySelectorAll(".splide").forEach(function (el) {
 </script>
     {% include "partials/lightbox.njk" %}
     {% include "partials/forms.njk" %}
+    {% include "partials/consent-banner.njk" %}
   </body>
 </html>

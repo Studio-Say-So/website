@@ -1,0 +1,52 @@
+{%- if site.gtmId %}
+<script>
+(function () {
+  // Google Consent Mode v2. This must run before the GTM snippet: tags read the
+  // default state at load and queue rather than fire when a signal is denied.
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { window.dataLayer.push(arguments); }
+  window.gtag = window.gtag || gtag;
+
+  var KEY = "sss-consent";
+  var AD = ["ad_storage", "ad_user_data", "ad_personalization"];
+  var ALL = AD.concat(["analytics_storage"]);
+
+  function state(value) {
+    var o = { security_storage: "granted", functionality_storage: "granted" };
+    ALL.forEach(function (k) { o[k] = value; });
+    return o;
+  }
+
+  // Denied by default only where opt-in is required; granted elsewhere so the
+  // US audience, which is the actual market, still reports.
+  var denied = state("denied");
+  denied.wait_for_update = 500;
+  denied.region = [
+    "AT","BE","BG","HR","CY","CZ","DK","EE","FI","FR","DE","GR","HU","IS","IE",
+    "IT","LV","LI","LT","LU","MT","NL","NO","PL","PT","RO","SK","SI","ES","SE",
+    "GB","CH",
+  ];
+  gtag("consent", "default", denied);
+  gtag("consent", "default", state("granted"));
+
+  var saved = null;
+  try { saved = localStorage.getItem(KEY); } catch (e) {}
+  if (saved === "granted" || saved === "denied") {
+    gtag("consent", "update", state(saved));
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    var banner = document.getElementById("consent-banner");
+    if (!banner || saved) return;
+    banner.hidden = false;
+    banner.addEventListener("click", function (e) {
+      var choice = e.target.getAttribute("data-consent");
+      if (!choice) return;
+      try { localStorage.setItem(KEY, choice); } catch (err) {}
+      gtag("consent", "update", state(choice));
+      banner.hidden = true;
+    });
+  });
+})();
+</script>
+{%- endif %}
