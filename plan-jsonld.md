@@ -193,13 +193,16 @@ so making it site-wide would have repeated a false claim on 16 pages.
 12. `fix(meta): name Rollins College on its own social image` — bug #8, found
     during phase 1.
 
-### Phase 3 — single-source the FAQ — **next**
+### Phase 3 — single-source the FAQ — **DONE**
 
-12. `src/_data/faq.js` holds the 27 Q&A with HTML answers; the industry
-    templates render the body from it and the graph derives `text` by stripping
-    tags. Verify the rendered `_site` is byte-identical to phase 2's output —
-    it should be, since the two copies match today.
-13. Commit: `refactor(schema): single-source the industry FAQs`.
+12. `lib/faq.js` holds the 27 Q&A with HTML answers, registered as global data
+    from the config alongside `eleventyComputed`. The industry templates render
+    the body from it with `| slice(2)` — Nunjucks splits 9 into 5 and 4, which
+    is the existing column split — and the graph derives `text` by stripping
+    tags. Output verified byte-identical to phase 2.
+13. `faqKey` sits at the top of the front matter, not inside `schema:`, because
+    it now drives the body as well as the graph.
+14. Commit: `refactor(schema): single-source the industry FAQs`.
 
 ---
 

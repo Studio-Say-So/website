@@ -20,6 +20,7 @@ twitterTags: |
   <meta name="twitter:description" content="Our video production for education allows institutions to broadcast their message, support enrollment and student life, honor your graduates, attract top educators, and teach successfully online. Call Studio Say So for your next education" />
   <meta name="twitter:label1" content="Time to read" />
   <meta name="twitter:data1" content="Less than a minute" />
+faqKey: "education"
 schema:
   type: "WebPage"
   datePublished: "2022-12-21T15:46:34-05:00"
@@ -33,25 +34,6 @@ schema:
     url: "https://studiosayso.com/wp-content/uploads/2023/02/sss-edu-02-scaled-e1675955265915.meta.jpg"
     width: 2521
     height: 1593
-  faq:
-    - q: "What types of educational institutions do you work with?"
-      a: "We’ve worked with a wide variety of educational institutions, including colleges and universities, large state schools, education technology startups, education-focused software companies, educational apps, liberal arts institutions, training and tutorial programs, and small career programs."
-    - q: "What types of videos can you make?"
-      a: "We’ve partnered with universities and colleges large and small to create videos for their internal and external campaigns, including but not limited to commercials, hype videos, fundraising videos, testimonial videos, new student orientation videos, celebratory videos, training videos, internal informational videos, and educational series."
-    - q: "How much do higher education videos cost?"
-      a: "Cost depends heavily on your project and its needs. Our live-action and animated video projects start at $10,000 and go up from there. For an accurate project estimate, get in touch."
-    - q: "How long does it take to complete a video?"
-      a: "A video takes 3 months to produce on average, but it can take more or less time depending on video length and complexity, feedback turnaround time, and the deadlines on your plate."
-    - q: "Can you make animated videos?"
-      a: "Yes, we can create animated, live-action, or combination videos based on your needs and goals. Live action videos are better for connecting with prospective students and donors, while animations can be useful for explaining complex subjects."
-    - q: "What if I don’t know what video(s) I need?"
-      a: "We’ll help you figure it out. We’ve worked with enough higher education clients to look at the challenges you face, understand how video can help, and ultimately design a solution that connects with your target audience to achieve the goals you’ve set for your school."
-    - q: "What if I already have my entire video planned out?"
-      a: "No matter how far along your vision is, we can pick up wherever you left off. While many clients require our advice and story-telling expertise, we’re happy to exist solely as an execution partner if that’s what you need."
-    - q: "What about actors, locations, and props?"
-      a: "If there are specific actors, locations, and props you’d like to use for a video, we can work with your preferences. Otherwise, we handle all of these details ourselves in the pre-production stage of our creative process."
-    - q: "Where can I publish videos once they’re done?"
-      a: "You can publish your video anywhere you want, though we’ll discuss your best options for promotion both pre- and post-production. Proper video distribution is just as important as the video itself, and we want your videos to achieve your goals."
   service:
     name: "Education Video Production"
     serviceType: "Education Video Production"
@@ -286,100 +268,22 @@ lastmod: "2023-03-27T21:57:28-04:00"
         Review our education video production FAQs.
       </h3>
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-32 mb-28 py-12">
+        {%- for column in faq[faqKey] | slice(2) %}
         <div class="grid grid-cols-1 gap-12">
+          {%- for item in column %}
           <div class="">
             <h3 class="text-white font-bold text-[18px]">
-              What types of educational institutions do you work with?
+              {{ item.q }}
             </h3>
             <div class="text-colorText-body">
               <p>
-                We’ve worked with a wide variety of educational institutions, including colleges and universities, large state schools, education technology startups, education-focused software companies, educational apps, liberal arts institutions, training and tutorial programs, and small career programs.
+                {{ item.a | safe }}
               </p>
             </div>
           </div>
-          <div class="">
-            <h3 class="text-white font-bold text-[18px]">
-              What types of videos can you make?
-            </h3>
-            <div class="text-colorText-body">
-              <p>
-                We’ve partnered with universities and colleges large and small to create videos for their internal and external campaigns, including but not limited to commercials, hype videos, fundraising videos, testimonial videos, new student orientation videos, celebratory videos, training videos, internal informational videos, and educational series.
-              </p>
-            </div>
-          </div>
-          <div class="">
-            <h3 class="text-white font-bold text-[18px]">
-              How much do higher education videos cost?
-            </h3>
-            <div class="text-colorText-body">
-              <p>
-                Cost depends heavily on your project and its needs. Our live-action and animated video projects start at $10,000 and go up from there. For an accurate project estimate, <a href="/contact-us/">get in touch.</a>
-              </p>
-            </div>
-          </div>
-          <div class="">
-            <h3 class="text-white font-bold text-[18px]">
-              How long does it take to complete a video?
-            </h3>
-            <div class="text-colorText-body">
-              <p>
-                A video takes 3 months to produce on average, but it can take more or less time depending on video length and complexity, feedback turnaround time, and the deadlines on your plate.
-              </p>
-            </div>
-          </div>
-          <div class="">
-            <h3 class="text-white font-bold text-[18px]">
-              Can you make animated videos?
-            </h3>
-            <div class="text-colorText-body">
-              <p>
-                Yes, we can create animated, live-action, or combination videos based on your needs and goals. Live action videos are better for connecting with prospective students and donors, while animations can be useful for explaining complex subjects.
-              </p>
-            </div>
-          </div>
+          {%- endfor %}
         </div>
-        <div class="grid grid-cols-1 gap-12">
-          <div class="">
-            <h3 class="text-white font-bold text-[18px]">
-              What if I don’t know what video(s) I need?
-            </h3>
-            <div class="text-colorText-body">
-              <p>
-                We’ll help you figure it out. We’ve worked with enough higher education clients to look at the challenges you face, understand how video can help, and ultimately design a solution that connects with your target audience to achieve the goals you’ve set for your school.
-              </p>
-            </div>
-          </div>
-          <div class="">
-            <h3 class="text-white font-bold text-[18px]">
-              What if I already have my entire video planned out?
-            </h3>
-            <div class="text-colorText-body">
-              <p>
-                No matter how far along your vision is, we can pick up wherever you left off. While many clients require our advice and story-telling expertise, we’re happy to exist solely as an execution partner if that’s what you need.
-              </p>
-            </div>
-          </div>
-          <div class="">
-            <h3 class="text-white font-bold text-[18px]">
-              What about actors, locations, and props?
-            </h3>
-            <div class="text-colorText-body">
-              <p>
-                If there are specific actors, locations, and props you’d like to use for a video, we can work with your preferences. Otherwise, we handle all of these details ourselves in the pre-production stage of our creative process.
-              </p>
-            </div>
-          </div>
-          <div class="">
-            <h3 class="text-white font-bold text-[18px]">
-              Where can I publish videos once they’re done?
-            </h3>
-            <div class="text-colorText-body">
-              <p>
-                You can publish your video anywhere you want, though we’ll discuss your best options for promotion both pre- and post-production. Proper video distribution is just as important as the video itself, and we want your videos to achieve your goals.
-              </p>
-            </div>
-          </div>
-        </div>
+        {%- endfor %}
       </div>
     </div>
   </section>

@@ -1,5 +1,6 @@
 import { HtmlBasePlugin } from "@11ty/eleventy";
 import eleventyComputed from "./lib/jsonld.js";
+import faq from "./lib/faq.js";
 
 // "/" for the custom domain; "/website/" for the github.io preview deploy.
 const pathPrefix = process.env.PATH_PREFIX || "/";
@@ -11,6 +12,7 @@ export default function (eleventyConfig) {
 
   // Eleventy does not pick up _data/eleventyComputed.js here; register it explicitly.
   eleventyConfig.addGlobalData("eleventyComputed", eleventyComputed);
+  eleventyConfig.addGlobalData("faq", faq);
 
   // Media and vendored plugin assets keep their WordPress paths so that
   // already-cached OG images and external hotlinks keep resolving.

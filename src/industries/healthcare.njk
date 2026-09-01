@@ -20,6 +20,7 @@ twitterTags: |
   <meta name="twitter:description" content="Medical videos that educate. Heartfelt stories that engage. Check out our video productions specific to healthcare. Have a project? Studio Say So can help! Call us today!" />
   <meta name="twitter:label1" content="Time to read" />
   <meta name="twitter:data1" content="Less than a minute" />
+faqKey: "healthcare"
 schema:
   type: "WebPage"
   datePublished: "2022-12-21T15:45:58-05:00"
@@ -33,25 +34,6 @@ schema:
     url: "https://studiosayso.com/wp-content/uploads/2023/02/Healthcare-e1675869287402.meta.jpg"
     width: 1594
     height: 817
-  faq:
-    - q: "What types of healthcare institutions do you work with?"
-      a: "We’ve worked with all kinds of healthcare organizations, from large hospital networks and specialty care centers to medical technology apps and software."
-    - q: "What types of videos can you make?"
-      a: "We’ve made every video a healthcare organization could need for their internal and external campaigns, including but not limited to TV commercials, testimonial videos, training videos, patient education videos, and social media content."
-    - q: "How much do medical videos cost?"
-      a: "Cost depends heavily on your project and its needs. Our live-action and animated video projects start at $10,000 and go up from there. For an accurate project estimate, get in touch."
-    - q: "How long does it take to complete medical videos?"
-      a: "Project timeline depends on several factors, including how many videos you need, video length and complexity, whether we’re writing your videos from scratch, feedback turnaround time, and the deadlines you’ve provided. On average, a video takes 3 months to produce, but we can take more or less based on your needs."
-    - q: "Do you make animated videos?"
-      a: "Yes, we can create animated, live-action, or combination videos based on your needs and goals. Live action videos are better at humanizing organizations, while animations are great at breaking down complex explanations."
-    - q: "What if I don’t know what video(s) I need?"
-      a: "We’ll help you figure it out. We’ve worked with enough healthcare clients to look at the challenges you face, understand how video can help, and ultimately design a solution that connects with your target audience to achieve the goals you’ve set for your company."
-    - q: "What if I already have the entire video planned out?"
-      a: "No matter how far along your vision is, we can pick up where you left off. While many clients require our advice and story-telling expertise, we’re happy to be an execution partner if that’s all you need."
-    - q: "What about actors, locations, and props?"
-      a: "If there are specific actors, locations, and props you’d like to use for a video, we can work with your preferences. Otherwise, we handle all of these details ourselves in the pre-production stage of our creative process."
-    - q: "Where can I publish my video once it’s done?"
-      a: "You can publish your video anywhere you want, though we’ll discuss your best options for promotion both pre- and post-production. Proper video distribution is just as important as the video itself, and we want your videos to achieve your goals."
   service:
     name: "Healthcare Video Production"
     serviceType: "Healthcare Video Production"
@@ -257,100 +239,22 @@ lastmod: "2023-03-27T21:52:17-04:00"
         Review our healthcare video production FAQs.
       </h3>
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-32 mb-28 py-12">
+        {%- for column in faq[faqKey] | slice(2) %}
         <div class="grid grid-cols-1 gap-12">
+          {%- for item in column %}
           <div class="">
             <h3 class="text-white font-bold text-[18px]">
-              What types of healthcare institutions do you work with?
+              {{ item.q }}
             </h3>
             <div class="text-colorText-body">
               <p>
-                We’ve worked with all kinds of healthcare organizations, from large hospital networks and specialty care centers to medical technology apps and software.
+                {{ item.a | safe }}
               </p>
             </div>
           </div>
-          <div class="">
-            <h3 class="text-white font-bold text-[18px]">
-              What types of videos can you make?
-            </h3>
-            <div class="text-colorText-body">
-              <p>
-                We’ve made every video a healthcare organization could need for their internal and external campaigns, including but not limited to TV commercials, testimonial videos, training videos, patient education videos, and social media content.
-              </p>
-            </div>
-          </div>
-          <div class="">
-            <h3 class="text-white font-bold text-[18px]">
-              How much do medical videos cost?
-            </h3>
-            <div class="text-colorText-body">
-              <p>
-                Cost depends heavily on your project and its needs. Our live-action and animated video projects start at $10,000 and go up from there. For an accurate project estimate, <a href="/contact-us/">get in touch.</a>
-              </p>
-            </div>
-          </div>
-          <div class="">
-            <h3 class="text-white font-bold text-[18px]">
-              How long does it take to complete medical videos?
-            </h3>
-            <div class="text-colorText-body">
-              <p>
-                Project timeline depends on several factors, including how many videos you need, video length and complexity, whether we’re writing your videos from scratch, feedback turnaround time, and the deadlines you’ve provided. On average, a video takes 3 months to produce, but we can take more or less based on your needs.
-              </p>
-            </div>
-          </div>
-          <div class="">
-            <h3 class="text-white font-bold text-[18px]">
-              Do you make animated videos?
-            </h3>
-            <div class="text-colorText-body">
-              <p>
-                Yes, we can create animated, live-action, or combination videos based on your needs and goals. Live action videos are better at humanizing organizations, while animations are great at breaking down complex explanations.
-              </p>
-            </div>
-          </div>
+          {%- endfor %}
         </div>
-        <div class="grid grid-cols-1 gap-12">
-          <div class="">
-            <h3 class="text-white font-bold text-[18px]">
-              What if I don’t know what video(s) I need?
-            </h3>
-            <div class="text-colorText-body">
-              <p>
-                We’ll help you figure it out. We’ve worked with enough healthcare clients to look at the challenges you face, understand how video can help, and ultimately design a solution that connects with your target audience to achieve the goals you’ve set for your company.
-              </p>
-            </div>
-          </div>
-          <div class="">
-            <h3 class="text-white font-bold text-[18px]">
-              What if I already have the entire video planned out?
-            </h3>
-            <div class="text-colorText-body">
-              <p>
-                No matter how far along your vision is, we can pick up where you left off. While many clients require our advice and story-telling expertise, we’re happy to be an execution partner if that’s all you need.
-              </p>
-            </div>
-          </div>
-          <div class="">
-            <h3 class="text-white font-bold text-[18px]">
-              What about actors, locations, and props?
-            </h3>
-            <div class="text-colorText-body">
-              <p>
-                If there are specific actors, locations, and props you’d like to use for a video, we can work with your preferences. Otherwise, we handle all of these details ourselves in the pre-production stage of our creative process.
-              </p>
-            </div>
-          </div>
-          <div class="">
-            <h3 class="text-white font-bold text-[18px]">
-              Where can I publish my video once it’s done?
-            </h3>
-            <div class="text-colorText-body">
-              <p>
-                You can publish your video anywhere you want, though we’ll discuss your best options for promotion both pre- and post-production. Proper video distribution is just as important as the video itself, and we want your videos to achieve your goals.
-              </p>
-            </div>
-          </div>
-        </div>
+        {%- endfor %}
       </div>
     </div>
   </section>
