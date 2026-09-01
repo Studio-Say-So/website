@@ -26,8 +26,16 @@
       fetch(endpoint, { method: "POST", body: data })
         .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
         .then(function (res) {
-          if (res.ok) { form.reset(); say("Thanks — we'll be in touch shortly.", true); }
-          else say(res.d.error || "Something went wrong. Please call " + phone + ".", false);
+          if (res.ok) {
+            form.reset();
+            say("Thanks — we'll be in touch shortly.", true);
+            // GA4 listens for this event; the Ads conversion is keyed to /thankyou-page/.
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({ event: "form_submit", form_id: form.dataset.formid });
+            setTimeout(function () { window.location.href = "/thankyou-page/"; }, 400);
+            return;
+          }
+          say(res.d.error || "Something went wrong. Please call " + phone + ".", false);
         })
         .catch(function () { say("Network error. Please call " + phone + ".", false); })
         .finally(function () { if (button) { button.disabled = false; button.value = "SUBMIT"; } });
