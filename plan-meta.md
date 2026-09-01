@@ -16,7 +16,7 @@ proved the fields overlap. The JSON-LD work is done, so this is next.
 | `og:url` | `canonical` |
 | `og:updated_time` | `schema.dateModified` |
 | `og:image*`, `twitter:image` | `schema.image` — url, width, height, and `caption` for the alt |
-| `og:type` | not derivable — `website` on the three hub pages, `article` on the other 13 |
+| `og:type` | a constant — see below; it was `article` on 13 pages and `website` on three |
 | `twitter:label1`/`data1` | not derivable — a reading time, 13× "Less than a minute", 1× "3 minutes" |
 
 Only two fields are genuinely per-page. Everything else is a restatement.
@@ -46,9 +46,16 @@ blocks from `title`, `description`, `canonical`, `schema`, and two new
 per-page fields:
 
 ```yaml
-ogType: "article"          # or "website"
 readingTime: "3 minutes"   # omitted where the page has none
 ```
+
+`og:type` started as a per-page `ogType` field and ended up a constant. Thirteen
+pages declared `article` while supplying no `article:*` property, and the site
+has no articles — no posts anywhere in the repo, and `/blog/` is a noindex
+placeholder. The case studies were the only arguable ones, and the schema
+already calls them `CreativeWork` rather than `Article`; declaring `article` in
+Open Graph would put the two vocabularies in disagreement about the same page.
+Nothing renders differently either way, so this is correctness, not traffic.
 
 `ogTags` and `twitterTags` come out of front matter entirely.
 
@@ -79,8 +86,9 @@ commit below should show exactly its own intended additions and no others.
 
 ## Not in scope
 
-- **Re-classifying `og:type`.** `article` on the contact and privacy pages is
-  Rank Math's default and arguably wrong, but it is a content judgment, not a
-  bug. Values carry over unchanged.
+- **`twitter:label1`/`data1`.** The other Rank Math leftover: X stopped
+  rendering the label/data pair in cards years ago, so the 14 reading-time
+  strings are inert. Same class of decision as `og:type`, but removing them
+  deletes content rather than correcting it, so it needs its own call.
 - **Inventing reading times or dates.** `blog` and `industries/index` have
   neither; they keep neither.
