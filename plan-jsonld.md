@@ -174,16 +174,26 @@ lines of new `lib/`.
    uses.
 6. Commit: `refactor(schema): assemble JSON-LD from shared data`.
 
-### Phase 2 — the fixes, one commit each
+### Phase 2 — the fixes, one commit each — **DONE**
+
+Six commits. Outside the JSON-LD, exactly one line of rendered HTML changed
+across the whole site: the Rollins `og:image:alt`. Steps 8 and 9 also let the
+`heroImage` and `image.unlinked` scaffolding come back out of the builder —
+both existed only to reproduce the bugs they fixed.
+
+Albert's call on step 11: drop it. The `?s=` target has no endpoint on the
+static site — GitHub Pages ignores the query string and serves the home page —
+so making it site-wide would have repeated a false claim on 16 pages.
 
 7. `fix(schema): unescape the hasMap URL`
 8. `fix(schema): point case studies at their own hero image`
 9. `fix(schema): give blog and industries their primary image and breadcrumb`
 10. `fix(schema): normalise the home breadcrumb @id and numeric fields`
-11. `chore(schema): drop the retired sitelinks SearchAction` — **ask Albert
-    first**; dropping vs. making it site-wide is a judgment call, not a bug fix.
+11. `chore(schema): drop the retired sitelinks SearchAction`
+12. `fix(meta): name Rollins College on its own social image` — bug #8, found
+    during phase 1.
 
-### Phase 3 — single-source the FAQ
+### Phase 3 — single-source the FAQ — **next**
 
 12. `src/_data/faq.js` holds the 27 Q&A with HTML answers; the industry
     templates render the body from it and the graph derives `text` by stripping
