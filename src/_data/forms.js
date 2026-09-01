@@ -4,4 +4,6 @@
 export default {
   endpoint: process.env.FORM_ENDPOINT || "",
   phone: "407-839-6452",
+  // Cloudflare's always-passes test key until the real one is issued.
+  turnstileKey: process.env.TURNSTILE_SITE_KEY || "1x00000000000000000000AA",
 };

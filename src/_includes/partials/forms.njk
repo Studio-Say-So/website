@@ -21,8 +21,6 @@
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       var data = new FormData(form);
-      var first = data.get("name_first"), last = data.get("name_last");
-      if (first || last) data.set("name", [first, last].filter(Boolean).join(" "));
       if (button) { button.disabled = true; button.value = "Sending…"; }
       say("Sending…", true);
       fetch(endpoint, { method: "POST", body: data })

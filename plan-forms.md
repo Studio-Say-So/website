@@ -84,7 +84,7 @@ contact form only, matching today. The existing submit handler in `base.njk`
 already keys off `form[data-formid]` and needs only its `name_first`/`name_last`
 line removed.
 
-## Steps
+## Steps — **DONE**
 
 1. Write the macro and a single stylesheet block in `wp-inline.css` replacing
    the ten rules with element/class selectors that do not depend on Gravity
@@ -102,9 +102,24 @@ line removed.
 7. Re-run `tools/validate-schema.mjs` and the class audit — the 49 dead classes
    should be zero.
 
-Commits, one per step group: `feat(forms): render both forms from one macro`,
-`feat(forms): swap the dead reCAPTCHA for Turnstile`,
-`perf(forms): remove the Gravity Forms assets`.
+Landed as one commit rather than three: the markup swap, the Turnstile widget
+and deleting the vendor assets are the same edit to the same two templates, and
+splitting them would have meant a middle state where the forms had no styling.
+
+Two things the plan did not anticipate:
+
+- **Deleting the Gravity Forms CSS took the field spacing and input padding
+  with it.** GF laid the fields out on a grid with `grid-row-gap: 16px`, and the
+  contact form's padding came from the theme wrapper's `[&_input]:px-4 py-3`.
+  form.css now carries both.
+- **`.button` is a marker class with no rule of its own.** The site styles its
+  CTAs with a Tailwind utility list, so the submit button reuses that exact list
+  rather than getting invented button CSS.
+
+The Turnstile site key is Cloudflare's always-passes test key
+(`1x00000000000000000000AA`) via `TURNSTILE_SITE_KEY`, so the widget renders and
+works locally. **Setting the worker's `TURNSTILE_SECRET` without also setting a
+matching real site key will reject every submission.**
 
 ## Verification
 

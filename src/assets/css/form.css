@@ -1,6 +1,18 @@
 /* Replaces the ten Gravity Forms rules with selectors that survive the markup.
    #9995fa is the hand-written near-miss for the theme's colorAccent-400. */
 
+.site-form {
+  display: grid;
+  row-gap: 16px;
+}
+
+.site-form label {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: #fff;
+  font-weight: 400;
+}
+
 .site-form input[type="text"],
 .site-form input[type="tel"],
 .site-form input[type="email"],
@@ -10,6 +22,12 @@
   color: #9995fa;
   font-size: 16px;
   font-weight: 500;
+  width: 100%;
+  padding: 0.75rem 1rem;
+}
+
+.site-form textarea {
+  line-height: 1.5;
 }
 
 .site-form input::placeholder,
@@ -22,12 +40,6 @@
 .site-form :focus-visible {
   outline: 2px solid #fff;
   outline-offset: 2px;
-}
-
-.site-form button[type="submit"] {
-  background-color: #9995fa;
-  font-size: 16px;
-  font-weight: 400;
 }
 
 .site-form button[type="submit"][disabled] {
@@ -44,6 +56,18 @@
   color: #9995fa;
   font-size: 16px;
   padding: 10px;
+}
+
+/* Lead form shows placeholders instead of labels; the label stays for AT. */
+.site-form .form-field--hidden-label label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
 .site-form .form-honeypot {

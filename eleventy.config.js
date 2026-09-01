@@ -20,11 +20,9 @@ export default function (eleventyConfig) {
   const MIME = { jpg: "image/jpeg", jpeg: "image/jpeg", png: "image/png", webp: "image/webp" };
   eleventyConfig.addFilter("mimeType", (url) => MIME[String(url).split(".").pop().toLowerCase()]);
 
-  // Media and vendored plugin assets keep their WordPress paths so that
-  // already-cached OG images and external hotlinks keep resolving.
+  // Media now lives under assets/; the cutover needs a redirect from the old
+  // wp-content/uploads paths, which README.md records.
   eleventyConfig.addPassthroughCopy("src/assets");
-  eleventyConfig.addPassthroughCopy("src/wp-content");
-  eleventyConfig.addPassthroughCopy("src/wp-includes");
   eleventyConfig.addPassthroughCopy("src/CNAME");
   eleventyConfig.addPassthroughCopy("src/robots.txt");
 

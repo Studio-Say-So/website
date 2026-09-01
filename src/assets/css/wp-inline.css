@@ -117,9 +117,6 @@ div#image-text-section {
     padding:0px;
     max-width:100%;
 }
-form#gform_2 input#input_2_3::placeholder {
-    color:#9995FA;
-}
 .page-id-1243 p.serving-video-text {
     color:#a3a3a3;  
 /* 	font-family: roc-grotesk-wide, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif; */
@@ -176,29 +173,6 @@ line-height:55px;
 .page-id-1243 p.banner-section-para a {
    text-decoration:none !important;
 }
-form#gform_2 .ginput_container input,.ginput_container textarea {
-    background-color:transparent;
-    border: 2px solid  #9995FA;
-    font-size:16px;
-    font-weight:500;
-    color:#9995FA;
-}
-form#gform_2 .ginput_container input:focus-visible{
-      outline: none;
-}
-form#gform_2 .ginput_container textarea:focus-visible{
-    outline: none;
-}
-
-form#gform_2 input#gform_submit_button_2 {
-    background-color:#9995fa;
-    font-weight:400;
-    font-size:16px;
-}
-form#gform_2 div input[type="submit"]:hover {
-    --tw-translate-x: 0; /* Reset translation */
-    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
 .page-id-1243 .custom-container.grid.grid-cols-1.sm\:grid-cols-2.lg\:grid-cols-3.gap-14.text-white {
     grid-template-columns: repeat(1, minmax(0, 1fr));
     text-align:center;
@@ -229,10 +203,6 @@ line-height:54px;
 .page-id-1243 .\[\&_h2\]\:hidden h2{
     display:block
 }
-.page-id-1243 .gform_wrapper.gravity-theme .gform_validation_errors{
-    padding:15px;
-    font-size:16px
-}
 /*Icon Section*/
 .page-id-1243 .mix-blend-luminosity img {
     width:160px;
@@ -255,15 +225,6 @@ line-height:54px;
 .page-id-1243 .grid.grid-cols-1.lg\:grid-cols-2.lg\:divide-x.border-colorAccent-border.divide-colorAccent-border .lg\:pr-16 {
     padding-right: 2rem;
     padding-left: 2rem;
-}
-.page-id-1243 .ginput_container input::placeholder,.ginput_container textarea::placeholder {
-    color:#9995FA !important;
-    font-size:15px;
-}
-.page-id-1243 .gform_confirmation_message_2.gform_confirmation_message {
-    color:#9995FA;
-    border:2px solid #9995FA;
-    padding:10px;
 }
 .page-id-1243 .\[\&_h2\]\:heading-underline h2:after{
     display:none;

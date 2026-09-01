@@ -7,9 +7,8 @@ canonical: "https://studiosayso.com/lead-form/"
 robots: "noindex, follow"
 bodyClass: "page-id-1243"
 extraStyles: |
-  <link rel='stylesheet' id='gform_basic-css' href='/wp-content/plugins/gravityforms/assets/css/dist/basic.min.css?ver=2.10.5' media='all' />
-  <link rel='stylesheet' id='gform_theme_components-css' href='/wp-content/plugins/gravityforms/assets/css/dist/theme-components.min.css?ver=2.10.5' media='all' />
-  <link rel='stylesheet' id='gform_theme-css' href='/wp-content/plugins/gravityforms/assets/css/dist/theme.min.css?ver=2.10.5' media='all' />
+  <link rel="stylesheet" href="/assets/css/form.css">
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 schema:
   type: "WebPage"
   datePublished: "2024-01-29T05:27:20-05:00"
@@ -22,6 +21,7 @@ schema:
     width: 2000
     height: 1017
 ---
+{% import "macros/form.njk" as form %}
 {% import "macros/ui.njk" as ui %}
 <div class="w-[580px] -z-[100] opacity-50 absolute left-72 -bottom-80 hidden lg:block -translate-x-1/2 -translate-y-1/2">
   {{ ui.blob() }}
@@ -41,84 +41,14 @@ schema:
       Prefer to call? You’ll find us here: <a href="tel:407-839-6452">407-839-6452</a>
     </p>
   </div>
-  <div class="text-white
-        [&_h2]:hidden
-        [&_.gfield\_required]:!text-white
-        [&_.name\_first_label]:!text-sm
-        [&_.name\_last_label]:!text-sm
-        [&_legend]:!font-normal
-        [&_label]:!font-normal
-        [&_label]:mb-1
-        [&_input]:font-bold
-        [&_input]:bg-colorAccent-700
-        [&_input]:bg-opacity-70
-        [&_input]:border-b
-        [&_input]:border-b-colorAccent-400
-        [&_textarea]:font-bold
-        [&_textarea]:bg-colorAccent-700
-        [&_textarea]:border-b
-        [&_textarea]:border-b-colorAccent-400
-        [&_textarea]:!bg-opacity-70
-        [&_input]:border-none
-        [&_input]:px-4
-        [&_input]:py-3">
-    <div class='gf_browser_unknown gform_wrapper gravity-theme gform-theme--no-framework vision_wrapper' data-form-theme='gravity-theme' data-form-index='0' id='gform_wrapper_2' >
-      <div class='gform_heading'>
-        <p class='gform_description'>
-        </p>
-      </div>
-      <form method="post" enctype='multipart/form-data'  id='gform_2' class='vision' action="{{ forms.endpoint }}" data-formid='2' novalidate>
-        <div class='gform-body gform_body'>
-          <div id='gform_fields_2' class='gform_fields top_label form_sublabel_below description_below validation_below'>
-            <div id="field_2_10" class="gfield gfield--type-text gfield--width-full gfield_contains_required field_sublabel_below gfield--no-description field_description_below hidden_label field_validation_below gfield_visibility_visible"  >
-              <label class='gfield_label gform-field-label' for='input_2_10'>FIRST AND LAST NAME<span class="gfield_required"><span class="gfield_required gfield_required_text">(Required)</span></span></label>
-              <div class='ginput_container ginput_container_text'>
-                <input name="name" id='input_2_10' type='text' value='' class='large'    placeholder='FIRST AND LAST NAME' aria-required="true" aria-invalid="false"   />
-              </div>
-            </div>
-            <div id="field_2_3" class="gfield gfield--type-phone phone gfield_contains_required field_sublabel_below gfield--no-description field_description_below hidden_label field_validation_below gfield_visibility_visible"  >
-              <label class='gfield_label gform-field-label' for='input_2_3'>PHONE NUMBER<span class="gfield_required"><span class="gfield_required gfield_required_text">(Required)</span></span></label>
-              <div class='ginput_container ginput_container_phone'>
-                <input name="phone" id='input_2_3' type='tel' value='' class='large'  placeholder='PHONE NUMBER' aria-required="true" aria-invalid="false"   />
-              </div>
-            </div>
-            <div id="field_2_4" class="gfield gfield--type-email gfield_contains_required field_sublabel_below gfield--no-description field_description_below hidden_label field_validation_below gfield_visibility_visible"  >
-              <label class='gfield_label gform-field-label' for='input_2_4'>EMAIL ADDRESS<span class="gfield_required"><span class="gfield_required gfield_required_text">(Required)</span></span></label>
-              <div class='ginput_container ginput_container_email'>
-                <input name="email" id='input_2_4' type='email' value='' class='large'   placeholder='EMAIL ADDRESS' aria-required="true" aria-invalid="false"  />
-              </div>
-            </div>
-            <div id="field_2_5" class="gfield gfield--type-text gfield_contains_required field_sublabel_below gfield--no-description field_description_below hidden_label field_validation_below gfield_visibility_visible"  >
-              <label class='gfield_label gform-field-label' for='input_2_5'>COMPANY NAME<span class="gfield_required"><span class="gfield_required gfield_required_text">(Required)</span></span></label>
-              <div class='ginput_container ginput_container_text'>
-                <input name="company" id='input_2_5' type='text' value='' class='large'    placeholder='COMPANY NAME' aria-required="true" aria-invalid="false"   />
-              </div>
-            </div>
-            <div id="field_2_7" class="gfield gfield--type-textarea gfield_contains_required field_sublabel_below gfield--no-description field_description_below hidden_label field_validation_below gfield_visibility_visible"  >
-              <label class='gfield_label gform-field-label' for='input_2_7'>PROJECT BRIEF<span class="gfield_required"><span class="gfield_required gfield_required_text">(Required)</span></span></label>
-              <div class='ginput_container ginput_container_textarea'>
-                <textarea name="message" id='input_2_7' class='textarea medium'    placeholder='PROJECT BRIEF' aria-required="true" aria-invalid="false"   rows='10' cols='50'></textarea>
-              </div>
-            </div>
-            <div id="field_2_8" class="gfield gfield--type-captcha gfield--width-full field_sublabel_below gfield--no-description field_description_below hidden_label field_validation_below gfield_visibility_visible"  >
-              <label class='gfield_label gform-field-label' for='input_2_8'>CAPTCHA</label>
-              <div id='input_2_8' class='ginput_container ginput_recaptcha' data-sitekey='6LfnewMtAAAAAC31Qw2ZnSw7s1VofRwWNFg6EZJG'  data-theme='light' data-tabindex='0'  data-badge=''>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class='gform-footer gform_footer top_label'>
-          <input type='submit' id='gform_submit_button_2' class='gform_button button' data-submission-type='submit' value='SUBMIT FORM'{% if not forms.endpoint %} disabled aria-disabled="true"{% endif %} />
-        </div>
-        <input type="hidden" name="form" value="lead">
-        <div aria-hidden="true" style="position:absolute;left:-9999px">
-          <label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
-        </div>
-        <p class="form-status" role="status" aria-live="polite">
-          {%- if not forms.endpoint %}This form isn't connected yet — please call <a href="tel:{{ forms.phone }}">{{ forms.phone }}</a>.{% endif %}
-        </p>
-      </form>
-    </div>
+  <div class="text-white">
+    {{ form.render("lead", [
+      { name: "name",    label: "First and last name", placeholder: "FIRST AND LAST NAME", hideLabel: true, required: true, max: 200,  autocomplete: "name" },
+      { name: "phone",   label: "Phone number",        placeholder: "PHONE NUMBER",        hideLabel: true, required: true, max: 40,   type: "tel",   autocomplete: "tel" },
+      { name: "email",   label: "Email address",       placeholder: "EMAIL ADDRESS",       hideLabel: true, required: true, max: 200,  type: "email", autocomplete: "email" },
+      { name: "company", label: "Company name",        placeholder: "COMPANY NAME",        hideLabel: true, required: true, max: 200,  autocomplete: "organization" },
+      { name: "message", label: "Project brief",       placeholder: "PROJECT BRIEF",       hideLabel: true, required: true, max: 5000, type: "textarea" }
+    ], "SUBMIT FORM", forms) }}
   </div>
 </section>
 <div class="w-[580px] -z-[100] opacity-50 absolute left-72 -bottom-80 hidden lg:block -translate-x-1/2 -translate-y-1/2">
