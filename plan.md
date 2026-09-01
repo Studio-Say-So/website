@@ -141,10 +141,12 @@ remains needs someone at Studio Say So.
 
 **Blocked on a decision**
 
-- **Analytics.** `GTM-MTNM6RS`, `GTM-WCVH3JXN` and a direct Facebook Pixel
-  (`688292446778861`) all fire on every page. Removing the wrong container
-  breaks live reporting silently, so nothing is touched until someone confirms
-  which is current.
+- ~~**Analytics.**~~ **Resolved.** Both containers were read from their
+  published `gtm.js`. `GTM-WCVH3JXN` held everything real; `GTM-MTNM6RS` was a
+  second GA4 property behind a Universal Analytics tag paused since UA was sunset.
+  The site now loads one container, `GTM-WVD5RK3`, and the Meta pixel moved into
+  it. See `plan-analytics.md`; `GTM-WVD5RK3-import.json` still needs importing
+  and publishing on the GTM side.
 
 **Needs information**
 
