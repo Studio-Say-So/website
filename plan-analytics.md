@@ -102,3 +102,52 @@ The site is not live — production is still WordPress and the preview is
 noindex — so there is no window where analytics goes dark. Still, build and
 publish `WVD5RK3` before the repo change ships, or the preview loads a container
 with nothing in it.
+
+---
+
+# Tracking improvements
+
+Code side is done. The GTM side is a change list — I cannot make those edits.
+
+## Done in the repo
+
+- **Self-hosted video tracking.** `partials/video-tracking.njk` emits
+  `video_start`, `video_progress` (25/50/75) and `video_complete` with
+  `video_title`, `video_percent`, `video_duration` and `video_url`. It binds
+  only to `video[controls]`, so the muted autoplay hero background is ignored —
+  tracking that would count every visitor as a play. Event and parameter names
+  match GA4's own video schema so GTM can map them straight through.
+- **Meta Conversions API.** The worker sends a server-side `Lead` on every
+  successful submission, with SHA-256 hashed email and phone plus IP and user
+  agent for matching. It carries an `event_id` (also returned to the browser)
+  so Meta can dedupe if a browser-side `Lead` is ever added. Skipped silently
+  unless `META_PIXEL_ID` and `META_CAPI_TOKEN` are set, and a failure is logged
+  rather than failing the submission — the enquiry has already been emailed.
+
+## To change in GTM
+
+1. **Meta Pixel consent.** Tag → Advanced → Consent Settings → require
+   `ad_storage`. Custom HTML tags ignore Consent Mode otherwise, so declining
+   currently does not stop the pixel. **Do this one first.**
+2. **Move the Ads conversion onto the form event.** It fires on any view of
+   `/thankyou-page`, so refreshes, bookmarks and back-navigation all count as
+   leads. Retrigger it on the `form_submit` dataLayer event instead.
+3. **Widen the GA4 `Form Submit` trigger.** It requires path `/contact-us/`, so
+   `/lead-form/` submissions are invisible. Drop the path condition and use the
+   `form_id` the handler already pushes to tell them apart.
+4. **Turn on enhanced conversions** and map email and phone. The form collects
+   both; this recovers attribution the browser loses.
+5. **Give the conversion a value.** Every lead currently counts the same, so
+   bidding has nothing to optimise toward. Even a flat estimate helps.
+6. **Make `Click_to_Call` durable.** It matches `tel:407-839-6452` exactly;
+   change to *contains* `tel:` so a reformatted or changed number keeps working.
+7. **Add GA4 event tags for the video events** above, triggered on the three
+   custom events.
+
+## Still needs the client
+
+- Does anyone read `G-LCVD8TQRX1`, the second GA4 property from the retired
+  `GTM-MTNM6RS`? It is not carried over.
+- Consent defaults are region-scoped: denied in the EEA, UK and Switzerland,
+  granted elsewhere. Deny-everywhere is the stricter option and costs US data.
+  That is a legal call, not a technical one.

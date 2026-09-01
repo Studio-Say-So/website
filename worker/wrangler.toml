@@ -5,10 +5,14 @@ compatibility_date = "2026-08-01"
 # Secrets (set with `wrangler secret put <NAME>`, never commit):
 #   TURNSTILE_SECRET  - Cloudflare Turnstile secret key
 #   RESEND_API_KEY    - or whatever mail provider is chosen
+#   META_CAPI_TOKEN   - Meta Conversions API access token; without it the
+#                       server-side Lead event is skipped and mail still sends
 #
 # vars:
 #   NOTIFY_TO   - address that receives submissions
 #   NOTIFY_FROM - verified sender address
 #   ALLOWED_ORIGIN - the site origin allowed to POST here
+#   META_PIXEL_ID  - same pixel as the GTM tag, for Conversions API events
 [vars]
 ALLOWED_ORIGIN = "https://studiosayso.com"
+META_PIXEL_ID = "688292446778861"

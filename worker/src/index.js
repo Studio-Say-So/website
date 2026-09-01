@@ -123,6 +123,53 @@ export default {
       );
     }
 
-    return json({ ok: true }, 200, origin);
+    // Server-side Lead event. The browser pixel loses Safari and ad-blocked
+    // traffic; eventId lets Meta dedupe if a browser Lead is ever added too.
+    const eventId = crypto.randomUUID();
+    await sendMetaLead(out, eventId, request, env);
+
+    return json({ ok: true, eventId }, 200, origin);
   },
 };
+
+async function sha256(value) {
+  const bytes = new TextEncoder().encode(value.trim().toLowerCase());
+  const digest = await crypto.subtle.digest("SHA-256", bytes);
+  return [...new Uint8Array(digest)].map((b) => b.toString(16).padStart(2, "0")).join("");
+}
+
+async function sendMetaLead(out, eventId, request, env) {
+  if (!env.META_PIXEL_ID || !env.META_CAPI_TOKEN) return;
+  const userData = { em: [await sha256(out.email)] };
+  if (out.phone) userData.ph = [await sha256(out.phone.replace(/[^0-9]/g, ""))];
+  const ip = request.headers.get("cf-connecting-ip");
+  if (ip) userData.client_ip_address = ip;
+  const ua = request.headers.get("user-agent");
+  if (ua) userData.client_user_agent = ua;
+
+  try {
+    const r = await fetch(
+      `https://graph.facebook.com/v21.0/${env.META_PIXEL_ID}/events?access_token=${env.META_CAPI_TOKEN}`,
+      {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          data: [
+            {
+              event_name: "Lead",
+              event_time: Math.floor(Date.now() / 1000),
+              event_id: eventId,
+              action_source: "website",
+              event_source_url: request.headers.get("referer") || undefined,
+              user_data: userData,
+            },
+          ],
+        }),
+      },
+    );
+    // Never fail the submission over analytics; the enquiry already sent.
+    if (!r.ok) console.error("meta capi failed", r.status, await r.text());
+  } catch (err) {
+    console.error("meta capi error", err);
+  }
+}

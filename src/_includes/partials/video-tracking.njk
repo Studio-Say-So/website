@@ -1,0 +1,43 @@
+<script>
+(function () {
+  // The hero video is a muted autoplay background — tracking it would count
+  // every visitor. Only videos with controls represent a deliberate play.
+  var videos = document.querySelectorAll("video[controls]");
+  if (!videos.length) return;
+  window.dataLayer = window.dataLayer || [];
+
+  videos.forEach(function (v) {
+    var seen = {};
+    function push(event, percent) {
+      window.dataLayer.push({
+        event: event,
+        video_title: v.getAttribute("data-title") || document.title,
+        video_url: v.currentSrc || v.src,
+        video_percent: percent,
+        video_provider: "self-hosted",
+        video_duration: Math.round(v.duration || 0),
+      });
+    }
+    v.addEventListener("play", function () {
+      if (seen.start) return;
+      seen.start = true;
+      push("video_start", 0);
+    });
+    v.addEventListener("timeupdate", function () {
+      if (!v.duration) return;
+      var pct = (v.currentTime / v.duration) * 100;
+      [25, 50, 75].forEach(function (mark) {
+        if (pct >= mark && !seen[mark]) {
+          seen[mark] = true;
+          push("video_progress", mark);
+        }
+      });
+    });
+    v.addEventListener("ended", function () {
+      if (seen.done) return;
+      seen.done = true;
+      push("video_complete", 100);
+    });
+  });
+})();
+</script>
