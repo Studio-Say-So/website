@@ -143,10 +143,8 @@ height="0" width="0" style="display:none;visibility:hidden">
     const navPlayButton = document.getElementById('nav-play-button');
     const navMenu = document.getElementById('nav-menu');
     const body = document.querySelector('body');
-    const popupVideo = document.getElementById('popup-video');
-    const playbutton = document.getElementById('play-button');
     const homeHeroCTA = document.getElementById('home-hero-cta');
-    const Xbutton = document.getElementById('x-button');
+
 
     // handle nav styles on toggle
     hamburgerIcon?.addEventListener("click", () => {
@@ -161,18 +159,6 @@ height="0" width="0" style="display:none;visibility:hidden">
             body.classList.add("overflow-hidden");
         } else {
             return;
-        }
-
-        // handle playbutton
-        if (playbutton?.classList.contains("opacity-100")) {
-            if (window.scrollY > 30) {
-                // fade out if page has been scrolled
-                playbutton?.classList.remove("opacity-100");
-                playbutton?.classList.add("opacity-0");
-            }
-        } else if (playbutton?.classList.contains("opacity-0")) {
-            playbutton?.classList.remove("opacity-0");
-            playbutton?.classList.add("opacity-100");
         }
         
         // handle home hero bottom left
@@ -202,17 +188,6 @@ height="0" width="0" style="display:none;visibility:hidden">
             header?.classList.add("bg-transparent");
         }
 
-        // handle playbutton styles on scroll
-        if (window.scrollY > 30) {
-            // fade out play button
-            playbutton?.classList.remove("opacity-100");
-            playbutton?.classList.add("opacity-0");
-        } else {
-            // fade in play button
-            playbutton?.classList.remove("opacity-0");
-            playbutton?.classList.add("opacity-100");
-        }
-
         // handle home hero social and cta styles on scroll
         if (window.scrollY > 30) {
             // fade out play button
@@ -225,91 +200,6 @@ height="0" width="0" style="display:none;visibility:hidden">
         }
     });
 
-    // handle popup video elements on play button click
-    playbutton?.addEventListener("click", async () => {
-        new Promise((resolve) => {
-            // close nav menu if opended
-            if (navMenu.classList.contains("open")) {
-                navMenu.classList.remove("open");
-                navMenu.classList.add("close");
-                body.classList.remove("overflow-hidden");
-                setTimeout(() => {
-                    resolve(()=> true);
-                }, 700)
-            } else {
-                resolve(()=> true)
-            }
-        }).then((resolve) => {
-            // show popup video
-            popupVideo.classList.remove("hidden");
-            popupVideo.classList.add("flex");
-
-            // show x button
-            Xbutton.classList.remove("hidden");
-            Xbutton.classList.add("flex");
-
-            // hide play button
-            playbutton.classList.remove("flex");
-            playbutton.classList.add("hidden");
-
-            // lock scroll
-            body.classList.add("overflow-hidden");
-            
-            resolve(()=> true)
-        }).then((resolve) => {
-            setTimeout(() => {
-                // fade in popup video
-                popupVideo.classList.remove("opacity-0");
-                popupVideo.classList.add("opacity-100");
-
-                // fade in x button
-                Xbutton.classList.remove("opacity-0");
-                Xbutton.classList.add("opacity-100");
-
-                // fade out play button
-                playbutton.classList.remove("opacity-100");
-                playbutton.classList.add("opacity-0");
-
-                resolve(()=> true)
-            }, 50)
-        })
-    });
-
-    // handle popup video elements on X button click
-    Xbutton?.addEventListener("click", async () => {
-        new Promise((resolve) => {
-            // fade out popup video
-            popupVideo.classList.remove("opacity-100");
-            popupVideo.classList.add("opacity-0");
-
-            // fade out x button
-            Xbutton.classList.remove("opacity-100");
-            Xbutton.classList.add("opacity-0");
-
-            // fade in play button
-            playbutton.classList.remove("opacity-0");
-            playbutton.classList.add("opacity-100");
-            resolve(()=> true)
-        }).then((resolve) => {
-            setTimeout(() => {
-                // hide popup video
-                popupVideo.classList.remove("flex");
-                popupVideo.classList.add("hidden");
-
-                // hide x button
-                Xbutton.classList.remove("flex");
-                Xbutton.classList.add("hidden");
-
-                // show play button
-                playbutton.classList.remove("hidden");
-                playbutton.classList.add("flex");
-
-                // unlock scroll
-                body.classList.remove("overflow-hidden");
-                resolve(()=> true)
-            }, 700)
-        })
-    });
 </script>
     <script type="speculationrules">
 {"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/assets/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}

@@ -40,4 +40,63 @@
     });
   });
 })();
+
+(function () {
+  // Vimeo exposes no media events across the frame boundary; it answers
+  // postMessage instead, so the same four pushes are rebuilt from its replies.
+  var seen = {};
+  window.dataLayer = window.dataLayer || [];
+
+  function post(frame, method, value) {
+    frame.contentWindow.postMessage(JSON.stringify({ method: method, value: value }), "*");
+  }
+
+  function push(frame, event, percent, duration) {
+    window.dataLayer.push({
+      event: event,
+      video_title: frame.title || document.title,
+      video_url: frame.src.split("?")[0],
+      video_percent: percent,
+      video_provider: "vimeo",
+      video_duration: Math.round(duration || 0),
+    });
+  }
+
+  // The lightbox builds these on click, so they are found by source, not selector.
+  function frameFor(source) {
+    var frames = document.getElementsByTagName("iframe");
+    for (var i = 0; i < frames.length; i++)
+      if (frames[i].contentWindow === source && /player\.vimeo\.com/.test(frames[i].src)) return frames[i];
+    return null;
+  }
+
+  window.addEventListener("message", function (e) {
+    if (e.origin.indexOf("player.vimeo.com") === -1) return;
+    var frame = frameFor(e.source);
+    if (!frame) return;
+    var d;
+    try { d = typeof e.data === "string" ? JSON.parse(e.data) : e.data; } catch (err) { return; }
+
+    if (d.event === "ready") {
+      seen = {};
+      ["play", "timeupdate", "ended"].forEach(function (n) { post(frame, "addEventListener", n); });
+      return;
+    }
+    var data = d.data || {};
+    if (d.event === "play" && !seen.start) {
+      seen.start = true;
+      push(frame, "video_start", 0, data.duration);
+    } else if (d.event === "timeupdate") {
+      [25, 50, 75].forEach(function (mark) {
+        if (data.percent * 100 >= mark && !seen[mark]) {
+          seen[mark] = true;
+          push(frame, "video_progress", mark, data.duration);
+        }
+      });
+    } else if (d.event === "ended" && !seen.done) {
+      seen.done = true;
+      push(frame, "video_complete", 100, data.duration);
+    }
+  });
+})();
 </script>
