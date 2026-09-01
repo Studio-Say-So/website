@@ -8,8 +8,9 @@ eleventyExcludeFromCollections: true
 {%- if item.data.canonical and "noindex" not in (item.data.robots or "") %}
   <url>
     <loc>{{ item.data.canonical }}</loc>
-{%- if item.data.lastmod %}
-    <lastmod>{{ item.data.lastmod }}</lastmod>
+{%- set lastmod = item.data.schema.dateModified or item.data.lastmod %}
+{%- if lastmod %}
+    <lastmod>{{ lastmod }}</lastmod>
 {%- endif %}
   </url>
 {%- endif %}
