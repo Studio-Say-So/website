@@ -14,7 +14,8 @@
     <meta name="robots" content="{{ robots }}">
     {%- endif %} {%- if canonical %}
     <link rel="canonical" href="{{ canonical }}">
-    {%- endif %} {%- if ogTags %} {{ ogTags | safe }} {%- endif %} {%- if twitterTags %} {{ twitterTags | safe }} {%- endif %} {%- if jsonld %}
+    {%- endif %}{% include "partials/meta.njk" %}
+    {%- if jsonld %}
     <script type="application/ld+json">
 {{ jsonld | safe }}
 </script>
