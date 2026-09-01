@@ -29,10 +29,22 @@
           if (res.ok) {
             form.reset();
             say("Thanks — we'll be in touch shortly.", true);
-            // GA4 listens for this event; the Ads conversion is keyed to /thankyou-page/.
+            // Leave only once the tags have fired. eventCallback never runs if
+            // GTM is blocked, so the timeout is the guard, not the happy path.
+            var left = false;
+            function leave() {
+              if (left) return;
+              left = true;
+              window.location.href = "/thankyou-page/";
+            }
             window.dataLayer = window.dataLayer || [];
-            window.dataLayer.push({ event: "form_submit", form_id: form.dataset.formid });
-            setTimeout(function () { window.location.href = "/thankyou-page/"; }, 400);
+            window.dataLayer.push({
+              event: "form_submit",
+              form_id: form.dataset.formid,
+              eventCallback: leave,
+              eventTimeout: 2000,
+            });
+            setTimeout(leave, 2500);
             return;
           }
           say(res.d.error || "Something went wrong. Please call " + phone + ".", false);
