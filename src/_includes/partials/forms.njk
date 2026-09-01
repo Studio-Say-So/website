@@ -27,14 +27,16 @@
         .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
         .then(function (res) {
           if (res.ok) {
-            form.reset();
             say("Thanks — we'll be in touch shortly.", true);
             // Leave only once the tags have fired. eventCallback never runs if
             // GTM is blocked, so the timeout is the guard, not the happy path.
+            // Reset only on the way out: enhanced conversions read the fields
+            // when the tag fires, and a cleared form gives them nothing.
             var left = false;
             function leave() {
               if (left) return;
               left = true;
+              form.reset();
               window.location.href = "/thankyou-page/";
             }
             window.dataLayer = window.dataLayer || [];
