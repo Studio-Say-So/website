@@ -14,8 +14,7 @@
     <meta name="robots" content="{{ robots }}">
     {%- endif %} {%- if canonical %}
     <link rel="canonical" href="{{ canonical }}">
-    {%- endif %}{% include "partials/meta.njk" %}
-    {%- if jsonld %}
+    {%- endif %}{% include "partials/meta.njk" %} {%- if jsonld %}
     <script type="application/ld+json">
 {{ jsonld | safe }}
 </script>
@@ -26,8 +25,8 @@
     <link rel="stylesheet" href="/assets/vendor/splide/splide-core.min.css">
     <link rel="stylesheet" href="/assets/css/carousel.css">
     <link rel="icon" href="/wp-content/uploads/2023/02/favicon.png" sizes="192x192">
-<link rel="apple-touch-icon" href="/wp-content/uploads/2023/02/favicon.png">
-<link rel="stylesheet" href="/assets/css/wp-inline.css">
+    <link rel="apple-touch-icon" href="/wp-content/uploads/2023/02/favicon.png">
+    <link rel="stylesheet" href="/assets/css/wp-inline.css">
     {%- if extraStyles %} {{ extraStyles | safe }} {%- endif %} {%- if inlineStyles %} {{ inlineStyles | safe }} {%- endif %}
     <script id="responsive-lightbox-sanitizer-js-before">
 window.RLG = window.RLG || {}; window.RLG.sanitizeAllowedHosts = ["youtube.com","www.youtube.com","youtu.be","vimeo.com","player.vimeo.com"];
@@ -81,7 +80,7 @@ height="0" width="0" style="display:none;visibility:hidden">
         </div>
       </header>
       <main>
-      {{ content | safe }}
+        {{ content | safe }}
       </main>
       <footer class="border-t-colorWhite border-t py-12 px-6 md:px-12 md:py-16 bg-siteBackground">
         <div class=" text-white">
