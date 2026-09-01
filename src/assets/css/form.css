@@ -1,0 +1,52 @@
+/* Replaces the ten Gravity Forms rules with selectors that survive the markup.
+   #9995fa is the hand-written near-miss for the theme's colorAccent-400. */
+
+.site-form input[type="text"],
+.site-form input[type="tel"],
+.site-form input[type="email"],
+.site-form textarea {
+  background-color: transparent;
+  border: 2px solid #9995fa;
+  color: #9995fa;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.site-form input::placeholder,
+.site-form textarea::placeholder {
+  color: #9995fa;
+  font-size: 15px;
+}
+
+/* The Gravity Forms rules set outline:none with nothing in its place. */
+.site-form :focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.site-form button[type="submit"] {
+  background-color: #9995fa;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.site-form button[type="submit"][disabled] {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.site-form .form-required {
+  color: #fff;
+}
+
+.site-form .form-status:not(:empty) {
+  border: 2px solid #9995fa;
+  color: #9995fa;
+  font-size: 16px;
+  padding: 10px;
+}
+
+.site-form .form-honeypot {
+  position: absolute;
+  left: -9999px;
+}

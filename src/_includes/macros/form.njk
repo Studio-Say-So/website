@@ -1,0 +1,30 @@
+{#- One form for both pages. Field names are the worker's contract in
+   worker/src/index.js; changing one without the other drops submissions. -#}
+
+{% macro field(formId, f) %}<p class="form-field">
+  <label for="{{ formId }}-{{ f.name }}">{{ f.label }}{% if f.required %}<span class="form-required">&nbsp;(Required)</span>{% endif %}</label>
+  {%- if f.type == "textarea" %}
+  <textarea id="{{ formId }}-{{ f.name }}" name="{{ f.name }}" rows="{{ f.rows or 5 }}" maxlength="{{ f.max }}"{% if f.required %} required{% endif %}{% if f.autocomplete %} autocomplete="{{ f.autocomplete }}"{% endif %}></textarea>
+  {%- else %}
+  <input id="{{ formId }}-{{ f.name }}" name="{{ f.name }}" type="{{ f.type or 'text' }}" maxlength="{{ f.max }}"{% if f.required %} required{% endif %}{% if f.autocomplete %} autocomplete="{{ f.autocomplete }}"{% endif %}>
+  {%- endif %}
+</p>{% endmacro %}
+
+{% macro render(formId, fields, submitLabel, forms, turnstileKey) %}
+<form class="site-form" method="post" action="{{ forms.endpoint }}" data-formid="{{ formId }}" novalidate>
+  {%- for f in fields %}
+  {{ field(formId, f) -}}
+  {%- endfor %}
+  <input type="hidden" name="form" value="{{ formId }}">
+  <div class="form-honeypot" aria-hidden="true">
+    <label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+  </div>
+  {%- if turnstileKey %}
+  <div class="cf-turnstile" data-sitekey="{{ turnstileKey }}"></div>
+  {%- endif %}
+  <button type="submit"{% if not forms.endpoint %} disabled aria-disabled="true"{% endif %}>{{ submitLabel }}</button>
+  <p class="form-status" role="status" aria-live="polite">
+    {%- if not forms.endpoint %}This form isn't connected yet — please call <a href="tel:{{ forms.phone }}">{{ forms.phone }}</a>.{% endif -%}
+  </p>
+</form>
+{% endmacro %}

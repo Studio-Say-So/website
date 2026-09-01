@@ -13,9 +13,10 @@ import pathlib
 VOID = {"img", "br", "hr", "input", "meta", "link", "source", "area", "base",
         "col", "embed", "param", "track", "wbr"}
 
-# Not page markup: sitemap.njk is XML, meta.njk's leading indentation is emitted
-# output rather than structure, and ui.njk is macro definitions, not elements.
-SKIP = {"sitemap.njk", "meta.njk", "ui.njk"}
+# Not page markup: sitemap.njk is XML and meta.njk's leading indentation is
+# emitted output rather than structure. Everything in macros/ is definitions.
+SKIP = {"sitemap.njk", "meta.njk"}
+SKIP_DIRS = {"macros"}
 
 # never look inside these
 OPAQUE_TAGS = {"pre", "textarea", "svg", "script", "style"}
@@ -156,7 +157,8 @@ def process(path):
 
 if __name__ == "__main__":
     for arg in sys.argv[1:]:
-        if pathlib.Path(arg).name in SKIP:
+        path = pathlib.Path(arg)
+        if path.name in SKIP or path.parent.name in SKIP_DIRS:
             print(f"  {arg}: skipped")
             continue
         a, b = process(arg)
