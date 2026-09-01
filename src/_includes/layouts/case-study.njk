@@ -1,0 +1,72 @@
+---
+layout: "layouts/base.njk"
+---
+{% import "macros/ui.njk" as ui %}
+<section
+        class="w-screen h-screen flex flex-col items-center justify-center text-white relative main-carousel"
+        style="background-image: url({{ caseStudy.heroImage }}); background-position: center; background-size: cover;">
+  <h1 class="text-5xl lg:text-6xl font-bold font-display leading-[.95] max-w-[21ch] mb-3 index-slider">
+    {{ caseStudy.client }}
+  </h1>
+  <h2 class="max-w-[21ch] mb-10">
+    {{ caseStudy.heroSubtitle or "Case Study" }}
+  </h2>
+  <a href="{{ caseStudy.video }}" class=" block opacity-100 transition duration-500 w-[56px] h-[56px]" rel="lightbox">{{ ui.scrollCue() }}</a><a href="#case-study" class="absolute bottom-12 right-1/2 block opacity-100 transition translate-x-1/2 animate-bounce duration-700">{{ ui.arrowDown() }} </a>
+</section>
+<section id="case-study" class="flex flex-col items-center justify-center pt-16 relative my-16">
+  <div class="custom-container flex flex-col items-center justify-center ">
+    <h2 class="text-white text-[28px]">
+      Case Study
+    </h2>
+    <h2 class="heading-underline text-white font-display text-5xl max-w-[21ch] mb-6 text-center">
+      {{ caseStudy.client }}
+    </h2>
+    <div class="text-colorText-body max-w-[84ch] whitespace-pre-line text-center">{{ caseStudy.summary }}</div>
+    <div class="text-colorText-body text-center mt-16 flex flex-col gap-0 [&_strong]:text-white">
+      <p>
+        {{ caseStudy.credits | safe }}
+      </p>
+    </div>
+  </div>
+  <div class="w-[206px] lg:w-[400px] -z-10 opacity-50 absolute right-0 hidden lg:block translate-x-1/2 -translate-y-1/2 top-[60%]">
+    {{ ui.blob() }}
+  </div>
+  <div class="w-[206px] lg:w-[400px] -z-10 opacity-50 absolute left-0 hidden lg:block -translate-x-1/2 -translate-y-1/2 top-[60%]">
+    {{ ui.blob() }}
+  </div>
+</section>
+<section class="custom-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20 mt-32 mb-28">
+  {%- for part in [["The Challenge", caseStudy.challenge], ["Our Process", caseStudy.process], ["The Results", caseStudy.results]] %}
+  <div>
+    <h2 class="heading-underline text-white font-display text-4xl max-w-[21ch] mb-6">
+      {{ part[0] }}
+    </h2>
+    <div class="text-colorText-body max-w-[80ch] whitespace-pre-line">{{ part[1] }}</div>
+  </div>
+  {%- endfor %}
+</section>
+{{ content | trim | safe }}
+<section class="custom-container">
+  <div class="flex flex-col items-center gap-8 relative border-colorAccent-border py-12 my-12 ">
+    <h2 class="text-white text-4xl font-display max-w-[26ch] text-center">
+      {{ caseStudy.cta or "Discuss Your Project With Us" }}
+    </h2>
+    <div class="link-group">
+      <a class=" px-5 py-4 bg-colorAccent-700 uppercase font-bold text-white flex gap-4 items-center w-fit hover:shadow hover:translate-x-1 transition duration-200 button" href="/contact-us/"><span>Let's Talk</span>{{ ui.arrow() }}</a>
+    </div>
+  </div>
+</section>
+<section class="custom-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:divide-x lg:gap-4">
+  {%- for study in caseStudies %}{% if study.url != page.url %}
+  <div class="border-colorAccent-border md:px-8 lg:px-16 text-white mb-28">
+    <div
+                            class="aspect-[250_/_160] border border-colorAccent-border mb-8"
+                            style="background-image: url({{ study.image }}); background-position: center; background-size: cover;">
+    </div>
+    <h3 class="font-display text-[22px] mb-3">
+      {{ study.title }}
+    </h3>
+    <a class="font-display text-white flex gap-4 items-center w-fit hover:translate-x-1 transition duration-200 button" href="{{ study.url }}"><span>See Case Study</span>{{ ui.arrow() }} </a>
+  </div>
+  {%- endif %}{% endfor %}
+</section>
