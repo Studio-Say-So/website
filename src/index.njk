@@ -38,8 +38,8 @@ schema:
       <h1 class="text-[3rem] md:text-[4.3rem] lg:text-[6.25rem] font-bold font-display leading-[.95] max-w-[17ch]">
         Corporate videos that connect.
       </h1>
-      <!-- mix-blend-luminosity discards colour, so this copy is greyscale 480p. -->
-      <video autoplay="autoplay" loop="loop" muted defaultMuted playsinline poster="/assets/img/poster-bg.webp" width="852" height="480" class="min-w-[150vw] sm:min-w-0 sm:w-[1030px] -z-10 opacity-50 absolute translate-x-1/2 -translate-y-1/2 top-[540px] lg:top-[600px] right-1/2 mix-blend-luminosity mask" >
+      <!-- Cropped to the mask and greyscale: luminosity blend discards colour. -->
+      <video autoplay="autoplay" loop="loop" muted defaultMuted playsinline poster="/assets/img/poster-bg.webp" width="672" height="720" class="hero-mask-video -z-10 opacity-50 absolute translate-x-1/2 -translate-y-1/2 top-[540px] lg:top-[600px] right-1/2 mix-blend-luminosity mask" >
         <source src="/assets/video/SSSreel-bg.mp4" type="video/mp4"/>
       </video>
     </div>
