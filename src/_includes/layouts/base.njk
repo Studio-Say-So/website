@@ -22,6 +22,7 @@
     <link rel='stylesheet' id='init_style-css' href='/wp-content/themes/studio-say-so/dist/css/style.css?ver=1.0.0' media='all' />
     <link rel="stylesheet" href="/assets/vendor/splide/splide-core.min.css">
     <link rel="stylesheet" href="/assets/css/carousel.css">
+    <link rel="stylesheet" href="/assets/css/lightbox.css">
     <link rel="icon" href="/wp-content/uploads/2023/02/favicon.png" sizes="192x192">
     <link rel="apple-touch-icon" href="/wp-content/uploads/2023/02/favicon.png">
     <link rel="stylesheet" href="/assets/css/wp-inline.css">
@@ -320,6 +321,7 @@ document.querySelectorAll(".splide").forEach(function (el) {
   el.splide.mount();
 });
 </script>
+    {% include "partials/lightbox.njk" %}
     {% include "partials/forms.njk" %}
   </body>
 </html>

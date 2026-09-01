@@ -1,0 +1,49 @@
+<dialog id="lightbox" class="lightbox" aria-label="Video player">
+  <button type="button" class="lightbox__close" aria-label="Close video">&times;</button>
+  <div class="lightbox__frame"></div>
+</dialog>
+<script>
+(function () {
+  var links = document.querySelectorAll('a[rel~="lightbox"]');
+  if (!links.length) return;
+  var dialog = document.getElementById("lightbox");
+  var frame = dialog.querySelector(".lightbox__frame");
+
+  // vimeo.com/ID and vimeo.com/ID/HASH (unlisted); youtube watch URLs keep ?t=
+  function embed(href) {
+    var v = href.match(/vimeo\.com\/(\d+)(?:\/(\w+))?/);
+    if (v) return "https://player.vimeo.com/video/" + v[1] + (v[2] ? "?h=" + v[2] : "");
+    var y = href.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([\w-]+)/);
+    if (!y) return null;
+    var t = href.match(/[?&]t=(\d+)/);
+    return "https://www.youtube.com/embed/" + y[1] + (t ? "?start=" + t[1] : "");
+  }
+
+  function close() {
+    frame.innerHTML = "";
+    if (dialog.open) dialog.close();
+  }
+
+  links.forEach(function (a) {
+    var src = embed(a.getAttribute("href") || "");
+    if (!src) return;
+    a.addEventListener("click", function (e) {
+      e.preventDefault();
+      var iframe = document.createElement("iframe");
+      iframe.src = src + (src.indexOf("?") > -1 ? "&" : "?") + "autoplay=1";
+      var heading = a.querySelector("h2, h3");
+      iframe.title = ((heading || a).textContent || "").trim() || "Video";
+      iframe.allow = "autoplay; fullscreen; picture-in-picture";
+      iframe.allowFullscreen = true;
+      frame.appendChild(iframe);
+      dialog.showModal();
+    });
+  });
+
+  dialog.querySelector(".lightbox__close").addEventListener("click", close);
+  dialog.addEventListener("close", close);
+  dialog.addEventListener("click", function (e) {
+    if (e.target === dialog) close();
+  });
+})();
+</script>
