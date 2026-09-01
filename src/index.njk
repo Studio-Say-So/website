@@ -38,13 +38,14 @@ schema:
       <h1 class="text-[3rem] md:text-[4.3rem] lg:text-[6.25rem] font-bold font-display leading-[.95] max-w-[17ch]">
         Corporate videos that connect.
       </h1>
-      <video autoplay="autoplay" loop="loop" muted defaultMuted playsinline width="852" height="480" class="min-w-[150vw] sm:min-w-0 sm:w-[1030px] -z-10 opacity-50 absolute translate-x-1/2 -translate-y-1/2 top-[540px] lg:top-[600px] right-1/2 mix-blend-luminosity mask" >
-        <source src="/assets/video/SSSreel.mp4" type="video/mp4"/>
+      <!-- mix-blend-luminosity discards colour, so this copy is greyscale 480p. -->
+      <video autoplay="autoplay" loop="loop" muted defaultMuted playsinline poster="/assets/img/poster-bg.webp" width="852" height="480" class="min-w-[150vw] sm:min-w-0 sm:w-[1030px] -z-10 opacity-50 absolute translate-x-1/2 -translate-y-1/2 top-[540px] lg:top-[600px] right-1/2 mix-blend-luminosity mask" >
+        <source src="/assets/video/SSSreel-bg.mp4" type="video/mp4"/>
       </video>
     </div>
     <div id="popup-video" class="hidden fixed top-0 left-0 lg:p-20 xl:p-72 w-full h-screen items-center justify-center overflow-hidden bg-siteBackground bg-opacity-90 opacity-0 transition-all duration-500 shadow-2xl">
       <div class="custom-container ">
-        <video controls src="/assets/video/SSSreel.mp4" class="shadow-sm shadow-colorAccent-border border border-colorAccent-border">
+        <video controls preload="none" poster="/assets/img/poster-reel.webp" data-title="Studio Say So Reel" src="/assets/video/SSSreel.mp4" width="1280" height="720" class="shadow-sm shadow-colorAccent-border border border-colorAccent-border">
         </video>
       </div>
     </div>
