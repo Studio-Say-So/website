@@ -1,6 +1,11 @@
 /* Consent banner. Hidden until the script decides it is needed, so it never
    flashes for someone who has already chosen. */
 
+/* An author display beats the UA sheet's [hidden], so guard it explicitly. */
+.consent[hidden] {
+  display: none;
+}
+
 .consent {
   position: fixed;
   left: 1rem;
