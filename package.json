@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Static Eleventy build of studiosayso.com",
   "scripts": {
-    "build": "eleventy",
-    "serve": "eleventy --serve",
+    "build": "npm run clean && eleventy",
+    "serve": "npm run clean && eleventy --serve",
     "clean": "rm -rf _site"
   },
   "keywords": [],
