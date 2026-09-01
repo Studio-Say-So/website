@@ -268,12 +268,6 @@ line-height:54px;
 .page-id-1243 .\[\&_h2\]\:heading-underline h2:after{
     display:none;
 }
-/* .page-id-1243 section.custom-container.my-28 {
-    background-image:url('/wp-content/uploads/2024/01/section-bg-2.png');
-    background-repeat:no-repeat;
-    background-size:cover;
-    background-position:center left
-} */
 @media only screen and (min-width:768px) and (max-width:1024px){
 	h2.banner-section-head {
     font-size:35px !important;

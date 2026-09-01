@@ -19,12 +19,12 @@
 {{ jsonld | safe }}
 </script>
     {%- endif %}
-    <link rel='stylesheet' id='init_style-css' href='/wp-content/themes/studio-say-so/dist/css/style.css?ver=1.0.0' media='all' />
+    <link rel='stylesheet' id='init_style-css' href='/assets/css/style.css?ver=1.0.0' media='all' />
     <link rel="stylesheet" href="/assets/vendor/splide/splide-core.min.css">
     <link rel="stylesheet" href="/assets/css/carousel.css">
     <link rel="stylesheet" href="/assets/css/lightbox.css">
-    <link rel="icon" href="/wp-content/uploads/2023/02/favicon.png" sizes="192x192">
-    <link rel="apple-touch-icon" href="/wp-content/uploads/2023/02/favicon.png">
+    <link rel="icon" href="/assets/img/favicon.png" sizes="192x192">
+    <link rel="apple-touch-icon" href="/assets/img/favicon.png">
     <link rel="stylesheet" href="/assets/css/wp-inline.css">
     {%- if extraStyles %} {{ extraStyles | safe }} {%- endif %} {%- if inlineStyles %} {{ inlineStyles | safe }} {%- endif %}
     {% include "partials/tracking-head.njk" %}
@@ -52,9 +52,9 @@ height="0" width="0" style="display:none;visibility:hidden">
         </nav>
         <div class="px-6 md:px-12 grid grid-cols-3 items-center relative z-30">
           <!-- Logo Icon -->
-          <a class="flex justify-start items-center" href="/"> <img src="/wp-content/uploads/2022/12/footer-logo.svg" alt="Studio Say So" decoding="async" width="48" height="51" loading="eager" fetchpriority="high" /> </a>
+          <a class="flex justify-start items-center" href="/"> <img src="/assets/img/footer-logo.svg" alt="Studio Say So" decoding="async" width="48" height="51" loading="eager" fetchpriority="high" /> </a>
           <!-- Logo Text -->
-          <a class="flex justify-center items-center" href="/"> <img src="/wp-content/uploads/2022/12/footer-logo-text.svg" alt="" decoding="async" width="179" height="13" loading="eager" fetchpriority="high" /> </a>
+          <a class="flex justify-center items-center" href="/"> <img src="/assets/img/footer-logo-text.svg" alt="" decoding="async" width="179" height="13" loading="eager" fetchpriority="high" /> </a>
           <!-- Hamburger Icon -->
           <div class="flex justify-end items-center">
             <button id="hamburger" class="cursor-pointer">
@@ -81,11 +81,11 @@ height="0" width="0" style="display:none;visibility:hidden">
             <!-- Logo and address -->
             <div class="flex flex-col md:flex-row gap-4 md:flex-1">
               <div class="-mt-4">
-                <img src="/wp-content/uploads/2022/12/footer-logo.svg" alt="Studio Say So" decoding="async" loading="lazy" width="48" height="51" />
+                <img src="/assets/img/footer-logo.svg" alt="Studio Say So" decoding="async" loading="lazy" width="48" height="51" />
               </div>
               <div class="flex-1 space-y-6">
                 <div class="pt-1.5">
-                  <img src="/wp-content/uploads/2022/12/footer-logo-text.svg" alt="" decoding="async" loading="lazy" width="179" height="13" />
+                  <img src="/assets/img/footer-logo-text.svg" alt="" decoding="async" loading="lazy" width="179" height="13" />
                 </div>
                 <div class="text-colorAccent-400 text-lg">
                   <p>
@@ -312,7 +312,7 @@ height="0" width="0" style="display:none;visibility:hidden">
     });
 </script>
     <script type="speculationrules">
-{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/studio-say-so/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/assets/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
 </script>
     <script src="/assets/vendor/splide/splide.min.js"></script>
     <script>

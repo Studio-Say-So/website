@@ -13,6 +13,11 @@ WordPress site.
 2. Add `src/CNAME` containing `studiosayso.com`.
 3. Point DNS at GitHub Pages (A/AAAA records, or CNAME to
    `studio-say-so.github.io`).
+4. Redirect `/wp-content/uploads/*` to `/assets/img/*` (and `SSSreel.mp4` to
+   `/assets/video/`). Media moved out of the WordPress tree, and those old URLs
+   are what Facebook, LinkedIn and any third-party embeds hold for the social
+   card images. GitHub Pages cannot 301, so this needs Cloudflare in front —
+   the same thing the forms Worker wants.
 
 The sources are written root-relative for the real domain; `HtmlBasePlugin`
 rewrites them for the subpath preview, so nothing in `src/` changes between the

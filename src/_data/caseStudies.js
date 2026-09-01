@@ -4,21 +4,21 @@ export default [
   {
     url: "/work/321-the-agency-shopdisney/",
     title: "321 The Agency | shopDisney",
-    image: "/wp-content/uploads/2023/02/shop-disney-01.webp",
+    image: "/assets/img/shop-disney-01.webp",
   },
   {
     url: "/work/adventhealth/",
     title: "AdventHealth",
-    image: "/wp-content/uploads/2023/02/adventhealth.webp",
+    image: "/assets/img/adventhealth.webp",
   },
   {
     url: "/work/rollins-college/",
     title: "Rollins College",
-    image: "/wp-content/uploads/2023/02/rollins.webp",
+    image: "/assets/img/rollins.webp",
   },
   {
     url: "/work/wiley-campbellsville/",
     title: "Wiley Campbellsville",
-    image: "/wp-content/uploads/2023/02/campbellsville-01.webp",
+    image: "/assets/img/campbellsville-01.webp",
   },
 ];
