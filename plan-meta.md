@@ -17,7 +17,7 @@ proved the fields overlap. The JSON-LD work is done, so this is next.
 | `og:updated_time` | `schema.dateModified` |
 | `og:image*`, `twitter:image` | `schema.image` — url, width, height, and `caption` for the alt |
 | `og:type` | a constant — see below; it was `article` on 13 pages and `website` on three |
-| `twitter:label1`/`data1` | not derivable — a reading time, 13× "Less than a minute", 1× "3 minutes" |
+| `twitter:label1`/`data1` | removed — see below |
 
 Only two fields are genuinely per-page. Everything else is a restatement.
 
@@ -45,9 +45,8 @@ already exists for `head-scripts.njk` and `tracking-head.njk` — rendering both
 blocks from `title`, `description`, `canonical`, `schema`, and two new
 per-page fields:
 
-```yaml
-readingTime: "3 minutes"   # omitted where the page has none
-```
+No per-page fields remain: every tag derives from `title`, `description`,
+`canonical`, `schema`, or a constant.
 
 `og:type` started as a per-page `ogType` field and ended up a constant. Thirteen
 pages declared `article` while supplying no `article:*` property, and the site
@@ -86,9 +85,8 @@ commit below should show exactly its own intended additions and no others.
 
 ## Not in scope
 
-- **`twitter:label1`/`data1`.** The other Rank Math leftover: X stopped
-  rendering the label/data pair in cards years ago, so the 14 reading-time
-  strings are inert. Same class of decision as `og:type`, but removing them
-  deletes content rather than correcting it, so it needs its own call.
+- Nothing outstanding. `twitter:label1`/`data1` went the same way as `og:type`
+  once Albert called it: X stopped rendering the label/data pair in cards years
+  ago, so the 14 reading-time strings were inert.
 - **Inventing reading times or dates.** `blog` and `industries/index` have
   neither; they keep neither.
