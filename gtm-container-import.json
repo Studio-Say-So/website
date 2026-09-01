@@ -1,19 +1,19 @@
 {
   "exportFormatVersion": 2,
-  "exportTime": "2026-09-01 15:27:10",
+  "exportTime": "2026-09-01 15:38:45",
   "containerVersion": {
-    "path": "accounts/2087513823/containers/7995896/versions/0",
-    "accountId": "2087513823",
-    "containerId": "7995896",
+    "path": "accounts/0/containers/0/versions/0",
+    "accountId": "0",
+    "containerId": "0",
     "containerVersionId": "0",
-    "name": "studiosayso.com consolidated",
+    "name": "studiosayso.com",
     "description": "Rebuilt from GTM-WCVH3JXN's published config, plus the Meta pixel that was hardcoded on the site.",
     "container": {
-      "path": "accounts/2087513823/containers/7995896",
-      "accountId": "2087513823",
-      "containerId": "7995896",
+      "path": "accounts/0/containers/0",
+      "accountId": "0",
+      "containerId": "0",
       "name": "studiosayso.com",
-      "publicId": "GTM-WVD5RK3",
+      "publicId": "GTM-XXXXXXX",
       "usageContext": [
         "WEB"
       ]

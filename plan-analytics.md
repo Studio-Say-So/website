@@ -1,4 +1,4 @@
-# Consolidating analytics into GTM-WVD5RK3
+# Consolidating analytics into one new container
 
 Three containers exist. Two load on every page; the third is the one we have
 access to and it is empty.
@@ -7,7 +7,7 @@ access to and it is empty.
 |---|---|---|
 | `GTM-WCVH3JXN` | live, version 8 | everything that matters — read in full below |
 | `GTM-MTNM6RS` | live, version 2 | a GA4 config for a **second** property `G-LCVD8TQRX1`, and one **paused** Universal Analytics tag |
-| `GTM-WVD5RK3` | version 1, empty | 0 tags, 0 triggers, only GTM's 5 built-in variables |
+| `GTM-WVD5RK3` | version 1, empty | 0 tags, 0 triggers — and the client turned out not to own it either |
 
 Plus a **Meta Pixel `688292446778861`** hardcoded into `partials/tracking-head.njk`,
 outside any container. Neither live container contains a Meta pixel, so it is
@@ -52,16 +52,27 @@ push on `/contact-us/`. There are zero `dataLayer.push` calls in the entire
 built site — Gravity Forms' JavaScript presumably did this before the port
 removed it.
 
-## How to build WVD5RK3
+## Creating the new container
 
-**Do not hand-build it.** Ask the client to export `GTM-WCVH3JXN`
-(Admin → Export Container, pick the published version) and import that JSON into
-`WVD5RK3` (Admin → Import Container, "Overwrite", since it is empty). GTM remaps
-account and container ids on import, so a foreign export is the supported path.
-The table above is then the checklist to verify the import against — every tag,
-id and trigger condition should match it.
+Neither existing container is ours, so a new one has to be created:
 
-Hand-building is the fallback, and the tables above are complete enough for it.
+1. **tagmanager.google.com → Create Account.** Put it in an account the *client*
+   owns, then grant access, rather than the reverse — owning the account is what
+   went wrong with the two existing containers.
+2. Account `Studio Say So`, country US; container `studiosayso.com`, platform
+   **Web**. The new `GTM-XXXXXXX` id appears on creation.
+3. **Admin → Import Container** → `gtm-container-import.json` → *Existing
+   workspace* → **Overwrite** (safe, the container is empty) → Preview → Publish.
+4. Set the id in the repo: `GTM_ID` in the build environment, or the default in
+   `lib/site.js`. It is referenced in exactly one place.
+
+`gtm-container-import.json` is written from `GTM-WCVH3JXN`'s published `gtm.js`,
+with its account and container ids neutralised so it imports anywhere. It was
+authored by hand and has not been round-tripped through a real import — if GTM
+rejects it, the tables above are complete enough to build by hand.
+
+Asking the client to export `GTM-WCVH3JXN` and importing that instead remains
+the lower-risk path, since it is a genuine GTM export.
 
 **Decisions to make while building:**
 

@@ -30,13 +30,15 @@
     {% include "partials/tracking-head.njk" %}
   </head>
   <body{% if bodyClass %} class="{{ bodyClass }}"{% endif %}>
+    {%- if site.gtmId %}
     <!-- Google Tag Manager (noscript) -->
     <noscript>
-      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WVD5RK3"
+      <iframe src="https://www.googletagmanager.com/ns.html?id={{ site.gtmId }}"
 height="0" width="0" style="display:none;visibility:hidden">
       </iframe>
     </noscript>
     <!-- End Google Tag Manager (noscript) -->
+    {%- endif %}
     <div class="relative" style="overflow-x:hidden;">
       <header id="header" class="text-white py-8 fixed w-screen z-50 bg-transparent transition-colors duration-500 bg-opacity-75">
         <nav id="nav-menu" class="w-screen h-screen absolute z-10 bg-colorAccent-700 close top-0 right-0 
