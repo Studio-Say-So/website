@@ -27,7 +27,7 @@ for anyone doing a rollback:
 Rollback is those two CNAMEs back to `wp.wpenginepowered.com`, plus removing the
 redirects below.
 
-### Redirects still to add in Cloudflare
+### Redirects — added in Cloudflare 2 Sep 2026
 
 **`/wp-content/uploads/* → /assets/img/*` does not work** and should not be
 attempted. The old tree is dated (`2023/01/…`) and the extensions changed, so
@@ -48,9 +48,12 @@ links to. Redirect these six and stop:
 | `/wp-content/uploads/2023/02/SSSreel.mp4` | `https://vimeo.com/801605518` |
 | `/blog/` | `/` |
 
-All four image targets were confirmed serving 200. `/blog/` was `index, follow`
-on WordPress and sat in its `post-sitemap.xml`, so it may be indexed despite
-never having had a post.
+All six are live as 301s in Redirect Rules, verified end to end: each image
+redirect follows through to a real `image/jpeg`, not just a 301. `/blog/` was
+`index, follow` on WordPress and sat in its `post-sitemap.xml`, so it may be
+indexed despite never having had a post.
+
+Free plan allows 10 Single Redirects per zone; six are used.
 
 Sources are root-relative. `HtmlBasePlugin` can still rewrite them for a
 subpath preview by setting `PATH_PREFIX`, so nothing in `src/` has to change to
