@@ -13,6 +13,16 @@ compatibility_date = "2026-08-01"
 #   NOTIFY_FROM - verified sender address
 #   ALLOWED_ORIGIN - the site origin allowed to POST here
 #   META_PIXEL_ID  - same pixel as the GTM tag, for Conversions API events
+# Served from the site's own origin so the form POST is same-origin: no
+# preflight, and ALLOWED_ORIGIN can never drift from where the page is served.
+# Cloudflare already proxies this zone, so the route works before DNS cutover.
+routes = [
+  { pattern = "studiosayso.com/api/form*", zone_name = "studiosayso.com" }
+]
+
+# Deploys need an account: the login can see several.
+#   CLOUDFLARE_ACCOUNT_ID=14fc121ee1000fbf9186fb88b7ae36cc npx wrangler deploy
+
 [vars]
 ALLOWED_ORIGIN = "https://studiosayso.com"
 META_PIXEL_ID = "688292446778861"
