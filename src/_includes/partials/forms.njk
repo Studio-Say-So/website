@@ -18,10 +18,18 @@
       });
       return;
     }
+    // Turnstile tokens are single-use. Without this the widget still holds a
+    // spent token after a failed submit and every retry fails as a duplicate.
+    var captcha = form.querySelector(".cf-turnstile");
+    function resetCaptcha() {
+      if (!captcha || !window.turnstile || !window.turnstile.reset) return;
+      try { window.turnstile.reset(captcha); } catch (err) {}
+    }
+    var label = button ? button.textContent : "";
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       var data = new FormData(form);
-      if (button) { button.disabled = true; button.value = "Sending…"; }
+      if (button) { button.disabled = true; button.textContent = "Sending…"; }
       say("Sending…", true);
       fetch(endpoint, { method: "POST", body: data })
         .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
@@ -50,9 +58,13 @@
             return;
           }
           say(res.d.error || "Something went wrong. Please call " + phone + ".", false);
+          resetCaptcha();
         })
-        .catch(function () { say("Network error. Please call " + phone + ".", false); })
-        .finally(function () { if (button) { button.disabled = false; button.value = "SUBMIT"; } });
+        .catch(function () {
+          say("Network error. Please call " + phone + ".", false);
+          resetCaptcha();
+        })
+        .finally(function () { if (button) { button.disabled = false; button.textContent = label; } });
     });
   });
 })();
