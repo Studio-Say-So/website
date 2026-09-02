@@ -45,10 +45,20 @@ async function verifyTurnstile(token, secret, ip, action, hostnames) {
   } catch {
     return false;
   }
-  if (d.success !== true) return false;
+  if (d.success !== true) {
+    console.warn("turnstile rejected", JSON.stringify(d["error-codes"] || []));
+    return false;
+  }
   // A token minted for one form, or on a dev host, must not spend here.
-  if (action && d.action !== action) return false;
-  return hostnames.includes(d.hostname);
+  if (action && d.action !== action) {
+    console.warn("turnstile action mismatch", JSON.stringify({ got: d.action, want: action }));
+    return false;
+  }
+  if (!hostnames.includes(d.hostname)) {
+    console.warn("turnstile hostname mismatch", JSON.stringify({ got: d.hostname, want: hostnames }));
+    return false;
+  }
+  return true;
 }
 
 function validate(form) {
