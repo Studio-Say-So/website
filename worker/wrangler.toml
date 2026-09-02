@@ -26,3 +26,6 @@ routes = [
 [vars]
 ALLOWED_ORIGIN = "https://studiosayso.com"
 META_PIXEL_ID = "688292446778861"
+# NOTIFY_FROM must sit on the Resend-verified domain; replies go to the enquirer.
+# NOTIFY_TO is a secret, not a var: this repo is public and it is a real inbox.
+NOTIFY_FROM = "Studio Say So <forms@send.studiosayso.com>"
