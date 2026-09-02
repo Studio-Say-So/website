@@ -27,7 +27,8 @@ schema:
 <div class="w-[580px] -z-[100] opacity-50 absolute left-72 -bottom-80 hidden lg:block -translate-x-1/2 -translate-y-1/2">
   {{ ui.blob() }}
 </div>
-<section class="custom-container grid grid-cols-1 lg:grid-cols-2 gap-12 mb-32 ">
+{# mt-32 replaces the empty spacer section that used to clear the fixed header. #}
+<section class="custom-container grid grid-cols-1 lg:grid-cols-2 gap-12 mt-32 mb-32 ">
   <div class="text-white [&_h2]:text-[22px] [&_h2]:font-display [&_h2]:mb-2 [&_p]:max-w-[70ch]">
     <h1 class="banner-section-head">
       Let us bring your vision to life.

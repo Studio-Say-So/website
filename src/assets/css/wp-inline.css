@@ -148,13 +148,13 @@ line-height:44px;
 .page-id-1243 a.get-started-butt:hover {
     color:#fff;
 }
-.page-id-1243 h2.banner-section-head {
+.page-id-1243 .banner-section-head {
      font-family: roc-grotesk-wide, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
     color: #fff;
 font-size:45px;
 line-height:55px;
 }
-.page-id-1243 h2.banner-section-head:after {
+.page-id-1243 .banner-section-head:after {
      content: "";
     display: block;
     width: 150px;
@@ -230,7 +230,7 @@ line-height:54px;
     display:none;
 }
 @media only screen and (min-width:768px) and (max-width:1024px){
-	h2.banner-section-head {
+	.banner-section-head {
     font-size:35px !important;
     line-height:42px !important
 }
@@ -269,7 +269,7 @@ line-height:54px;
 	.page-id-1243 .custom-container.flex.flex-col.items-center.justify-center.my-12.pt-16{
 		padding:30px 20px;
 	}
-	.page-id-1243 h2.banner-section-head{
+	.page-id-1243 .banner-section-head{
     font-size:30px;
     line-height:40px;
 }
