@@ -20,7 +20,7 @@
     <label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
   </div>
   {%- if forms.turnstileKey %}
-  <div class="cf-turnstile" data-sitekey="{{ forms.turnstileKey }}" data-theme="dark"></div>
+  <div class="cf-turnstile" data-sitekey="{{ forms.turnstileKey }}" data-action="{{ formId }}" data-theme="dark"></div>
   {%- endif %}
   <button type="submit" class="px-5 py-4 bg-colorAccent-700 uppercase font-bold text-white flex gap-4 items-center w-fit hover:shadow hover:translate-x-1 transition duration-200 button"{% if not forms.endpoint %} disabled aria-disabled="true"{% endif %}>{{ submitLabel }}</button>
   <p class="form-status" role="status" aria-live="polite">

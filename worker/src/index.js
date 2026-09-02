@@ -25,18 +25,30 @@ const json = (body, status, origin) =>
     },
   });
 
-async function verifyTurnstile(token, secret, ip) {
-  if (!secret) return true; // not configured yet
+// Fails closed: an unset secret rejects rather than waving everything through.
+async function verifyTurnstile(token, secret, ip, action, hostnames) {
+  if (!secret) return false;
+  if (typeof token !== "string" || !token || token.length > 2048) return false;
   const body = new FormData();
   body.append("secret", secret);
-  body.append("response", token || "");
+  body.append("response", token);
   if (ip) body.append("remoteip", ip);
-  const r = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
-    method: "POST",
-    body,
-  });
-  const d = await r.json();
-  return d.success === true;
+  let d;
+  try {
+    const r = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
+      method: "POST",
+      body,
+      signal: AbortSignal.timeout(10000),
+    });
+    if (!r.ok) throw new Error(`siteverify ${r.status}`);
+    d = await r.json();
+  } catch {
+    return false;
+  }
+  if (d.success !== true) return false;
+  // A token minted for one form, or on a dev host, must not spend here.
+  if (action && d.action !== action) return false;
+  return hostnames.includes(d.hostname);
 }
 
 function validate(form) {
@@ -81,10 +93,16 @@ export default {
       return json({ error: "Expected form data" }, 400, origin);
     }
 
+    const hostnames = (env.TURNSTILE_HOSTNAMES || "")
+      .split(",")
+      .map((h) => h.trim())
+      .filter(Boolean);
     const ok = await verifyTurnstile(
       form.get("cf-turnstile-response"),
       env.TURNSTILE_SECRET,
       request.headers.get("cf-connecting-ip"),
+      (form.get("form") || "").toString().trim(),
+      hostnames,
     );
     if (!ok) return json({ error: "Verification failed. Please try again." }, 400, origin);
 

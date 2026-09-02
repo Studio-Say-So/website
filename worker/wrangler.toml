@@ -29,3 +29,6 @@ META_PIXEL_ID = "688292446778861"
 # NOTIFY_FROM must sit on the Resend-verified domain; replies go to the enquirer.
 # NOTIFY_TO is a secret, not a var: this repo is public and it is a real inbox.
 NOTIFY_FROM = "Studio Say So <forms@send.studiosayso.com>"
+# Production only. The widget also allows localhost for dev, but a token minted
+# there must never be spendable against this deployment.
+TURNSTILE_HOSTNAMES = "studiosayso.com"
