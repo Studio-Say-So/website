@@ -3,33 +3,58 @@
 Static [Eleventy](https://www.11ty.dev/) build of studiosayso.com, ported from
 WordPress. Deploys to GitHub Pages via Actions on push to `main`.
 
-**Currently a preview deploy** at `studio-say-so.github.io/website/`, served
-under a subpath and marked `noindex` so it cannot compete with the live
-WordPress site.
+**Live at studiosayso.com** since 2 September 2026. The old WordPress install
+at WP Engine is no longer in the serving path.
 
-### Cutting over to studiosayso.com
+### studiosayso.com cutover — done 2 Sep 2026
 
-1. Drop the `PATH_PREFIX` env block from `.github/workflows/deploy.yml`.
-2. Add `src/CNAME` containing `studiosayso.com`.
-3. Point DNS at GitHub Pages (A/AAAA records, or CNAME to
-   `studio-say-so.github.io`).
-4. Redirect `/wp-content/uploads/*` to `/assets/img/*`. Media moved out of the
-   WordPress tree, and those old URLs are what Facebook, LinkedIn and any
-   third-party embeds hold for the social card images.
-5. Redirect `/wp-content/uploads/2023/02/SSSreel.mp4` to
-   `https://vimeo.com/801605518`. That file is live on WordPress today and is
-   linked from its homepage, but it is a watermarked 20-second cut and is no
-   longer in this repo; Vimeo holds the clean 76-second reel.
-6. Redirect `/blog/` to `/`. It is `index, follow` on WordPress and sits in its
-   `post-sitemap.xml`, so it may be indexed, but it never had a post and has
-   been removed here.
+The domain now serves this build. What was involved, kept for the record and
+for anyone doing a rollback:
 
-GitHub Pages cannot 301, so steps 4-6 need Cloudflare in front — the same thing
-the forms Worker wants.
+1. `PATH_PREFIX` dropped from `.github/workflows/deploy.yml`.
+2. Custom domain set on the repo. **A `src/CNAME` file is not enough** — GitHub
+   ignores it when Pages is published from a workflow. It has to be set on the
+   repo (`gh api -X PUT repos/OWNER/REPO/pages -f cname=studiosayso.com`).
+3. Cloudflare SSL mode moved from **Flexible** to **Full**, automatic mode off.
+   This is the one that bites: Flexible fetches the origin over plain HTTP and
+   GitHub Pages 301s every HTTP request to HTTPS, so the pair is an infinite
+   redirect loop. Do not "upgrade" to Full (strict) either — GitHub cannot issue
+   a certificate for the domain while Cloudflare proxies, because its ACME
+   challenge never reaches it. Visitors are fine; Cloudflare terminates TLS.
+4. Apex and `www` CNAME → `studio-say-so.github.io`, both left **proxied**. The
+   proxy has to stay on or the forms Worker route disappears with it.
 
-The sources are written root-relative for the real domain; `HtmlBasePlugin`
-rewrites them for the subpath preview, so nothing in `src/` changes between the
-two modes.
+Rollback is those two CNAMEs back to `wp.wpenginepowered.com`, plus removing the
+redirects below.
+
+### Redirects still to add in Cloudflare
+
+**`/wp-content/uploads/* → /assets/img/*` does not work** and should not be
+attempted. The old tree is dated (`2023/01/…`) and the extensions changed, so
+that rule produces `/assets/img/2023/01/brain-divided.jpg`, which 404s exactly
+like the URL it replaced. Cloudflare's free plan has wildcards but no regex
+capture to strip the date and rewrite the extension.
+
+Of the 73 old media URLs, only four were ever published as `og:image`, so only
+four are held by anything outside the site. The rest were on-page assets nobody
+links to. Redirect these six and stop:
+
+| From | To |
+|---|---|
+| `/wp-content/uploads/2023/02/adventhealth.png` | `/assets/img/adventhealth.meta.jpg` |
+| `/wp-content/uploads/2023/02/rollins.png` | `/assets/img/rollins.meta.jpg` |
+| `/wp-content/uploads/2023/02/campbellsville-01.png` | `/assets/img/campbellsville-01.meta.jpg` |
+| `/wp-content/uploads/2023/02/shop-disney-01.png` | `/assets/img/shop-disney-01.meta.jpg` |
+| `/wp-content/uploads/2023/02/SSSreel.mp4` | `https://vimeo.com/801605518` |
+| `/blog/` | `/` |
+
+All four image targets were confirmed serving 200. `/blog/` was `index, follow`
+on WordPress and sat in its `post-sitemap.xml`, so it may be indexed despite
+never having had a post.
+
+Sources are root-relative. `HtmlBasePlugin` can still rewrite them for a
+subpath preview by setting `PATH_PREFIX`, so nothing in `src/` has to change to
+stage the site somewhere else.
 
 ```bash
 npm install
@@ -45,24 +70,24 @@ src/
 ├── _includes/
 │   ├── layouts/base.njk           doctype, head, header, footer, theme JS
 │   └── partials/tracking-head.njk analytics snippets
-├── wp-content/                    media and vendored assets (see below)
+├── assets/                       img, video, css, vendored js
 ├── index.njk                      /
 ├── about-us.njk                   /about-us/
 ├── work.njk  work/*.njk           /work/ and four case studies
 ├── industries/*.njk               healthcare, education, finance
 ├── contact-us.njk  lead-form.njk  thankyou-page.njk
-├── privacy-policy.njk
-└── blog.njk
+└── privacy-policy.njk
 ```
 
 Each page carries its own `title`, `description`, `canonical`, `robots`,
 Open Graph tags and JSON-LD in front matter; `base.njk` renders them.
 
-### Why paths still say `wp-content`
+### Where the media went
 
-Media kept its original WordPress URLs on purpose. Social platforms cache OG
-images by URL, and changing them would break every share card and any external
-hotlink. The directory is just a folder of files now — nothing WordPress runs.
+`wp-content/` was collapsed into `src/assets/` and the images converted to WebP,
+with separate `*.meta.jpg` copies for social cards. That changed their URLs, so
+the four old `og:image` URLs need the redirects listed above — those are the only
+ones anything outside the site holds.
 
 ## Porting notes
 
@@ -80,27 +105,34 @@ Five things could not carry over, all WordPress plumbing with no static equivale
    and the Cloudflare challenge iframe** dropped.
 4. **`themes/studio-say-so/dist/js/scripts.js` not reproduced** — it returns 404
    on the live site. The real theme JS is inline and was carried over intact.
-5. **Sitemap** is not yet generated; Rank Math produced the old one.
+5. **Sitemap** is now generated by `src/sitemap.njk` from the pages' own
+   canonicals, replacing Rank Math's.
 
 ## Forms
 
-Both forms post to a Cloudflare Worker (`worker/`), not to the page. Until that
-Worker is deployed the submit button is disabled and the form says so, with the
-studio's phone number — it never accepts an enquiry it cannot deliver.
+Both forms post to the Cloudflare Worker in `worker/`, deployed on the zone
+route `studiosayso.com/api/form`. Same-origin on purpose: no preflight, and
+`ALLOWED_ORIGIN` cannot drift from where the page is served.
 
-To connect it:
+Mail goes out through Resend from `forms@send.studiosayso.com`, a subdomain
+verified for sending. It has to be a subdomain — Resend's setup includes an MX
+record for bounces, and at the apex that would collide with the Google Workspace
+records carrying the company's real mail.
+
+Deploys are run by hand, never by CI, and the account must be named because the
+login can see several:
 
 ```bash
 cd worker
-npx wrangler secret put TURNSTILE_SECRET   # optional but recommended
-npx wrangler secret put RESEND_API_KEY
-npx wrangler deploy                        # Albert runs this, not CI
+CLOUDFLARE_ACCOUNT_ID=14fc121ee1000fbf9186fb88b7ae36cc wrangler deploy
 ```
 
-Then set `FORM_ENDPOINT` in the build environment (or edit
-`src/_data/forms.js`) to the deployed Worker URL. The Worker validates and
-rate-limits nothing yet beyond Turnstile and field checks; add a rate limit
-before it sees real traffic.
+Secrets, all set with `wrangler secret put`, none in this repo: `RESEND_API_KEY`,
+`NOTIFY_TO` (a real inbox, and this repo is public), `TURNSTILE_SECRET`, and
+`META_CAPI_TOKEN` when it exists — without it the server-side Meta Lead is
+skipped and mail still sends.
+
+The Worker still has no rate limit. Add one before it sees real traffic.
 
 ## Known debt
 
