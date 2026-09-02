@@ -1,0 +1,49 @@
+/* Page styles for /thankyou-page/, lifted out of the WordPress inline block. */
+
+.page-id-1392 div#thnkupage-div p{
+    display: flex;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-id-1392{
+    overflow:hidden !important;
+}
+
+.page-id-1392 h2.slider-head {
+    font-family: roc-grotesk-wide, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    color: #fff;
+    font-size: 28px;
+    line-height: 35px;
+}
+
+.thanku-cont-info {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    column-gap: 40px;
+}
+
+.page-id-1392 h3.thankyou {
+      
+    font-family: roc-grotesk-wide, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    color: #fff;
+    font-size: 20px;
+    line-height: 35px;
+}
+
+@media only screen and (max-width:767px){
+  .thanku-cont-info {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   column-gap: 40px;
+   flex-direction: column;
+}
+}
+
+.aligncenter {
+  clear: both;
+}

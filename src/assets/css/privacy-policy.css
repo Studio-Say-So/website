@@ -1,0 +1,31 @@
+/* Page styles for /privacy-policy/, lifted out of the WordPress inline block.
+   Scoped to #ppolicyi, which wraps the policy body. */
+
+div#ppolicyi .text-colorText-body {max-width:90% !Important; color:#fff;margin:0 auto;}
+
+div#ppolicyi  .text-colorText-body h2 {
+    font-size: 30px;
+    font-weight: bold;
+    color:#fff;
+}
+
+div#ppolicyi br{display:none;}
+
+div#ppolicyi ul li {list-style-type: disc;line-height:1.2;}
+
+div#ppolicyi p strong {
+    font-size: 22px !important;
+    font-weight: bold;
+}
+
+ul.ulvl2>li {
+    margin-left: 40px;
+}
+
+.paddress {
+    font-weight: 700;
+}
+
+.paddress>br {
+    display: none;
+}
