@@ -11,7 +11,7 @@ layout: "layouts/base.njk"
   <h2 class="max-w-[21ch] mb-10">
     {{ caseStudy.heroSubtitle or "Case Study" }}
   </h2>
-  <a href="{{ caseStudy.video }}" class=" block opacity-100 transition duration-500 w-[56px] h-[56px]" rel="lightbox">{{ ui.scrollCue() }}</a><a href="#case-study" class="absolute bottom-12 right-1/2 block opacity-100 transition translate-x-1/2 animate-bounce duration-700">{{ ui.arrowDown() }} </a>
+  <a href="{{ caseStudy.video }}" class=" block opacity-100 transition duration-500 w-[56px] h-[56px]" rel="lightbox" aria-label="Play the {{ caseStudy.client }} film" data-video-title="{{ caseStudy.client }}">{{ ui.scrollCue() }}</a><a href="#case-study" class="absolute bottom-12 right-1/2 block opacity-100 transition translate-x-1/2 animate-bounce duration-700">{{ ui.arrowDown() }} </a>
 </section>
 <section id="case-study" class="flex flex-col items-center justify-center pt-16 relative my-16">
   <div class="custom-container flex flex-col items-center justify-center ">

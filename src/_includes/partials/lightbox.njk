@@ -31,9 +31,14 @@
       e.preventDefault();
       var iframe = document.createElement("iframe");
       iframe.src = src + (src.indexOf("?") > -1 ? "&" : "?") + "autoplay=1";
+      // data-video-title wins: link text reports the control ("Watch the film"),
+      // not the film, and video tracking reads this back as video_title.
       var heading = a.querySelector("h2, h3");
       iframe.title =
-        ((heading || a).textContent || "").trim() || a.getAttribute("aria-label") || "Video";
+        a.getAttribute("data-video-title") ||
+        ((heading || a).textContent || "").trim() ||
+        a.getAttribute("aria-label") ||
+        "Video";
       iframe.allow = "autoplay; fullscreen; picture-in-picture";
       iframe.allowFullscreen = true;
       frame.appendChild(iframe);

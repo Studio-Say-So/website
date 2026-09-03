@@ -77,25 +77,29 @@
     var d;
     try { d = typeof e.data === "string" ? JSON.parse(e.data) : e.data; } catch (err) { return; }
 
+    // The iframe API speaks the legacy event names: playProgress, not
+    // timeupdate, and finish, not ended. Only "play" is spelled the same.
     if (d.event === "ready") {
       seen = {};
-      ["play", "timeupdate", "ended"].forEach(function (n) { post(frame, "addEventListener", n); });
+      ["play", "playProgress", "finish"].forEach(function (n) { post(frame, "addEventListener", n); });
       return;
     }
     var data = d.data || {};
+    if (data.duration) seen.duration = data.duration;
     if (d.event === "play" && !seen.start) {
       seen.start = true;
-      push(frame, "video_start", 0, data.duration);
-    } else if (d.event === "timeupdate") {
+      push(frame, "video_start", 0, seen.duration);
+    } else if (d.event === "playProgress") {
       [25, 50, 75].forEach(function (mark) {
         if (data.percent * 100 >= mark && !seen[mark]) {
           seen[mark] = true;
-          push(frame, "video_progress", mark, data.duration);
+          push(frame, "video_progress", mark, seen.duration);
         }
       });
-    } else if (d.event === "ended" && !seen.done) {
+    } else if (d.event === "finish" && !seen.done) {
+      // "finish" carries no payload, so the duration comes from playProgress.
       seen.done = true;
-      push(frame, "video_complete", 100, data.duration);
+      push(frame, "video_complete", 100, seen.duration);
     }
   });
 })();

@@ -14,7 +14,7 @@ extraStyles: |
     <h2 class="max-w-[28ch] mb-10 text-center">
       {{ film.client if (film.client and film.client != title) else "Film" }}
     </h2>
-    <a href="{{ film.video }}" class="block opacity-100 transition duration-500 w-[56px] h-[56px]" rel="lightbox" aria-label="Play {{ title }}">{{ ui.scrollCue() }}</a>
+    <a href="{{ film.video }}" class="block opacity-100 transition duration-500 w-[56px] h-[56px]" rel="lightbox" aria-label="Play {{ title }}" data-video-title="{{ title }}">{{ ui.scrollCue() }}</a>
   </div>
   <a href="#film" class="absolute bottom-12 right-1/2 z-20 block opacity-100 transition translate-x-1/2 animate-bounce duration-700">{{ ui.arrowDown() }} </a>
   <div class="absolute w-full h-full z-0 bg-siteBackground bg-blend-multiply bg-opacity-75 top-0 right-0">
@@ -53,7 +53,7 @@ extraStyles: |
       {%- endif %}
     </dl>
     <div class="link-group mt-12">
-      <a class="px-5 py-4 group uppercase font-bold flex gap-4 items-center w-fit hover:shadow hover:translate-x-1 transition duration-200" href="{{ film.video }}" rel="lightbox"><span class="text-white group-hover:text-colorAccent-400">Watch the film</span>{{ ui.arrow() }}</a>
+      <a class="px-5 py-4 group uppercase font-bold flex gap-4 items-center w-fit hover:shadow hover:translate-x-1 transition duration-200" href="{{ film.video }}" rel="lightbox" data-video-title="{{ title }}"><span class="text-white group-hover:text-colorAccent-400">Watch the film</span>{{ ui.arrow() }}</a>
     </div>
   </div>
   <div class="w-[206px] lg:w-[400px] -z-10 opacity-50 absolute right-0 hidden lg:block translate-x-1/2 -translate-y-1/2 top-[60%]">
