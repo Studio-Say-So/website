@@ -5,13 +5,18 @@ layout: "layouts/base.njk"
 <section
         class="w-screen h-screen flex flex-col items-center justify-center text-white relative"
         style="background-image: url({{ film.heroImage }}); background-position: center; background-size: cover;">
-  <h1 class="text-5xl lg:text-6xl font-bold font-display leading-[.95] max-w-[21ch] mb-3 text-center">
-    {{ title }}
-  </h1>
-  <h2 class="max-w-[28ch] mb-10 text-center">
-    {{ film.client or "Film" }}
-  </h2>
-  <a href="{{ film.video }}" class="block opacity-100 transition duration-500 w-[56px] h-[56px]" rel="lightbox" aria-label="Play {{ title }}">{{ ui.scrollCue() }}</a><a href="#film" class="absolute bottom-12 right-1/2 block opacity-100 transition translate-x-1/2 animate-bounce duration-700">{{ ui.arrowDown() }} </a>
+  <div class="relative z-20 flex flex-col items-center">
+    <h1 class="text-5xl lg:text-6xl font-bold font-display leading-[.95] max-w-[21ch] mb-3 text-center">
+      {{ title }}
+    </h1>
+    <h2 class="max-w-[28ch] mb-10 text-center">
+      {{ film.client or "Film" }}
+    </h2>
+    <a href="{{ film.video }}" class="block opacity-100 transition duration-500 w-[56px] h-[56px]" rel="lightbox" aria-label="Play {{ title }}">{{ ui.scrollCue() }}</a>
+  </div>
+  <a href="#film" class="absolute bottom-12 right-1/2 z-20 block opacity-100 transition translate-x-1/2 animate-bounce duration-700">{{ ui.arrowDown() }} </a>
+  <div class="absolute w-full h-full z-0 bg-siteBackground bg-blend-multiply bg-opacity-75 top-0 right-0">
+  </div>
 </section>
 <section id="film" class="flex flex-col items-center justify-center pt-16 relative my-16">
   <div class="custom-container flex flex-col items-center justify-center">
