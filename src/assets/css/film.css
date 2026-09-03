@@ -1,0 +1,59 @@
+/* Film pages. style.css is a frozen Tailwind bundle, so anything it does not
+   already ship (gap-x-*, text-sm, arbitrary variants) has to live here. */
+
+/* The header is fixed; keep the #film anchor clear of it. */
+.film-body {
+  scroll-margin-top: 8rem;
+}
+
+/* Flex, not grid: the dl is shrink-wrapped by its flex-column parent, so
+   auto-fit columns have no width to resolve against and collapse to one. */
+.film-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1.5rem 3rem;
+  margin: 3rem 0 0;
+  text-align: center;
+}
+
+.film-meta > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.film-meta dt {
+  color: #fff;
+  font-family: roc-grotesk-wide, system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.film-meta dd {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.film-meta a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s;
+}
+
+.film-meta a:hover,
+.film-meta a:focus-visible {
+  color: #9995fa;
+}
+
+@media (max-width: 480px) {
+  .film-meta {
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+}

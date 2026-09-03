@@ -1,5 +1,7 @@
 ---
 layout: "layouts/base.njk"
+extraStyles: |
+  <link rel="stylesheet" href="/assets/css/film.css">
 ---
 {% import "macros/ui.njk" as ui %}
 <section
@@ -18,13 +20,13 @@ layout: "layouts/base.njk"
   <div class="absolute w-full h-full z-0 bg-siteBackground bg-blend-multiply bg-opacity-75 top-0 right-0">
   </div>
 </section>
-<section id="film" class="flex flex-col items-center justify-center pt-16 relative my-16">
+<section id="film" class="film-body flex flex-col items-center justify-center pt-16 relative my-16">
   <div class="custom-container flex flex-col items-center justify-center">
-    <h2 class="heading-underline text-white font-display text-5xl max-w-[24ch] mb-6 text-center">
+    <h2 class="heading-underline text-white font-display text-5xl max-w-[26ch] mb-6 text-center">
       {{ title }}
     </h2>
     <div class="text-colorText-body max-w-[80ch] text-center">{{ film.summary }}</div>
-    <dl class="text-colorText-body mt-12 flex flex-wrap justify-center gap-x-12 gap-y-4 [&_dt]:text-white [&_dt]:font-display [&_dt]:uppercase [&_dt]:text-sm">
+    <dl class="text-colorText-body film-meta">
       {%- if film.client %}
       <div>
         <dt>Client</dt>
