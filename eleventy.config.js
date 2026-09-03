@@ -3,6 +3,7 @@ import jsonldComputed from "./lib/jsonld.js";
 import titleComputed from "./lib/title.js";
 import faq from "./lib/faq.js";
 import site from "./lib/site.js";
+import tenure from "./lib/tenure.js";
 
 // "/" for the custom domain; "/website/" for the github.io preview deploy.
 const pathPrefix = process.env.PATH_PREFIX || "/";
@@ -16,6 +17,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addGlobalData("eleventyComputed", { ...titleComputed, ...jsonldComputed });
   eleventyConfig.addGlobalData("faq", faq);
   eleventyConfig.addGlobalData("site", site);
+  eleventyConfig.addGlobalData("tenure", tenure);
 
   const MIME = { jpg: "image/jpeg", jpeg: "image/jpeg", png: "image/png", webp: "image/webp" };
   eleventyConfig.addFilter("mimeType", (url) => MIME[String(url).split(".").pop().toLowerCase()]);
