@@ -24,7 +24,7 @@
   {%- endif %}
   <button type="submit" class="px-5 py-4 bg-colorAccent-700 uppercase font-bold text-white flex gap-4 items-center w-fit hover:shadow hover:translate-x-1 transition duration-200 button"{% if not forms.endpoint %} disabled aria-disabled="true"{% endif %}>{{ submitLabel }}</button>
   <p class="form-status" role="status" aria-live="polite">
-    {%- if not forms.endpoint %}This form isn't connected yet — please call <a href="tel:{{ forms.phone }}">{{ forms.phone }}</a>.{% endif -%}
+    {%- if not forms.endpoint %}This form isn't connected yet. Please call <a href="tel:{{ forms.phone }}">{{ forms.phone }}</a>.{% endif -%}
   </p>
 </form>
 {% endmacro %}
