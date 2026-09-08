@@ -33,6 +33,8 @@
   height: 60%;
   fill: #fff;
 }
+/* core css ships without the theme, so the prev arrow never gets its flip */
+.main-carousel .splide__arrow--prev svg { transform: scaleX(-1); }
 
 .main-carousel .splide__pagination {
   position: absolute;
