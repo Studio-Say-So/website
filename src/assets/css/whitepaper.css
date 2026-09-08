@@ -1,0 +1,67 @@
+/* Page styles for /save-money-on-video-production/.
+   Scoped to #whitepaper, the way privacy-policy.css is scoped to #ppolicyi. */
+
+div#whitepaper .text-colorText-body {
+  max-width: 68ch;
+  color: #fff;
+}
+
+div#whitepaper p {
+  margin-bottom: 1.25rem;
+  line-height: 1.6;
+}
+
+div#whitepaper h2 {
+  font-size: 30px;
+  font-weight: bold;
+  color: #fff;
+  margin: 3rem 0 1rem;
+  line-height: 1.2;
+}
+
+div#whitepaper .whitepaper-num {
+  color: #9a96fc;
+  font-family: inherit;
+  margin-right: 0.35rem;
+}
+
+div#whitepaper .whitepaper-questions {
+  list-style: lower-alpha;
+  margin: 0 0 1.25rem 1.5rem;
+}
+
+div#whitepaper .whitepaper-questions li {
+  margin-bottom: 0.6rem;
+  line-height: 1.5;
+}
+
+div#whitepaper .whitepaper-download {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  margin: 2.5rem 0;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+div#whitepaper .whitepaper-download img {
+  width: 120px;
+  height: auto;
+  flex-shrink: 0;
+}
+
+div#whitepaper .whitepaper-download p {
+  margin-bottom: 0.75rem;
+}
+
+div#whitepaper .whitepaper-cta {
+  margin-top: 2.5rem;
+}
+
+@media (max-width: 640px) {
+  div#whitepaper .whitepaper-download {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
