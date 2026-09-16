@@ -55,5 +55,6 @@ the browser.
 
 ## Status
 
-- Code: not committed yet.
-- Deployed: no. Pushing is Albert's call.
+- Code: committed 2026-09-16 on `main` as `0408aed`. Build passes; Dasah's Day
+  checked in the browser.
+- Deployed: no, not pushed as of 2026-09-16. Pushing is Albert's call.
